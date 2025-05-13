@@ -7,7 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"/>
         <script ref="notifications.js"></script>
-    </head>
     <body>
         <h1 style="text-align: center;">Notifications</h1>
     </a>
@@ -15,14 +14,31 @@
                                 <p id="current-time"></p>
                             </div>
                             <script>
-                                script="notification.js"
-                                const { app,BrowserWindow } = require('electron');
-                            </script>
-                            <script>
+                                function addNotification(message) {
+                                    let n=document.getElementById('notification');
+                                    let list=document.createElement('ul');
+                                    const newNotification = document.createElement('li');
+                                    newNotification.textContent = message;
+                            
+                                    const deleteButton = document.createElement('button');
+                                    deleteButton.textContent = 'Supprimer';
+                                    deleteButton.onclick = () => list.removeChild(newNotification);
+                            
+                                    newNotification.appendChild(deleteButton);
+                                    list.appendChild(newNotification);
+                            
+                                    n.appendChild(list);
+                                }
+
                                 function updateTime() {
                                     now = new Date();
                                     const timeString = now.toLocaleTimeString();
                                     document.getElementById('current-time').textContent = timeString;
+                                    
+                                    //test
+                                    if (now.getSeconds() % 1 === 0) { // every 1seconds
+                                        addNotification('Notification test');
+                                    }
                                 }
                                 setInterval(updateTime, 1000);
                                 updateTime();
@@ -37,27 +53,29 @@
                                         const notification = new Notification('Rappel', {
                                             body: 'Il est temps de prendre votre médicament !'
                                         });
-
                                     }
                                 }
+                                
                                 setInterval(rappel, 1000 ); 
                                 rappel();
+
+                                
                             </script>
-                             <div class="notification_finish">
-                                <ul id="notification-list">
-                                        <li>Notification 1</li>
-                                        <li>Notification 2</li>
-                                        <li>Notification 3</li>
-                                </ul>
-                            </div>
-                            <div class="notification_pending">
-                                <ul id="notification-list">
-                                        <li>Notification 1</li>
-                                        <li>Notification 2</li>
-                                        <li>Notification 3</li>
-                                </ul>
+                            <script>
+                                function clearNotifications() {
+                                    n=document.getElementById('notification');
+                                    n.innerHTML = ''; 
+                                }
+                                const clearButton = document.createElement('button');
+                                clearButton.textContent = 'Effacer les notifications';
+                                clearButton.onclick = () => clearNotifications('notification');
+                                document.body.appendChild(clearButton);
+                            </script>
+                             <div class="notification">
+                                <p id="notification"></p>
                             </div>
                         </a>
         <button onclick="window.location='../menu/menu.html';">Retour</button>
+    <script src="notifications.js"></script>
     </body>
 </html>

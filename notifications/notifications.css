@@ -4,22 +4,12 @@
     align-items: top;
 }
 
-.notification_finish {
+.notification {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
-    height: 60%;
-    border: 2px green solid;
-}
-
-.notification_pending {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-    height: 60%;
-    border: 2px red solid;
+    width: 30%;
+    height: 20%;
+    border: 2px rgb(0, 23, 128) solid;
 }
