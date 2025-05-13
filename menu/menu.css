@@ -22,7 +22,7 @@ main {
 
     align-items: center;
 }
-.chat_bot {
+#chat_bot {
     border: 2px red solid;
     width: 200px;
     height: 80%;
