@@ -41,7 +41,9 @@ main {
     border: 2px red solid;
     min-width: 250px;
     width: 30%;
-    height: 80%;
+   
+    min-height: 400px;
+    height: 90%;
     margin-inline: 3%;
 }
 .other {
@@ -62,20 +64,38 @@ main {
     width: 45%;
     max-width: 400px;
     height: 70%;
+    min-height: 200px;
 
     margin-inline: 5px;
     border: 2px green solid;
 }
 .item_box {
     display: flex;
-    justify-content: center;
-    align-items: end;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
 }
-.label {
-    height: fit-content;
+.label p {
+    margin: 10px;
 }
 
 a {
     color: black;
     text-decoration: none;
+}
+.bg-color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #ffeeee;
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+}
+.other-row > .item_box .bg-color img {
+    aspect-ratio: 1/1;
+    height: 7rem;
+    max-height: 80%;
+    overflow: hidden;
 }
