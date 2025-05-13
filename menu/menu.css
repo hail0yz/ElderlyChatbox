@@ -41,7 +41,7 @@ main {
     justify-content: space-evenly;
     align-items: center;
 }
-.other-row > div {
+.other-row > a {
     width: 45%;
     height: 70%;
     border: 2px green solid;
@@ -53,4 +53,9 @@ main {
 }
 .label {
     height: fit-content;
+}
+
+a {
+    color: black;
+    text-decoration: none;
 }

@@ -10,55 +10,33 @@
 <body>
     <main>
         <div class="top">
-            <button class="close_app">❌Fermer</button>
+            <button class="close_app" onclick="window.close()">❌Fermer</button>
         </div>
         <div id="items">
             
-            <div id="chat_bot" class="item_box">
+            <a href="../assistant/assistant.html" id="chat_bot" class="item_box">
                 <div class="bg-color"><div class="bg-img"></div></div>
                 <div class="label"> <p>Assistant</p></div>
-            </div>
+            </a>
+            
             
             <div class="other">
                 
                 <div class="other-row">
-                    <div id="notif" class="item_box">
+                    <a id="notif" class="item_box" href="../notifications/notifications.html">
                         <div class="label"> <p>Notifications</p></div>
-                            <div class="time-display"></div>
-                                <p id="current-time"></p>
-                            </div>
-                            <script>
-                                script="notification.js"
-                                const { app,BrowserWindow } = require('electron');
-                            </script>
-                            <script>
-                                function updateTime() {
-                                    //now = new Date();
-                                    //const timeString = now.toLocaleTimeString();
-                                    //document.getElementById('current-time').textContent = timeString;
-                                    let now = new Date();
-                                    now.setHours(12, 0, 0);
-                                    const timeString = now.toLocaleTimeString();
-                                    document.getElementById('current-time').textContent = timeString;
-                                    if (now.getHours() === 12 && now.getMinutes() === 0 && now.getSeconds() === 0) {
-                                        alert("Il est midi !");
-                                    }
-                                }
-                                setInterval(updateTime, 1);
-                                updateTime();
-                            </script>
-                        </div>
-                    <div id="param" class="item_box">
+                    </a>
+                    <a id="param" class="item_box" href="../parametres/parametres.html">
                         <div class="label"> <p>Parametes</p></div>
-                    </div>
+                    </a>
                 </div>
                 <div class="other-row">
-                    <div id="urgence" class="item_box">
+                    <a id="urgence" class="item_box" href="../numUrgences/numUrgences.html">
                         <div class="label"> <p>Numero d'urgence</p></div>
-                    </div>
-                    <div id="custom_info" class="item_box">
+                    </a>
+                    <a id="custom_info" class="item_box" href="../conseilsPerso/conseilsPerso.html">
                         <div class="label"> <p>Conseils perso</p></div>
-                    </div>
+                    </a>
                 </div>
             </div>
             
