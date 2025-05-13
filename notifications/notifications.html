@@ -3,10 +3,9 @@
     <head>
         <meta charset="utf-8">
         <title>Assistant personnel | Groupe A </title>
-        <link rel="stylesheet" href="notifications.css">
+        <link rel="stylesheet" href="./notifications.css">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"/>
-        <script ref="notifications.js"></script>
     <body>
         <h1 style="text-align: center;">Notifications</h1>
     </a>
@@ -36,9 +35,23 @@
                                     document.getElementById('current-time').textContent = timeString;
                                     
                                     //test
-                                    if (now.getSeconds() % 1 === 0) { // every 1seconds
+                                    if (now.getSeconds() % 1 === 0) { 
                                         addNotification('Notification test');
                                     }
+
+                                    //tout les 1heure
+
+                                    if( now.getMinutes() === 0 && now.getSeconds() === 0) { 
+                                        addNotification("N'oublie pas de manger et de boire de l'eau ,");
+                                    }
+
+                                    //entre 11h-13h 18 h-20h tous les 5 minutes
+                                    if ((now.getHours() >= 11 && now.getHours() < 13) || (now.getHours() >= 18 && now.getHours() < 20)) {
+                                        if (now.getMinutes() % 5 === 0 && now.getSeconds() === 0) { 
+                                            addNotification("N'oublie pas d'éteindre la caserolle");
+                                        }
+                                    }
+
                                 }
                                 setInterval(updateTime, 1000);
                                 updateTime();
@@ -76,6 +89,5 @@
                             </div>
                         </a>
         <button onclick="window.location='../menu/menu.html';">Retour</button>
-    <script src="notifications.js"></script>
     </body>
 </html>
