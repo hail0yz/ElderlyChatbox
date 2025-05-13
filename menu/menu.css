@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+main {
+    display: flex;
+    
+    height: 100vh;
+    width: 100vw;
+    
+    flex-direction: column;
+    text-align: center;
+    border: 1px orange solid;
+}
+.top {
+    height: max(10%, 30px);
+}
+#items {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+
+    align-items: center;
+}
+.chat_bot {
+    border: 2px red solid;
+    width: 200px;
+    height: 80%;
+    margin-inline: 3%;
+}
+.other {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    flex: 1;
+    justify-content: space-evenly;
+}
+.other-row {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.other-row > div {
+    width: 45%;
+    height: 70%;
+    border: 2px green solid;
+}
+.item_box {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.label {
+    height: fit-content;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <title>Hello from Electron renderer!</title>
+    <link rel="stylesheet" href="./menu.css" />
+    <script src="./menu.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="top">
+            <button class="close_app">❌Fermer</button>
+        </div>
+        <div id="items">
+            
+            <div id="chat_bot item_box">
+                <div class="bg-color"><div class="bg-img"></div></div>
+                <div class="label"> <p>Assistant</p></div>
+            </div>
+            
+            <div class="other">
+                
+                <div class="other-row">
+                    <div id="notif item_box">
+                        <div class="label"> <p>Notifications</p></div>
+                    </div>
+                    <div id="param item_box">
+                        <div class="label"> <p>Parametes</p></div>
+                    </div>
+                </div>
+                <div id="other-row">
+                    <div class="urgence item_box">
+                        <div class="label"> <p>Numero d'urgence</p></div>
+                    </div>
+                    <div id="custom_info item_box">
+                        <div class="label"> <p>Conseils perso</p></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+</body>
+</html>
