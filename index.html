@@ -6,23 +6,34 @@
         <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"/>
+        <script src="script.js" defer></script>
     </head>
     <body>
+        <button class="chatbot-toggler">
+            <span style='font-size:25px;'>&#10060;</span>
+        </button>
         <div class="chatbot">
             <header>
-                <h2>Assistant</h2>
+                <h2>Assistant</h2> 
             </header>
             <ul class="chatbox">
                 <li class="chat incoming">
                     <p>Bonjour,<br> comment puis-je vous aider aujourd'hui?</p>
                 </li>
                 <li class="chat outgoing">
-                    <p>Insert text</p>
                 </li>
             </ul>
-            <div class="chat-input">
-                <textarea placeholder="Ecrire un message..."></textarea>
-                <span>send</span>
+            <div class ="chat-input">
+               <textarea id="msg" placeholder="Si aucune option ne correspond à vos besoins, écrivez ici" required></textarea>
+               <span id="send-btn" >&#9755</span>
+            </div>
+            <div class="bottom">
+                <div class="btn-grp">
+                    <button id="option1" onclick="reponse1();"></button>
+                    <button id="option2" onclick="reponse2();">Option 2</button>
+                     <button id="option3" onclick="reponse3();">Option 3</button>
+                </div>
+
             </div>
         </div>
         </body>
