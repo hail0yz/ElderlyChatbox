@@ -1,0 +1,10 @@
+{
+    "css_settings": {
+        "usual_settings": {
+            "font-size": "20px"
+        },
+        "vars": {
+            "red": "#ff0000"
+        }
+    }
+}
