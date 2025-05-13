@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^36.2.0"
+  },
+  "dependencies": {
+    "electron-windows-notifications": "^3.0.8"
   }
 }
