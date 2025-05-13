@@ -1,6 +1,8 @@
-const { app, BrowserWindow, ipcMain } = require('electron/main')
+const { app, BrowserWindow, ipcMain, Menu } = require('electron/main')
 const path = require("node:path");
 const { update_css_settings } = require("./settings/updateRootCSS")
+
+Menu.setApplicationMenu(false)
 
 const createWindow = () => {
   const win = new BrowserWindow({
