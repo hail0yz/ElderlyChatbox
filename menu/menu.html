@@ -10,32 +10,33 @@
 <body>
     <main>
         <div class="top">
-            <button class="close_app">❌Fermer</button>
+            <button class="close_app" onclick="window.close()">❌Fermer</button>
         </div>
         <div id="items">
             
-            <div id="chat_bot" class="item_box">
+            <a href="../assistant/assistant.html" id="chat_bot" class="item_box">
                 <div class="bg-color"><div class="bg-img"></div></div>
                 <div class="label"> <p>Assistant</p></div>
-            </div>
+            </a>
+            
             
             <div class="other">
                 
                 <div class="other-row">
-                    <div id="notif" class="item_box">
+                    <a id="notif" class="item_box" href="../notifications/notifications.html">
                         <div class="label"> <p>Notifications</p></div>
-                    </div>
-                    <div id="param" class="item_box">
+                    </a>
+                    <a id="param" class="item_box" href="../parametres/parametres.html">
                         <div class="label"> <p>Parametes</p></div>
-                    </div>
+                    </a>
                 </div>
                 <div class="other-row">
-                    <div id="urgence" class="item_box">
+                    <a id="urgence" class="item_box" href="../numUrgences/numUrgences.html">
                         <div class="label"> <p>Numero d'urgence</p></div>
-                    </div>
-                    <div id="custom_info" class="item_box">
+                    </a>
+                    <a id="custom_info" class="item_box" href="../conseilsPerso/conseilsPerso.html">
                         <div class="label"> <p>Conseils perso</p></div>
-                    </div>
+                    </a>
                 </div>
             </div>
             
