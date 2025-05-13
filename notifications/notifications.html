@@ -9,7 +9,55 @@
         <script ref="notifications.js"></script>
     </head>
     <body>
-        <h1>Notifications</h1>
+        <h1 style="text-align: center;">Notifications</h1>
+    </a>
+                            <div class="timebox"></div>
+                                <p id="current-time"></p>
+                            </div>
+                            <script>
+                                script="notification.js"
+                                const { app,BrowserWindow } = require('electron');
+                            </script>
+                            <script>
+                                function updateTime() {
+                                    now = new Date();
+                                    const timeString = now.toLocaleTimeString();
+                                    document.getElementById('current-time').textContent = timeString;
+                                }
+                                setInterval(updateTime, 1000);
+                                updateTime();
+
+                                function rappel() {
+                                    const now = new Date();
+                                    const currentTime = now.getHours() * 60 + now.getMinutes();
+                                    const notificationTime = 12 * 60; // 12:00 PM in minutes
+                                    
+                                    //idée de notif à faire selon l'heure midi exemple rappel midicament
+                                    if (currentTime === notificationTime) {
+                                        const notification = new Notification('Rappel', {
+                                            body: 'Il est temps de prendre votre médicament !'
+                                        });
+
+                                    }
+                                }
+                                setInterval(rappel, 1000 ); 
+                                rappel();
+                            </script>
+                             <div class="notification_finish">
+                                <ul id="notification-list">
+                                        <li>Notification 1</li>
+                                        <li>Notification 2</li>
+                                        <li>Notification 3</li>
+                                </ul>
+                            </div>
+                            <div class="notification_pending">
+                                <ul id="notification-list">
+                                        <li>Notification 1</li>
+                                        <li>Notification 2</li>
+                                        <li>Notification 3</li>
+                                </ul>
+                            </div>
+                        </a>
         <button onclick="window.location='../menu/menu.html';">Retour</button>
     </body>
 </html>

@@ -1,0 +1,25 @@
+.timebox{
+    display: flex;
+    justify-content: top;
+    align-items: top;
+}
+
+.notification_finish {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 60%;
+    border: 2px green solid;
+}
+
+.notification_pending {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 60%;
+    border: 2px red solid;
+}
