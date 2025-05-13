@@ -24,7 +24,30 @@
                 <div class="other-row">
                     <div id="notif" class="item_box">
                         <div class="label"> <p>Notifications</p></div>
-                    </div>
+                            <div class="time-display"></div>
+                                <p id="current-time"></p>
+                            </div>
+                            <script>
+                                script="notification.js"
+                                const { app,BrowserWindow } = require('electron');
+                            </script>
+                            <script>
+                                function updateTime() {
+                                    //now = new Date();
+                                    //const timeString = now.toLocaleTimeString();
+                                    //document.getElementById('current-time').textContent = timeString;
+                                    let now = new Date();
+                                    now.setHours(12, 0, 0);
+                                    const timeString = now.toLocaleTimeString();
+                                    document.getElementById('current-time').textContent = timeString;
+                                    if (now.getHours() === 12 && now.getMinutes() === 0 && now.getSeconds() === 0) {
+                                        alert("Il est midi !");
+                                    }
+                                }
+                                setInterval(updateTime, 1);
+                                updateTime();
+                            </script>
+                        </div>
                     <div id="param" class="item_box">
                         <div class="label"> <p>Parametes</p></div>
                     </div>
