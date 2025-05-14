@@ -11,11 +11,69 @@
     <body onload="loadParametres()">
         <h1>Paramètres</h1>
         <button onclick="window.location='../menu/menu.html';">Retour</button>
+        <div id="exemple">
+            <p>Exemple de texte.</p>
+        </div>
         <div>
-            <h3>Taille de la police</h3>
+            <h3>Taille de la police d'écriture</h3>
             <button onclick="fontZoom()">+</button>
             <button onclick="fontDezoom()">-</button>
-            <p id="exemple">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h3>Couleur de la police d'écriture</h3>
+            <label>Choisir une couleur : </label>
+            <select id="fontColors">
+                <option value="black">Noir</option>
+                <option value="blue">Bleu</option>
+                <option value="red">Rouge</option>
+                <option value="green">Vert</option>
+                <option value="purple">Violet</option>
+                <option value="orange">Orange</option>
+                <option value="pink">Rose</option>
+                <option value="brown">Marron</option>
+                <option value="gray">Gris</option>
+                <option value="yellow">Jaune</option>
+                <option value="cyan">Cyan</option>
+                <option value="magenta">Magenta</option>
+                <option value="lightgray">Gris clair</option>
+                <option value="lightgreen">Vert clair</option>
+                <option value="lightblue">Bleu clair</option>
+                <option value="lightyellow">Jaune clair</option>
+            </select>
+            <button onclick="setFontColor()">Sélectionner</button>
+            <h3>Couleur de fond</h3>
+            <label>Choisir une couleur : </label>
+            <select id="backgroundColors">
+                <option value="white">Blanc</option>
+                <option value="lightblue">Bleu clair</option>
+                <option value="lightgreen">Vert clair</option>
+                <option value="lightyellow">Jaune clair</option>
+                <option value="lightpink">Rose clair</option>
+                <option value="lightgray">Gris clair</option>
+                <option value="lightcoral">Corail clair</option>
+            </select>
+            <button onclick="setBackgroundColor()">Sélectionner</button>
+            <h3>Couleur de la bordure</h3>
+            <label>Choisir une couleur : </label>
+            <select id="borderColors">
+                <option value="black">Noir</option>
+                <option value="blue">Bleu</option>
+                <option value="red">Rouge</option>
+                <option value="green">Vert</option>
+                <option value="purple">Violet</option>
+                <option value="orange">Orange</option>
+            </select>
+            <button onclick="setBorderColor()">Sélectionner</button>
+
+            <h3>Type de police</h3>
+            <label>Choisir une police : </label>
+            <select id="fontTypes">
+                <option value="Arial" style="font-family: Arial;">Arial</option>
+                <option value="Courier New" style="font-family: 'Courier New';">Courier New</option>
+                <option value="Georgia" style="font-family: Georgia;">Georgia</option>
+                <option value="Times New Roman" style="font-family: 'Times New Roman';">Times New Roman</option>
+                <option value="Verdana" style="font-family: Verdana;">Verdana</option>
+                <option value="Tahoma" style="font-family: Tahoma;">Tahoma</option>
+            </select>
+            <button onclick="setFontType()">Sélectionner</button>
         </div>
         <button onclick="storeParametres(); loadParametres()">Enregistrer les modifications</button>
     </body>
