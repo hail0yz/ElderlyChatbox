@@ -13,6 +13,11 @@
                                 <p id="timebox"></p>
                             </div>
                             <script>
+                                document.getElementById('timebox').innerHTML = new Date().toLocaleTimeString();
+                                document.getElementById('timebox').className = 'timebox';
+                            </script>
+                            </div>
+                            <script>
 
                                 function addNotification(message) {
                                     let n=document.getElementById('notification');
@@ -33,10 +38,8 @@
                                 }
 
                                 function updateTime() {
-                                    now = new Date();
-                                    const timeString = now.toLocaleTimeString();
-                                    const timeblock= document.getElementById('timebox').textContent = timeString;
-                                    timeblock.className = 'timebox';
+                                    document.getElementById('timebox').innerHTML = new Date().toLocaleTimeString();
+                                    const now = new Date();
                                     
                                     //test
                                     if (now.getSeconds() % 1 === 0) { 
@@ -61,24 +64,10 @@
                                         notification.show()
                                         
                                     }
-
-                                    //tout les 1heure
-
-                                    if( now.getMinutes() === 0 && now.getSeconds() === 0) { 
-                                        addNotification("N'oublie pas de manger et de boire de l'eau ,");
-                                    }
-
-                                    //entre 11h-13h 18 h-20h tous les 5 minutes
-                                    if ((now.getHours() >= 11 && now.getHours() < 13) || (now.getHours() >= 18 && now.getHours() < 20)) {
-                                        if (now.getMinutes() % 5 === 0 && now.getSeconds() === 0) { 
-                                            addNotification("N'oublie pas d'éteindre la caserolle");
-                                        }
-                                    }
-
-                                    
                                 }
                                 setInterval(updateTime, 1000);
                                 updateTime();
+
 
                                 function rappel() {
                                     const now = new Date();
@@ -87,9 +76,18 @@
                                     
                                     //idée de notif à faire selon l'heure midi exemple rappel midicament
                                     if (currentTime === notificationTime) {
-                                        const notification = new Notification('Rappel', {
-                                            body: 'Il est temps de prendre votre médicament !'
-                                        });
+                                        addNotification("Il est temps de prendre votre médicament !");
+                                    }
+
+                                    if( now.getMinutes() === 0 && now.getSeconds() === 0) { 
+                                        addNotification("N'oublie pas de manger et de boire de l'eau ");
+                                    }
+
+                                    //entre 11h-13h 18 h-20h tous les 5 minutes
+                                    if ((now.getHours() >= 11 && now.getHours() < 13) || (now.getHours() >= 18 && now.getHours() < 20)) {
+                                        if (now.getMinutes() % 5 === 0 && now.getSeconds() === 0) { 
+                                            addNotification("N'oublie pas d'éteindre la caserolle");
+                                        }
                                     }
                                 }
                                 
