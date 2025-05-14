@@ -9,7 +9,19 @@
         <script ref="parametres.js"></script>
     </head>
     <body>
+        <script>
+            function scaleplus() {
+                window.resizeTo(window.outerWidth*1.1, window.outerHeight*1.1);
+            }
+
+            function scalemoins() {
+                window.resizeTo(window.outerWidth*0.9, window.outerHeight*0.9);
+            }
+
+        </script>
         <h1>Paramètres</h1>
         <button onclick="window.location='../menu/menu.html';">Retour</button>
+        <button onclick="scaleplus()">+</button>
+        <button onclick="scalemoins()">-</button>
     </body>
 </html>

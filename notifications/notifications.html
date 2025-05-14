@@ -10,9 +10,10 @@
         <h1 style="text-align: center;">Notifications</h1>
     </a>
                             <div class="timebox"></div>
-                                <p id="current-time"></p>
+                                <p id="timebox"></p>
                             </div>
                             <script>
+
                                 function addNotification(message) {
                                     let n=document.getElementById('notification');
                                     let list=document.createElement('ul');
@@ -23,6 +24,7 @@
                                     const deleteButton = document.createElement('button');
                                     deleteButton.textContent = 'Supprimer';
                                     deleteButton.onclick = () => list.removeChild(newNotification);
+                                    deleteButton.className = 'button_del';
                             
                                     newNotification.appendChild(deleteButton);
                                     list.appendChild(newNotification);
@@ -33,11 +35,12 @@
                                 function updateTime() {
                                     now = new Date();
                                     const timeString = now.toLocaleTimeString();
-                                    document.getElementById('current-time').textContent = timeString;
+                                    const timeblock= document.getElementById('timebox').textContent = timeString;
+                                    timeblock.className = 'timebox';
                                     
                                     //test
                                     if (now.getSeconds() % 1 === 0) { 
-                                        addNotification('Notification test');
+                                        addNotification('TESttttttttttttttttttttttttttttttttttttttttt\n\ntttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt');
                                         //window.open().document.write("<title>Assistant personnel | Groupe A </title> <h1>test</h1>");
                                         const NOTIFICATION_TITLE = 'Notification'
                                         const NOTIFICATION_BODY = 'test'
@@ -92,8 +95,6 @@
                                 
                                 setInterval(rappel, 1000 ); 
                                 rappel();
-
-                                
                             </script>
                             <script>
                                 function clearNotifications() {
@@ -103,6 +104,7 @@
                                 const clearButton = document.createElement('button');
                                 clearButton.textContent = 'Effacer les notifications';
                                 clearButton.onclick = () => clearNotifications('notification');
+                                clearButton.className = 'button_clear';
                                 document.body.appendChild(clearButton);
                             </script>
                              <div class="notification">
