@@ -31,7 +31,10 @@ function generateRandomButtons(){
 		//btn.type="button"
 		btn.classList="btn-grp";
 		btn.textContent = pickRandString(); //test
-		btn.onclick=createChatLi;
+		btn.addEventListener("click", function() {
+			createChatLi(btn.textContent, "outgoing");
+			updateUI(btn.textContent);
+		});
 		btnGrp.appendChild(btn);
 		console.log("test");
 	}
@@ -52,5 +55,7 @@ chatInput = document.getElementById("msg");
 	updateUI(userMessage);
 }
 sendChatBtn.addEventListener("click", handleChat);
+
+
 
 
