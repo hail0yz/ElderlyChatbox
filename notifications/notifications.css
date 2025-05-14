@@ -3,7 +3,6 @@
     color: #555;
     display: block;
     margin: 20px auto;
-    padding: 10px 15px;
 }
 
 .notification {
@@ -58,5 +57,22 @@
 
 .button_clear:hover {
     background-color: #388e3c;
+    transform: scale(1.15);
+}
+
+.button_para{
+    display: block;
+    margin: 20px auto;
+    padding: 8px 14px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.button_para:hover {
+    background-color: #333;
     transform: scale(1.15);
 }
