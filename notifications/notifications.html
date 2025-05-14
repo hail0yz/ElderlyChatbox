@@ -13,13 +13,13 @@
                             <div class="timebox"></div>
                                 <p id="timebox"></p>
                             </div>
-                            <div button class="button_para">
-                                <p id="button_para"></p>
+                            <div>
                                 <script>
-                                    document.getElementById('button_para').textContent = 'Parametre Notifications';
-                                    document.getElementById("button_para").onclick = function() {
-                                        window.location = '../notifications/parametreNotif/parametreNotif.html';
-                                    };
+                                    const para = document.createElement('button_para');
+                                    para.textContent = 'Parametre Notifications';
+                                    document.body.appendChild(para);
+                                    para.className = 'button_para';
+                                    para.onclick = () =>window.location = '../notifications/parametreNotif/parametreNotif.html';
                                 </script>
                             </div>
                             <script>

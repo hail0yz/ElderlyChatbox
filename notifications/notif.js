@@ -4,7 +4,6 @@ document.getElementById('timebox').className = 'timebox';
 setInterval(updateTime, 1000);
 setInterval(rappel, 1000 ); 
 
-
 function addNotification(message) {
     let n=document.getElementById('notification');
     let list=document.createElement('ul');
@@ -78,4 +77,35 @@ function rappel() {
 function clearNotifications() {
     n=document.getElementById('notification');
     n.innerHTML = ''; 
+    localStorage.clear('savedNotifications');
 }
+
+
+function saveNotifications() {
+    const notifications = document.getElementById('notification').innerHTML;
+    localStorage.setItem('savedNotifications', notifications);
+}
+
+window.addEventListener('beforeunload', saveNotifications);
+
+window.addEventListener('load', () => {
+    const savedNotifications = localStorage.getItem('savedNotifications');
+    if (savedNotifications) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = savedNotifications;
+        const notifications = tempDiv.querySelectorAll('.notif_msg');
+        notifications.forEach(notification => {
+            addNotification(notification.textContent.replace('Supprimer', '').trim());
+        });
+    }
+
+    const savedNotiflist = localStorage.getItem('notiflist');
+    if (savedNotiflist) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = savedNotiflist;
+        const notifications = tempDiv.querySelectorAll('.notif');
+        notifications.forEach(notification => {
+            addNotification(notification.textContent.replace('Supprimer', '').trim());
+        });
+    }
+});
