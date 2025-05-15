@@ -1,5 +1,19 @@
 const data = await window.chatbot_app.get_bot_data();
-console.log(data);
+
+window.addEventListener('beforeunload', saveData);
+
+let laste_mouseleave = Date.now();
+document.body.addEventListener("mouseleave", ()=>{
+	const now = Date.now();
+	console.log(now-laste_mouseleave);
+	if(now-laste_mouseleave > 15000 /* 15 secondes */) {
+		laste_mouseleave = now;
+		saveData();
+	}
+})
+function saveData() {
+	window.chatbot_app.set_bot_data(data);
+}
 
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatbox = document.querySelector(".chatbox");
