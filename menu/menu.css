@@ -1,0 +1,112 @@
+@import url(../settings/root.css);
+body {
+    background-color: var(--red);
+    margin: 0;
+    padding: 0;
+}
+main {
+    position: relative;
+    display: flex;
+    
+    height: 100vh;
+    width: 100vw;
+    
+    flex-direction: column;
+    text-align: center;
+}
+.top {
+    display: flex;
+    height: 50px;
+    
+    justify-content: center;
+    align-items: center;
+}
+#app_name {
+    font-size: 28px;
+}
+#close_app {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#items {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    
+    justify-content: space-evenly;
+    align-items: center;
+}
+#chat_bot {
+    border: 2px red solid;
+    min-width: 250px;
+    width: 30%;
+    
+    min-height: 400px;
+    height: 90%;
+    margin-inline: 3%;
+}
+#chat_bot .bg-color img {
+    width: 100%;
+    max-width: 300px;
+}
+.other {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+    flex: 1;
+    justify-content: space-evenly;
+}
+.other-row {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.other-row > .item_box {
+    min-width: 250px;
+    width: 45%;
+    max-width: 400px;
+    height: 70%;
+    min-height: 200px;
+    
+    margin-inline: 5px;
+    border: 2px green solid;
+}
+.item_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+#chat_bot.item_box:hover {
+    transform: scale(1.05);
+}
+.item_box:hover {
+    transform: scale(1.1);
+}
+.label p {
+    margin: 10px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+.bg-color {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #ffeeee;
+    width: 100%;
+    flex: 1;
+    overflow: hidden;
+}
+.other-row > .item_box .bg-color img {
+    aspect-ratio: 1/1;
+    height: 7rem;
+    max-height: 80%;
+    overflow: hidden;
+}

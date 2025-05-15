@@ -5,11 +5,16 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "build": "electron-packager . ElderlyChatBox --platform=win32 --arch=x64 --icon=assets/icon.ico --overwrite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^36.2.0"
+    "electron": "^36.2.0",
+    "electron-packager": "^17.1.2"
+  },
+  "dependencies": {
+    "electron-windows-notifications": "^3.0.8"
   }
 }
