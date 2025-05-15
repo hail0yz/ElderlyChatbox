@@ -15,15 +15,14 @@
           <input type="text" placeholder="Text de la notif" />
         </div>
         <div>
-          format: hh:mm:ss
-        </div>
-        <div>
           intervalleTemps:
-          <input type="text" placeholder="Intervalle de temps" />
+          <input type="number" id="Intervalle de temps" placeholder="Seconde"  min="0" max="86400"/>
         </div>
         <div>
           TempPrécis:
-          <input type="text" placeholder="Heure cible" />
+          <input type="date" id="cible_date" />
+          <input type="time" id="Heure cible" />
+
         </div>
         <button type="submit">Envoyer</button>
       </form>

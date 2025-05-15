@@ -152,7 +152,7 @@ function handleAnswersBack(kw){
 	Traitez les armes à feu comme si elles étaient toujours chargées. \
 	Ne jamais pointer une arme à feu dans une direction sûre. \
 	"],
-	no:["Précisez votre demande, je suis là pour faire de la prévention primaire."]
+	no:["Précisez votre demande, je suis là pour faire de la prévention primaire."],
 	infos:["Il semblerait que vous vouliez des renseignements sur des produits chimiques. Souhaitez-vous prévenir les brulures chimiques, ou les intoxations chimiques?"]
 	}
 	ans=answers[fkw];
@@ -220,6 +220,10 @@ chatInput = document.getElementById("msg");
 }
 sendChatBtn.addEventListener("click", handleChat);
 
-
-
+document.getElementById("msg").addEventListener("keydown", (e) => {
+	if (e.key === "Enter") {
+		handleChat();
+	}
+}
+);
 

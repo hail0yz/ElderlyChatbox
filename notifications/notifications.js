@@ -43,21 +43,9 @@ function addNotification(message) {
 
 }
 
-function updateTime(message, targetTime) {
+function updateTime() {
     document.getElementById('timebox').innerHTML = new Date().toLocaleTimeString();
-    const now = new Date();
-    
-    if(message){
-        const currentTime = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
-        console.log(currentTime);
-        console.log(targetTime);
-        if (currentTime === targetTime) {
-            addNotification(message);
-        }
-    }
-
 }
-
 
 function rappel(intervalleTemp,message) {
     console.log(intervalleTemp);
@@ -68,14 +56,35 @@ function rappel(intervalleTemp,message) {
 
 }
 
-function cibleRappel(message, targetTime) {
+function cibleRappel(message, targetTime, targetDate) {
     const now = new Date();
-    const currentTime = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
-    console.log(currentTime);
+
+    console.log(now.toLocaleTimeString);
     console.log(targetTime);
-    if (currentTime === targetTime) {
+    console.log(now.toLocaleDateString());
+    console.log(targetDate);
+
+    heure=targetTime.split(':')[0];
+    minute=targetTime.split(':')[1];
+
+    tempsseconde=((heure*3600)+(minute*60));
+
+    annee=targetDate.split('-')[0];
+    mois=targetDate.split('-')[1];
+    jour=targetDate.split('-')[2];
+
+    console.log(jour);
+    console.log(now.getDate());
+    console.log(mois); 
+    console.log(now.getMonth());
+    console.log(annee);
+    console.log(now.getFullYear());
+
+    if(tempsseconde == now.getHours()*3600 + now.getMinutes()*60 && now.getDate() == jour && now.getMonth() == mois && now.getFullYear() == annee) {
+        console.log('Notification');
         addNotification(message);
     }
+
 }
 
 function clearNotifications() {
@@ -99,7 +108,7 @@ window.addEventListener('load', () => {
         tempDiv.innerHTML = savedNotifications;
         const notifications = tempDiv.querySelectorAll('.notif_msg');
         notifications.forEach(notification => {
-            addNotification(notification.textContent.replace('Supprimer', '').trim());
+            addNotification(notification.textContent);
         });
     }
 
@@ -112,12 +121,13 @@ window.addEventListener('load', () => {
         notifications.forEach(notification => {
             const message = notification.textContent.split(' (')[0];
             const intervalleTemp = parseInt(notification.textContent.split('Intervalle: ')[1].split('s')[0], 10);
-            const targetTime = parseInt(notification.textContent.split('Cible: ')[1].split('s')[0], 10);
+            const targetTime = notification.textContent.split('Cible: ')[1].split(' ')[0];
+            const targetDate = notification.querySelector('date').textContent.split('Date: ')[1].split(' ')[0];
             rappel(
                 intervalleTemp,
                 message
             );
-            setInterval(cibleRappel, 1000,message, targetTime);
+            setInterval(cibleRappel, 1000,message, targetTime, targetDate);
         });
     }
 });
