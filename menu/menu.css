@@ -78,6 +78,13 @@ main {
     flex-direction: column;
     justify-content: end;
     align-items: center;
+    transition: transform 0.2s ease;
+}
+#chat_bot.item_box:hover {
+    transform: scale(1.05);
+}
+.item_box:hover {
+    transform: scale(1.1);
 }
 .label p {
     margin: 10px;
