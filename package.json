@@ -13,5 +13,8 @@
   "devDependencies": {
     "electron": "^36.2.0",
     "electron-packager": "^17.1.2"
+  },
+  "dependencies": {
+    "electron-windows-notifications": "^3.0.8"
   }
 }
