@@ -3,13 +3,36 @@
     <head>
         <meta charset="utf-8">
         <title>Assistant personnel | Groupe A </title>
-        <link rel="stylesheet" href="assistant.css">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"/>
-        <script src="assistant.js"></script>
+       
+        <link rel="stylesheet" href="./assistant.css"> 
+        <script src="./assistant.js" defer></script>
     </head>
-    <body onload="loadParametres()">
-        <h1>Assistant</h1>
-        <button onclick="window.location='../menu/menu.html';">Retour</button>
-    </body>
+    <body>
+        <button class="chatbot-toggler">
+            <span style='font-size:25px;'>&#10060;</span>
+        </button>
+        <div class="chatbot">
+            <header>
+                <h2>Assistant</h2> 
+            </header>
+            <ul class="chatbox">
+                <li class="chat incoming">
+                    <p>Bonjour,<br> comment puis-je vous aider aujourd'hui?</p>
+                </li>
+                <li class="chat outgoing">
+                </li>
+            </ul>
+            <div class ="chat-input">
+               <textarea id="msg" placeholder="Si aucune option ne correspond à vos besoins, écrivez ici" required></textarea>
+               <span id="send-btn" >&#9755</span>
+            </div>
+            <div class="bottom">
+                <div class="btn-grp" id="dynamicButtons">
+                </div>
+
+            </div>
+        </div>
+        </body>
 </html>
