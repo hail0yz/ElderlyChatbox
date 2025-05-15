@@ -1,4 +1,232 @@
 {
-    "test": "Ca marche",
-    "c_est_la_verite": false
+    "themes": {
+        "chute": {
+            "date": 0,
+            "count": 0
+        },
+        "brulure": {
+            "date": 0,
+            "count": 0
+        },
+        "incendie": {
+            "date": 0,
+            "count": 0
+        },
+        "intoxication": {
+            "date": 0,
+            "count": 0
+        },
+        "inhalation": {
+            "date": 0,
+            "count": 0
+        },
+        "etouffement": {
+            "date": 0,
+            "count": 0
+        },
+        "noyade": {
+            "date": 0,
+            "count": 0
+        },
+        "elongation": {
+            "date": 0,
+            "count": 0
+        },
+        "coupe": {
+            "date": 0,
+            "count": 0
+        },
+        "morsure": {
+            "date": 0,
+            "count": 0
+        },
+        "arme": {
+            "date": 0,
+            "count": 0
+        }
+    },
+    "answers": {
+        "chute": [
+            "Pour %prevenir% les chutes, restez actif .\n L%activephysique% peut contribuer grandement à la prévention des chutes.\n Avec l'accord de votre professionnel de santé, envisagez des activités comme la marche, l'aquagym ou le tai-chi, un exercice doux qui implique des mouvements lents et gracieux, semblables à ceux d'une danse.",
+            "Les facteurs de risques de chute sont l'âge, vos activités de la vie quotidienne, la mobilité réduite, certaines pathologies telles que Parkinson, ou des troubles locomoteurs et neuro-musculaires. Pour ce qui est des facteurs extrinsèques, il s'agit de facteurs comportementaux: la consommation d'alcool, la sédentarité et la malnutrition, ou bien de facteurs environnementaux comme la nécessité d'un instrument d'aide, la prise de risque ou un habitat mal adapté."
+        ],
+        
+        "chuteBis": [
+            "%phrasesRappel%Vous pouvez aussi par exemple éviter tapis aux bords élevés, restez vigilant dans les escaliers%surtout% en cas de pluie ou de gel.",
+            "%phrasesRappel%Réaliser quelques tests simples peut être utile à titre systématique pour confirmer l’absence de risque de chute au cours de la consultation. C’est indispensable en cas de chute signalée, même si elle paraît banale, ou en présence de facteurs de risque de chute. Vous pouvez demander à un professionnel de santé de réaliser ces tests."
+        ],
+        "brulure": [
+            "Pour %prevenir% les brûlures, vous devriez:\n Utilisez les appareils de chauffage %prevenir% et tenez-les éloignés de tout ce qui peut brûler. Ne laissez jamais les bougies sans surveillance.\n Abaissez la température du chauffe-eau (inférieure à 50°C).\n Gardez les boissons chaudes, loin des bords de la table ou du comptoir.\n "
+        ],
+        "brulureChim": [
+            "Vous pouvez aider à %prevenir% les brûlures chimiques en lisant et en suivant toujours les instructions lors de l’utilisation de produits chimiques.\n en portant toujours des gants de sécurité et des lunettes de protection lorsque vous utilisez des produits chimiques. en vous lavant toujours les mains après avoir utilisé un produit chimique."
+        ],
+        "brulureFeu": [
+            "Pour %prevenir% les brûlures de feu, il est important de ne pas fumer à l'intérieur de votre maison. Tournez les poignées des casseroles vers l'intérieur de la cuisinière. Laissez un peu refroidrir les aliments chauffés au micro-ondes."
+        ],
+        "brulureBis": [
+            "%phrasesRappel% Vous pourriez par exemple tourner les poignées des casseroles vers l’intérieur ou encore ne pas oublier de laisser un peu refroidir les aliments chauffés au micro-ondes","test",
+            "%evitez% de porter des vêtements amples lorsque vous cuisinez. Utilisez des maniques pour manipuler les plats chauds et les ustensiles de cuisine. Faites attention aux liquides bouillants et aux graisses chaudes. "
+        ],
+        "incendie": [
+            "Voici les principes de la prévention  incendie:\n- installer des détecteurs de fumée en réseau,\n-faire vérifier les appareils et les installations électriques\n-apprenez en plus sur les risques incendies.\n%phrasesFin%"
+        ],
+        "intoxication": [
+            "Pour %prevenir% les intoxications alimentares, il est important de bien se laver les mains avant de cuisiner et de manger. Désinfectez régulièrement les surfaces de travail, les ustensiles de cuisine et le réfrigérateur. ",
+            "%evitez% les dates de péremption des aliments et conservez-les correctement. %respectez% la chaîne du froid et cuisez suffisemment vos aliments. ",
+            "Si vous souhaitez réduire au maximum le risque d'intoxication, voici quelques conseils:%evitez% de consommer des aliments crus ou mal cuits, en particulier les viandes, les œufs et les produits laitiers. %respectez% de consommer des aliments périmés ou dont l'emballage est endommagé. Lavez soigneusement les fruits et légumes avant de les consommer. Coupez les aliments en petits morceaux pour faciliter la cuisson et réduire le risque de contamination croisée. Faites en sorte de rendre les produits toxiques identifiables en les rangeant dans des contenants hermétiques et en les étiquetant clairement. Enfin, conservez vos produits d'entretien et vos médicaments dans leurs emballages d'origine."
+        ],
+        "inhalation": [
+            "Pour %prevenir% l'inhalation de gaz toxiques, il est important de bien ventiler les pièces de votre maison. %verifiez% la bonne évacuation des équipements de gaz sur l'extérieur de votre maison. %verifiez% également que les appareils de chauffage à combustion sont en bon état de fonctionnement et qu'ils sont correctement installés. %evitez% de fumer à l'intérieur de votre maison, car la fumée de cigarette peut être toxique pour les personnes qui y vivent. Respectez les consignes d'utilisation des appareils à combustion. N'utilisez jamais de façon prolongée des panneaux radiants à gaz ou des poêles à pétrole. Entretenez régulièrement votre cheminée si vous en avez une. Ne jamais utiliser une cuisinière ou un brasero comme chauffage de secours dans une pièce fermée. Enfin, il est important de ne pas utiliser de produits chimiques à l'intérieur de votre maison sans une ventilation adéquate."
+        ],
+        "etouffement": [
+            "Pour %prevenir% les étouffements, il est important de bien mastiquer les aliments avant de les avaler. Prenez soin d'avoir une bonne hydratation et de ne pas parler en mangeant. Mangez dans une position assise et stable. %evitez% de manger trop vite, de trop manger ou de manger en paralant. Faites attention aux noyaux des fruits et aux arêtes de poisson."
+        ],
+        "noyade": [
+            "Pour %prevenir% la noyade, ne buvez pas d'alcool avant de vous baigner, cela risque d'altérer la coordination des gestes et d'entrainer des troubles de la vision. %evitez% également de nager trop longtemps loin des bords, vous risquez de vous fatiguer ou de vous laisser surprendre par les courants et ne pas être en état de revenir. Si vous êtes sujet à des maladies cardio-vasculaire, la dépression ou a des vertiges, la proscription de la baignade est de mise."
+        ],
+        "elongation": [
+            "Pour %prevenir%de vous élonguer un muscle lors d'un effort intense, pratiquer de l%activephysique% régulièrement permet de maintenir les muscles en forme de réduire les risques de traumatisme. %evitez% de porter ou de pousser des objets trop lourds, demandez de l'aide à quelqu'un ou utilisez des objets adéquats comme une brouette ou un chario, par exemple."
+        ],
+        "coupe": [
+            "Pour %prevenir% de vous couper ou de vous blaisser avec un objets tranchant, prenez soin de toujours vos couteaux et ustensiles de cuisines ou de jardinage la lame vers le bas, ainsi vous pourrez les empoignez sereinement (Attention, cependant, vous n'êtes jamais à l'abri d'une innatention). Pensez également à prendre votre temps et à vous appliquer pendant votre tâche pour ne pas faire de mauvaise manipulation."
+        ],
+        "morsure": [
+            "Pour %prevenir% les morsures ou griffures d'animaux domestiques comme les chats ou les chiens, veillez à ne pas insister à caresser l'animal lorsque celui-ci refuse. Ne tirez pas trop sur la laisse lors d'une promenade, cela risque de l'énerver et de le rendre plus aggressif. Lorsque vous le caressez, prenez garde à placer vos doigts loins de sa gueule, il pourrait vous mordre sans même le vouloir. Afin d'éviter certaines maladies graves lors d'un accident, il est nécessaire de tenir à jour les vaccins de l'animal."
+        ],
+        "arme": [
+            "Les accidents domestiques d'armes à feu sont souvent sous-estimés. Pour %prevenir% les accidents d'armes à feu, il est important de garder les armes à feu et les munitions dans un endroit sûr et sécurisé. Traitez les armes à feu comme si elles étaient toujours chargées. Ne jamais pointer une arme à feu dans une direction sûre."
+        ],
+        "no": [
+            "Précisez votre demande, je suis là pour faire de la prévention primaire."
+        ],
+        "infos": [
+            "Il semblerait que vous vouliez des renseignements sur des produits chimiques.%souhaitezvous% prévenir les brulures chimiques, ou les intoxations chimiques? %prevenir% "
+        ]
+    },
+    "ourDictionnaire": {
+        "prevenir":[
+            "prévenir",
+            "aviser",
+            "pallier"
+        ],
+        "sports":[
+            "gymnastique douce",
+            "gym sénior",
+            "marche à pied",
+            "tai-chi","aquagym"
+        ],
+        "prudemment":[
+            "prudemment",
+            "avec prudence",
+            "précautionneusement"
+        ],
+        "phrasesFin":[
+            " Si vous souhaitez en savoir plus, dites-le moi!", 
+            " N'hésitez pas à me demander plus de renseignements.",
+            " Prenez soin de vous."
+        ],
+        "phrasesRappel":[
+            "Il semblerait que vous souhaitez en savoir plus.",
+            "Bien sur, voici d'autres informations à ce sujets:"
+        ],
+        "surtout":[
+            "surtout",
+            "particulièrement"
+        ],
+        "souhaitezvous":[
+            "Souhaitez-vous",
+             "Voudriez-vous",
+              "Voulez-vous",
+              "Desirez-vous"
+            ],
+        "activephysique":[
+            "' activité physique",
+            "' exercice physique",
+            "a forme physique", 
+            "'entrainement physique"
+        ],
+        "evitez":[
+            "evitez",
+            "abstenez vous",
+            "eliminer au plus possible"
+        ],
+        "verifiez":[
+            "Contrôlez",
+            "Vérifiez",
+            "Testez",
+            "Evaluez",
+            "Surveillez"
+        ],
+        "respectez":[
+            "Respectez",
+            "Appliquez"
+        ]
+    },
+    "keywords": {
+        "chute":0, 
+        "tombe":0,
+        "tombé":0,
+        "chuté":0,
+        "brulure":1,
+        "br_lé":1, 
+        "brûlure":1, 
+        "brule":101,
+        "chimique":101,
+        "substance":101, 
+        "nettoyant":101, 
+        "solvant":101,
+        "cigarette":102, 
+        "thermique":102, 
+        "barbecue":102, 
+        "alcool à bruler":102,
+        "incendie":2, 
+        "incendier":2, 
+        "feu":2, 
+        "flamme":2, 
+        "intoxication":3, 
+        "induction": 3, 
+        "toxique":3,
+        "inhalation":4, 
+        "gaz":4, 
+        "fumée":4, 
+        "intoxiquer":4, 
+        "intoxiquer":4,
+        "etouffement":5, 
+        "asphyxie": 5,
+        "noyade":6, 
+        "noyer":6, 
+        "baignade":6, 
+        "baigner":6, 
+        "piscine":6, 
+        "plage":6, 
+        "mer":6, 
+        "nager":6, 
+        "natation":6, 
+        "bateau":6,
+        "elongation":7, 
+        "muscle":7, 
+        "porter":7, 
+        "dos":7, 
+        "lumbago":7, 
+        "mal":7, 
+        "effort":7, 
+        "soulever":7,
+        "coupe":8, 
+        "coupure":8, 
+        "blessure":8, 
+        "blesser":8, 
+        "cisailles":8, 
+        "lame":8, 
+        "sang":8, 
+        "saigner":8,
+        "morsure":9, 
+        "griffure":9, 
+        "chat":9, 
+        "chien":9, 
+        "mord":9, 
+        "griffe":9,
+        "arme":10,
+        "renseignements": 11,"dis moi en plus":11
+    }
 }
