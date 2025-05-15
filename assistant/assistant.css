@@ -123,3 +123,7 @@ border-radius: 10px 10px 10px 0px;
 .chat-input textarea:valid ~ span {
     visibility:visible;
 }
+.goBackBtn{
+    position: fixed;
+    left: 40px; 
+}
