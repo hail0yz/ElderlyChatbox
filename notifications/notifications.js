@@ -63,7 +63,7 @@ function addNotification(message) {
 
     new window.Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
     .onclick = () => { document.getElementById('output').innerText = CLICK_MESSAGE }
-    const appId = 'electron-windows-notifications'
+   /* const appId = 'electron-windows-notifications'
     const {ToastNotification} = require('electron-windows-notifications')
 
     let notification = new ToastNotification({
@@ -71,12 +71,13 @@ function addNotification(message) {
         template: `<toast><visual><binding template="ToastText01"><text id="1">%s</text></binding></visual></toast>`,
         strings: [message]
     })
+    
 
 
     notification.on('activated', () => console.log('Activated!'))
 
 
-    notification.show()
+    notification.show()*/
 
 }
 
@@ -96,14 +97,8 @@ function updateTime(message, targetTime) {
 }
 
 
-function rappel(intervalleTemp,targetTime,message) {
-    const now = new Date();
-    const currentTime = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
-    console.log(currentTime);
-    console.log(targetTime);
-    if (currentTime === targetTime) {
-        addNotification(message);
-    }
+function rappel(intervalleTemp,message) {
+    console.log(intervalleTemp);
 
     if(intervalleTemp > 0) {
         setInterval(addNotification, intervalleTemp * 1000, message);
@@ -111,10 +106,20 @@ function rappel(intervalleTemp,targetTime,message) {
 
 }
 
+function cibleRappel(message, targetTime) {
+    const now = new Date();
+    const currentTime = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+    console.log(currentTime);
+    console.log(targetTime);
+    if (currentTime === targetTime) {
+        addNotification(message);
+    }
+}
+
 function clearNotifications() {
     n=document.getElementById('notification');
     n.innerHTML = ''; 
-    localStorage.clear('savedNotifications');
+    localStorage.removeItem('savedNotifications');
 }
 
 
@@ -137,6 +142,7 @@ window.addEventListener('load', () => {
     }
 
     const savedNotiflist = localStorage.getItem('notiflist');
+    console.log(savedNotiflist);
     if (savedNotiflist) {
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = savedNotiflist;
@@ -147,9 +153,9 @@ window.addEventListener('load', () => {
             const targetTime = parseInt(notification.textContent.split('Cible: ')[1].split('s')[0], 10);
             rappel(
                 intervalleTemp,
-                targetTime,
                 message
             );
+            setInterval(cibleRappel, 1000,message, targetTime);
         });
     }
 });
