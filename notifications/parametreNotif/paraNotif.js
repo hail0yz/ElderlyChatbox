@@ -35,7 +35,7 @@ function addlist(message, intervalleTemp, targetTime) {
     deleteButton.textContent = 'Supprimer';
     deleteButton.onclick = () => {
         n.removeChild(newNotification);
-        notiflist = notiflist.filter(notif => notif.message !== message);
+        notiflist = notiflist.removeChild(newNotification);
         localStorage.setItem('notiflist', notiflist);
     };
     deleteButton.className = 'button_del';
@@ -49,13 +49,14 @@ function addlist(message, intervalleTemp, targetTime) {
 }
 
 function saveNotifications() {
-    const notiflist = document.getElementById('cadreNotif').innerHTML;
+    notiflist = document.getElementById('cadreNotif').innerHTML;
     localStorage.setItem('notiflist',notiflist);
 }
 
 window.addEventListener('beforeunload', saveNotifications);
 
 window.addEventListener('load', () => {
+    notiflist=[];
     const storedNotifList = localStorage.getItem('notiflist');
     if (storedNotifList) {
         const tempDiv = document.createElement('div');

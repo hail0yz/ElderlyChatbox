@@ -19,21 +19,57 @@ function addNotification(message) {
     list.appendChild(newNotification);
 
     n.appendChild(list);
+
+    const NOTIFICATION_TITLE = 'Notification'
+    const NOTIFICATION_BODY = message
+
+    new window.Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
+    .onclick = () => { document.getElementById('output').innerText = CLICK_MESSAGE }
+    const appId = 'electron-windows-notifications'
+    const {ToastNotification} = require('electron-windows-notifications')
+
+    let notification = new ToastNotification({
+        appId: appId,
+        template: `<toast><visual><binding template="ToastText01"><text id="1">%s</text></binding></visual></toast>`,
+        strings: [message]
+    })
+
+
+    notification.on('activated', () => console.log('Activated!'))
+
+
+    notification.show()
+
 }
 
-function updateTime() {
+function updateTime(message, targetTime) {
     document.getElementById('timebox').innerHTML = new Date().toLocaleTimeString();
     const now = new Date();
+    
+    if(message){
+        const currentTime = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+        console.log(currentTime);
+        console.log(targetTime);
+        if (currentTime === targetTime) {
+            addNotification(message);
+        }
+    }
+
 }
 
 
 function rappel(intervalleTemp,targetTime,message) {
     const now = new Date();
     const currentTime = now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds();
+    console.log(currentTime);
+    console.log(targetTime);
     if (currentTime === targetTime) {
         addNotification(message);
     }
-    setInterval(addNotification, intervalleTemp * 1000, message);
+
+    if(intervalleTemp > 0) {
+        setInterval(addNotification, intervalleTemp * 1000, message);
+    }
 
 }
 
