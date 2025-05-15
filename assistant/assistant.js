@@ -100,16 +100,37 @@ function handleAnswersBack(kw){
 		case 102:
 		default: fkw="no"	
 	}
-	data.themes[fkw][date]=Date.now;
-	data.themes[fkw][count]+=1;
+
 	if (keywords[fkw]&&keywords[context]==keywords[fkw]){ // si l'id du keyword de context == l'id du keyword de fkw, alors on ajoute bis
 		context = fkw;//mettre le context avant d'ajouter le bis car si on redemande ca decontextualise
 		fkw = fkw +"Bis";
 	}
 	else{context=fkw;} // on store pour la prochaine fois, au cas ou l user demande plus de renseignements
-	let answers=data.answers;
-	ans=answers[fkw];
+	
+	const answer = getAnswerString(fkw);
+	return getFilledAnswer(answer)
+}
+function getAnswerString(fkw) { 
+	const ans = data.answers[fkw];
 	return ans[Math.floor(Math.random()*ans.length)];
+}
+function getFilledAnswer(answer) {
+	const splited = answer.split("%");
+	let count = 1;
+	const end = splited.length;
+	
+	while(count < end) {
+		// Remplacer les %str% par le mot aléatoir
+		const n = getWord(splited[count]);
+		console.log("=> BF",splited[count], "AF", n);
+		splited[count] = n;
+		count+=2;
+	}
+	
+	return splited.join("");
+}
+function getWord(str) {
+	return ourDictionnaire[str][Math.floor(Math.random()*ourDictionnaire[str].length)];
 }
 
 function createSuggestions(){
@@ -147,7 +168,6 @@ function generateRandomButtons(){
 	console.log(context);
 	btnGrp.innerHTML=""; // Clear previous content
 	let re= new RegExp('Bis','g')
-	if (!(context.test(re)))
 	const btn = document.createElement("button");
 	btn.classList="btn-grp";
 	btn.textContent = "Donnez-moi plus d'informations"; //test
