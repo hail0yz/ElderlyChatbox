@@ -82,7 +82,15 @@ function handleAnswersBack(kw){
 	brulureChim:["Vous pouvez aider à "+ourDictionnaire["prevenir"][Math.floor(Math.random()*ourDictionnaire["prevenir"].length)]+" les brûlures chimiques en :\n\
 		 lisant et en suivant toujours les instructions lors de l’utilisation de produits chimiques.\n \
 		 en portant toujours des gants de sécurité et des lunettes de protection lorsque vous utilisez des produits chimiques. en vous lavant toujours les mains après avoir utilisé un produit chimique."],
-	brulureFeu:[""],
+	brulureFeu:["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*3)]+" les brûlures de feu, il est important de ne pas fumer à l'intérieur de votre maison. \
+	Tournez les poignées des casseroles vers l'intérieur de la cuisinière. \
+	Laissez un peu refeoidrir les aliments chauffés au micro-ondes. \
+	Évitez de porter des vêtements amples lorsque vous cuisinez. \
+	Utilisez des maniques pour manipuler les plats chauds et les ustensiles de cuisine. \
+	Faites attention aux liquides bouillants et aux graisses chaudes. \
+	Priviligiez une bouilloire électrique plutôt qu'une casserole pour faire chauffer de l'eau. \
+	Prenez grde à toujours ouvrir l'eau froide en premier lorsque vous utilisez un robinet mélangeur. \
+	Baissez la température maximale de votre chauffe-eau"],
 	incendie:["Voici les principes de la prévention  incendie:\n\
 		- installer des détecteurs de fumée en réseau,\n\
 		-faire vérifier les appareils et les installations électriques\n\
