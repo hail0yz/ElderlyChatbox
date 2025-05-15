@@ -8,14 +8,20 @@ function addNotification(message) {
     let list=document.createElement('ul');
     const newNotification = document.createElement('li');
     newNotification.className = 'notif_msg';
-    newNotification.textContent = message;
+
+    const messageText = document.createElement('span');
+    messageText.textContent = message;
+    newNotification.appendChild(messageText);
+
+    console.log("message: " + message);
 
     const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Supprimer';
+    deleteButton.textContent = ' Supprimer';
     deleteButton.onclick = () => list.removeChild(newNotification);
     deleteButton.className = 'button_del';
 
     newNotification.appendChild(deleteButton);
+
     list.appendChild(newNotification);
 
     n.appendChild(list);
@@ -108,7 +114,7 @@ window.addEventListener('load', () => {
         tempDiv.innerHTML = savedNotifications;
         const notifications = tempDiv.querySelectorAll('.notif_msg');
         notifications.forEach(notification => {
-            addNotification(notification.textContent);
+            addNotification(notification.getElementsByTagName('span')[0].textContent);
         });
     }
 
