@@ -35,17 +35,14 @@ function addlist(message, intervalleTemp, targetTime) {
     deleteButton.textContent = 'Supprimer';
     deleteButton.onclick = () => {
         n.removeChild(newNotification);
-        notiflist = notiflist.removeChild(newNotification);
-        localStorage.setItem('notiflist', notiflist);
+        localStorage.setItem('notiflist', n);
     };
-    deleteButton.className = 'button_del';
+    deleteButton.className = 'button_del_notif';
 
     newNotification.appendChild(deleteButton);
     n.appendChild(newNotification);
 
-    const notifObject = { message: message, intervalleTemp: intervalleTemp, targetTime: targetTime };
-    notiflist.push(notifObject);
-    localStorage.setItem('notiflist', notiflist);
+    localStorage.setItem('notiflist',n);
 }
 
 function saveNotifications() {
@@ -56,12 +53,15 @@ function saveNotifications() {
 window.addEventListener('beforeunload', saveNotifications);
 
 window.addEventListener('load', () => {
-    notiflist=[];
-    const storedNotifList = localStorage.getItem('notiflist');
+    storedNotifList = localStorage.getItem('notiflist');
     if (storedNotifList) {
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = storedNotifList;
         const notifications = tempDiv.querySelectorAll('.notif');
+        console.log(notifications.length);
+        if(notifications.length === 0) {
+            ajoutBasicNotif();
+        }
         notifications.forEach(notification => {
             const message = notification.textContent.split(' (')[0];
             const intervalleTemp = parseInt(notification.textContent.split('Intervalle: ')[1].split('s')[0], 10);
@@ -69,4 +69,16 @@ window.addEventListener('load', () => {
             addlist(message, intervalleTemp, targetTime);
         });
     }
+    console.log(storedNotifList);
 });
+
+function ajoutBasicNotif(){
+    intervalleTemp = 10;
+    targetTime = 0;
+   
+    addlist("N'oublie pas de manger !", intervalleTemp, targetTime);
+
+    addlist("N'oublie pas de boire !", intervalleTemp, targetTime);
+
+    addlist("Pense à faire de l'exercice (marche, mini footing, ...) !", intervalleTemp, targetTime);
+}

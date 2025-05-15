@@ -24,7 +24,7 @@
     align-items: center;
 }
 
-.button_del {
+.button_del_notif {
     background-color: #acacac;
     color: white;
     border: none;
@@ -34,7 +34,7 @@
     margin-left: auto;
 }
 
-.button_del:hover {
+.button_del_notif:hover {
     background-color: #b71c1c;
     transform: scale(1.1);
 }
