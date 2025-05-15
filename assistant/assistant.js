@@ -193,6 +193,10 @@ const handleChat = () => {
 }
 sendChatBtn.addEventListener("click", handleChat);
 
-
-
+document.getElementById("msg").addEventListener("keydown", (e) => {
+	if (e.key === "Enter") {
+		handleChat();
+	}
+}
+);
 
