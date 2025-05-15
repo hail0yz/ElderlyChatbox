@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, Menu } = require('electron/main')
 const path = require("node:path");
 const { update_css_settings } = require("./settings/updateRootCSS")
+const { getData } = require('./settings/chatbot_data')
 
 Menu.setApplicationMenu(false)
 
@@ -20,6 +21,9 @@ const createWindow = () => {
 app.whenReady().then(() => {
   ipcMain.handle('update_css_settings', (_, obj) => {
     update_css_settings(__dirname, obj);
+  })
+  ipcMain.handle('get_bot_data', () => {
+    return getData(__dirname);
   })
   createWindow()
 })

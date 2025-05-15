@@ -1,3 +1,6 @@
+const data = await window.chatbot_app.get_bot_data();
+console.log(data);
+
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatbox = document.querySelector(".chatbox");
 const btnGrp = document.querySelector("#dynamicButtons");
@@ -152,7 +155,7 @@ function handleAnswersBack(kw){
 	Traitez les armes à feu comme si elles étaient toujours chargées. \
 	Ne jamais pointer une arme à feu dans une direction sûre. \
 	"],
-	no:["Précisez votre demande, je suis là pour faire de la prévention primaire."]
+	no:["Précisez votre demande, je suis là pour faire de la prévention primaire."],
 	infos:["Il semblerait que vous vouliez des renseignements sur des produits chimiques. Souhaitez-vous prévenir les brulures chimiques, ou les intoxations chimiques?"]
 	}
 	ans=answers[fkw];
