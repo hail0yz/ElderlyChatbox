@@ -146,7 +146,7 @@ function createSuggestions(){
 function searchKeyword(userMsg){
 	let keys= Object.keys(keywords)
 	let re= new RegExp('(?<!\S)'+'('+keys.join('|')+')','g')//le mot peut etre conjugué mais pas avoir de prefxe
-		return userMsg.toLowerCase().match(re)
+	return userMsg.toLowerCase().match(re)
 }
 
 const createChatLi = (message, className) => {
@@ -173,7 +173,7 @@ function generateRandomButtons(){
 	btn.textContent = "Donnez-moi plus d'informations"; //test
 	btn.addEventListener("click", function() {
 		chatbox.appendChild(createChatLi(btn.textContent, "outgoing"));
-
+		
 		handleAnswerUI(context);
 	});
 	btnGrp.appendChild(btn);
@@ -217,17 +217,21 @@ function updateUI(Usermsg){
 	chatbox.appendChild(createChatLi(Usermsg,"outgoing"));
 	document.getElementById("msg").value = "";
 	handleAnswerUI(Usermsg);
-    generateRandomButtons();
-
+	generateRandomButtons();
+	
 }
 const handleChat = () => {
-chatInput = document.getElementById("msg");
+	chatInput = document.getElementById("msg");
 	userMessage = chatInput.value;
 	if (!userMessage) return;
 	updateUI(userMessage.trim());
 }
 sendChatBtn.addEventListener("click", handleChat);
 
-
-
+document.getElementById("msg").addEventListener("keydown", (e) => {
+	if (e.key === "Enter") {
+		handleChat();
+	}
+}
+);
 
