@@ -18,12 +18,12 @@ let keywords= {//les Objects sont interprétés comme un id commun aux mots "syn
 	brulure:1,brûlé:1, brûlée:1, brule:101,
 	chimique:101,substance:101, nettoyant:101, solvant:101,
 	cigarette:102, thermique:102, barbecue:102, "alcool à bruler":102,
-	incendie:2,
+	incendie:2, incendier:2, feu:2, flamme:2, 
 	intoxication:3, induction: 3, toxique:3,
-	involontaire:4,
+	inhalation:4, gaz:4, fumée:4, intoxiquer:4, intoxiquer:4,
 	etouffement:5, asphyxie: 5,
 	noyade:6, noyer:6, baignade:6, baigner:6, piscine:6, plage:6, mer:6, nager:6, natation:6, bateau:6,
-	elongation:7, muscle:7, porter:7, dos:7, lumbago:7,
+	elongation:7, muscle:7, porter:7, dos:7, lumbago:7, mal:7, effort:7, soulever:7,
 	coupe:8, coupure:8, blessure:8, blesser:8, cisailles:8, lame:8, sang:8, saigner:8,
 	morsure:9, griffure:9, chat:9, chien:9, mord:9, griffe:9,
 	arme:10,
@@ -54,7 +54,7 @@ function handleAnswersBack(kw){
 			break;
 		case 2: fkw="incendie";break;
 		case 3: fkw="intoxication";break;
-		case 4: fkw="involontaire";break;
+		case 4: fkw="inhalation";break;
 		case 5: fkw="etouffement";break;
 		case 6: fkw="noyade";break;
 		case 7: fkw="";break;
@@ -87,8 +87,29 @@ function handleAnswersBack(kw){
 		- installer des détecteurs de fumée en réseau,\n\
 		-faire vérifier les appareils et les installations électriques\n\
 		-apprenez en plus sur les risques incendies.\n"+ ourDictionnaire["phrasesFin"][Math.floor(Math.random()*ourDictionnaire["phrasesFin"].length)]],
-	intoxication:[""],
-	etouffement:[""],
+	intoxication:["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*3)]+" les intoxications alimentares, il est important de bien se laver les mains avant de cuisiner et de manger. \
+	Désinfectez régulièrement les surfaces de travail, les ustensiles de cuisine et le réfrigérateur. \
+	Respectez les dates de péremption des aliments et conservez-les correctement. \
+	Respectez la chaîne du froid et cuisez suffisemment vos aliments. \
+	Évitez de consommer des aliments crus ou mal cuits, en particulier les viandes, les œufs et les produits laitiers. \
+	Évitez de consommer des aliments périmés ou dont l'emballage est endommagé. \
+	Lavez soigneusement les fruits et légumes avant de les consommer. \
+	Coupez les aliments en petits morceaux pour faciliter la cuisson et réduire le risque de contamination croisée. \
+	Faites en sorte de rendre les produits toxiques identifiables en les rangeant dans des contenants hermétiques et en les étiquetant clairement. \
+	Enfin, conservez vos produits d'entretien et vos médicaments dans leurs emballages d'origine."],
+	inhalation:["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*3)]+" l'inhalation de gaz toxiques, il est important de bien ventiler les pièces de votre maison. \
+	Vérifiez la bonne évacuation des équipements de gaz sur l'extérieur de votre maison. \
+	Vérifiez également que les appareils de chauffage à combustion sont en bon état de fonctionnement et qu'ils sont correctement installés.\
+	Évitez de fumer à l'intérieur de votre maison, car la fumée de cigarette peut être toxique pour les personnes qui y vivent.\
+	Respectez les consignes d'utilisation des appareils à combustion. \
+	N'utilisez jamais de façon prolongée des panneaux radiants à gaz ou des poêles à pétrole. \
+	Entretenez régulièrement votre cheminée si vous en avez une. \
+	Ne jamais utiliser une cuisinière ou un brasero comme chauffage de secours dans une pièce fermée.\
+	Enfin, il est important de ne pas utiliser de produits chimiques à l'intérieur de votre maison sans une ventilation adéquate."],
+	etouffement:["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*3)]+" les étouffements, il est important de bien mastiquer les aliments avant de les avaler.\
+	Prenez soin d'avoir une bonne hydratation et de ne pas parler en mangeant.\
+	Mangez dans une position assise et stable. Évitez de manger trop vite, de trop manger ou de manger en paralant.\
+	Faites attention aux noyaux des fruits et aux arêtes de poisson."],
 	noyade:["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*3)]+" la noyade, ne buvez pas d'alcool avant de vous baigner, cela risque d'altérer la \
 	coordination des gestes et d'entrainer des troubles de la vision. Évitez également de nager trop longtemps loin des bords, vous risquez de vous fatiguer \
 	ou de vous laisser surprendre par les courants et ne pas être en état de revenir. Si vous êtes sujet à des maladies cardio-vasculaire, la dépression ou a des vertiges, \
@@ -103,7 +124,11 @@ function handleAnswersBack(kw){
 	veillez à ne pas insister à carresser l'animal lorsque celui-ci refuse. Ne tirer pas trop sur la laisse, lors d'une promenade, cela risque de l'énerver et \
 	de le rendre plus aggressif. Lorsque vous le carressez, prenez garde à placer vos doigts loins de sa gueule, il pourrait vous mordre sans même le vouloir.\
 	Afin d'éviter certaines maladies graves lors d'un accident, il est nécessaire de tenir à jour les vaccins de l'animal."],
-	arme:[""],
+	arme:["Les accidents domestiques d'armes à feu sont souvent sous-estimés.\
+	Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*3)]+" les accidents d'armes à feu, il est important de garder les armes à feu et les munitions dans un endroit sûr et sécurisé. \
+	Traitez les armes à feu comme si elles étaient toujours chargées. \
+	Ne jamais pointer une arme à feu dans une direction sûre. \
+	"],
 	no:["Précisez votre demande, je suis là pour faire de la prévention primaire."]
 	}
 	ans=answers[fkw];
