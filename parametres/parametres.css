@@ -1,3 +1,5 @@
+@import url(../settings/root.css);
+
 #exemple {
     border: 5px solid #999;
     border-radius: 15px;

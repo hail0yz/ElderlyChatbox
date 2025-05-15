@@ -1,116 +1,85 @@
-var fontSize; // en pourcentage
-var fontColor;
-var backgroundColor;
-var borderColor;
-var fontType;
+const root_css_style = document.styleSheets[0].rules.item("../settings/root.css").styleSheet.cssRules.item(":root").style;
 
-function loadParametres() {
-    console.log("load paramètres")
-    fontSize = parseInt(localStorage.getItem("fontSize"))
-    if(Number.isNaN(fontSize)){
-        console.log("Paramètres par défaut.")
-        fontSize = 100;
-    }
-    document.body.style.fontSize = fontSize + "%"
+console.log(root_css_style["font-size"]);
+console.log(root_css_style["font-size"].slice(0,-2));
+console.log(parseInt(root_css_style["font-size"].slice(0,-2)));
+// Récupérer les anciens style du root.css
+const new_style = { 
+    "color": root_css_style["color"],
+    "background-color": root_css_style["background-color"],
+    "border-color": root_css_style["border-top-color"],
+    "font-family": root_css_style["font-family"],
+    "font-size": parseInt(root_css_style["font-size"].slice(0,-2))
+};
+console.log(new_style["font-size"]);
+// Pour l'exemple et "se souvenir" de comment faire
+const new_vars = {
+    // var_name : var_value
+    "red": "#ff0000"
+};
 
-    fontColor = localStorage.getItem("fontColor")
-    if(fontColor == null){
-        console.log("Paramètres par défaut.")
-        fontColor = "black";
-    }
-    document.body.style.color = fontColor
-
-    backgroundColor = localStorage.getItem("backgroundColor")
-    if(backgroundColor == null){
-        console.log("Paramètres par défaut.")
-        backgroundColor = "white";
-    }
-    document.body.style.backgroundColor = backgroundColor
-
-    borderColor = localStorage.getItem("borderColor")
-    if(borderColor == null){
-        console.log("Paramètres par défaut.")
-        borderColor = "black";
-    }
-    document.body.style.borderColor = borderColor
-
-    fontType = localStorage.getItem("fontType")
-    if(fontType == null){
-        console.log("Paramètres par défaut.")
-        fontType = "Arial";
-    }
-    document.body.style.fontFamily = fontType
-}
+const exemple_style = document.getElementById("exemple").style; 
 
 function storeParametres() {
-    localStorage.setItem("fontSize", fontSize)
-    localStorage.setItem("fontColor", fontColor)
-    localStorage.setItem("backgroundColor", backgroundColor)
-    localStorage.setItem("borderColor", borderColor)
-    localStorage.setItem("fontType", fontType)
+    new_style["font-size"] = `${new_style["font-size"]}px`;
+    window.chatbot_app.update_css_settings({
+        "usual_settings": new_style,
+        "vars": {
+            "red": "#ff0000"
+        }
+    });
+    window.location.reload();
 }
 
-function updateExemple() {
-    document.getElementById("exemple").style.fontSize = 16*fontSize/100 + "px"
-    document.getElementById("exemple").style.color = fontColor
-    document.getElementById("exemple").style.backgroundColor = backgroundColor
-    document.getElementById("exemple").style.borderColor = borderColor
-    document.getElementById("exemple").style.fontFamily = fontType
-}
 
 /*
 *   Taille de la police
 */
 
 function fontZoom() {
-    fontSize = (fontSize >= 200 ? 200 : fontSize + 10) 
-    updateExemple()
-    console.log("font size : " + fontSize)
+    console.log(new_style["font-size"]);
+    if(new_style["font-size"] < 30) new_style["font-size"]+=2;
+    exemple_style.fontSize = `${new_style["font-size"]}px`;
 }
 
 function fontDezoom() {
-    fontSize = (fontSize <= 50 ? 50 : fontSize - 10) 
-    updateExemple()
-    console.log("font size : " + fontSize)
+    if(new_style["font-size"] > 14) new_style["font-size"]-=2;
+    exemple_style.fontSize = `${new_style["font-size"]}px`;
+    console.log(new_style["font-size"]," - ",exemple_style.fontSize);
 }
 
 /*
 *   Couleur de la police
 */
-
+const font_color_input = document.getElementById("fontColors");
 function setFontColor() {
-    console.log("sfc font size : " + fontSize)
-    fontColor = document.getElementById("fontColors").selectedOptions[0].value
-    updateExemple()
-    console.log("font color : " + fontColor)
+    new_style.color = font_color_input.selectedOptions[0].value
+    exemple_style.color = new_style.color;
 }
 
 /*
 *   Couleur de fond
 */
-
+const bg_color_input = document.getElementById("backgroundColors");
 function setBackgroundColor() {
-    backgroundColor = document.getElementById("backgroundColors").selectedOptions[0].value
-    updateExemple()
-    console.log("background color : " + backgroundColor)
+    new_style["background-color"] = bg_color_input.selectedOptions[0].value
+    exemple_style.backgroundColor = new_style["background-color"];
 }
 
 /*
 *   Couleur de la bordure
 */
-
+const boreder_color_input = document.getElementById("borderColors");
 function setBorderColor() {
-    borderColor = document.getElementById("borderColors").selectedOptions[0].value
-    updateExemple()
-    console.log("border color : " + borderColor)
+    new_style["border-color"] = boreder_color_input.selectedOptions[0].value
+    exemple_style.borderColor = new_style["border-color"];
 }
 
 /*
- *   Type de police 
- */
-
+*   Type de police 
+*/
+const font_family_input = document.getElementById("fontTypes");
 function setFontType() {
-    fontType = document.getElementById("fontTypes").selectedOptions[0].value
-    updateExemple()
-    console.log("font type : " + fontType)
+    new_style["font-family"] = font_family_input.selectedOptions[0].value
+    exemple_style.fontFamily = new_style["font-family"];
 }

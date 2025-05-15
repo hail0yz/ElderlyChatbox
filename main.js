@@ -18,8 +18,8 @@ const createWindow = () => {
 }
 
 app.whenReady().then(() => {
-  ipcMain.handle('update_css_settings', () => {
-    update_css_settings(__dirname);
+  ipcMain.handle('update_css_settings', (_, obj) => {
+    update_css_settings(__dirname, obj);
   })
   createWindow()
 })
