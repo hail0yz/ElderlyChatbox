@@ -48,6 +48,7 @@ function handleAnswersBack(kw){
 					break;
 				}
 			}
+			if (context=="infos") c=1
 			if (c) fkw="brulureChim";
 			if (b) fkw="brulureFeu";
 			if(!b&!c) fkw="brulure";
@@ -61,9 +62,23 @@ function handleAnswersBack(kw){
 		case 8: fkw="coupe";break;
 		case 9: fkw="morsure";break;
 		case 10: fkw="arme";break;
+		case 101:
+			for (w in kw){
+				if (keywords[kw[w]]==1){
+					fkw="brulureChim";
+					break;
+				}
+				if (keywords[kw]==3){
+					fkw="intoxication";
+					break;
+				}
+			}
+			fkw="infos"
+			break;
+		case 102:
 		default: fkw="no"	
 	}
-	if (keywords[context]==keywords[fkw]){ // si l'id du keyword de context == l'id du keyword de fkw, alors on ajoute bis
+	if (keywords[fkw]&&keywords[context]==keywords[fkw]){ // si l'id du keyword de context == l'id du keyword de fkw, alors on ajoute bis
 		context = fkw;//mettre le context avant d'ajouter le bis car si on redemande ca decontextualise
 		fkw = fkw +"Bis";
 	}
@@ -138,6 +153,7 @@ function handleAnswersBack(kw){
 	Ne jamais pointer une arme à feu dans une direction sûre. \
 	"],
 	no:["Précisez votre demande, je suis là pour faire de la prévention primaire."]
+	infos:["Il semblerait que vous vouliez des renseignements sur des produits chimiques. Souhaitez-vous prévenir les brulures chimiques, ou les intoxations chimiques?"]
 	}
 	ans=answers[fkw];
 	return ans[Math.floor(Math.random()*ans.length)];
