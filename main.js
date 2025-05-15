@@ -13,6 +13,7 @@ const createWindow = () => {
     }
   })
 
+  win.webContents.openDevTools()
   win.loadFile('./menu/menu.html')
 }
 
