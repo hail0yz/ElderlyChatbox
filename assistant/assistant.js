@@ -12,7 +12,9 @@ let ourDictionnaire = {
 		" Prenez soin de vous."],
 	phrasesRappel:["Il semblerait que vous souhaitez en savoir plus.","Bien sur, voici d'autres informations à ce sujets:"],
 	surtout:["surtout","particulièrement"],
-	souhaitezvous["Souhaitez-vous", "Voudriez-vous", "Voulez-vous","Desirez-vous"]
+	souhaitezvous:["Souhaitez-vous", "Voudriez-vous", "Voulez-vous","Desirez-vous"],
+	activephysique:["\' activité physique","\' exercice physique","a forme physique", "\'entrainement physique"],
+	evitez:["evitez","abstenez vous","eliminer au plus possible"]
 }
 let keywords= {//les Objects sont interprétés comme un id commun aux mots "synonymes"
 	chute:0, tombe:0,tombé:0,chuté:0,
@@ -86,7 +88,7 @@ function handleAnswersBack(kw){
 	else{context=fkw;} // on store pour la prochaine fois, au cas ou l user demande plus de renseignements
 	let answers={
 	chute: ["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*ourDictionnaire["prevenir"].length)]+" les chutes, restez actif .\n \
-	L'activité physique peut contribuer grandement à la prévention des chutes.\n\
+	L"+ourDictionnaire["activephysique"][Math.floor(Math.random()*ourDictionnaire["activephysique"].length)]+" peut contribuer grandement à la prévention des chutes.\n\
 	Avec l'accord de votre professionnel de santé, envisagez des activités comme la marche, l'aquagym ou le tai-chi, un exercice doux qui implique des mouvements lents et gracieux, semblables à ceux d'une danse.",
 	"Les facteurs de risques de chute sont l'âge, vos activités de la vie quotidienne, la mobilité réduite, certaines pathologies\
 	telles que Parkinson, ou des troubles locomoteurs et neuro-musculaires. Pour ce qui est des facteurs extrinsèques, il s'agit de facteurs\
@@ -121,8 +123,8 @@ function handleAnswersBack(kw){
 	Désinfectez régulièrement les surfaces de travail, les ustensiles de cuisine et le réfrigérateur. \
 	Respectez les dates de péremption des aliments et conservez-les correctement. \
 	Respectez la chaîne du froid et cuisez suffisemment vos aliments. \
-	Évitez de consommer des aliments crus ou mal cuits, en particulier les viandes, les œufs et les produits laitiers. \
-	Évitez de consommer des aliments périmés ou dont l'emballage est endommagé. \
+	"+ourDictionnaire["evitez"][Math.floor(Math.random()*ourDictionnaire["evitez"].length)]+" de consommer des aliments crus ou mal cuits, en particulier les viandes, les œufs et les produits laitiers. \
+	"+ourDictionnaire["evitez"][Math.floor(Math.random()*ourDictionnaire["evitez"].length)]+" de consommer des aliments périmés ou dont l'emballage est endommagé. \
 	Lavez soigneusement les fruits et légumes avant de les consommer. \
 	Coupez les aliments en petits morceaux pour faciliter la cuisson et réduire le risque de contamination croisée. \
 	Faites en sorte de rendre les produits toxiques identifiables en les rangeant dans des contenants hermétiques et en les étiquetant clairement. \
@@ -130,7 +132,7 @@ function handleAnswersBack(kw){
 	inhalation:["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*ourDictionnaire["prevenir"].length)]+" l'inhalation de gaz toxiques, il est important de bien ventiler les pièces de votre maison. \
 	Vérifiez la bonne évacuation des équipements de gaz sur l'extérieur de votre maison. \
 	Vérifiez également que les appareils de chauffage à combustion sont en bon état de fonctionnement et qu'ils sont correctement installés.\
-	Évitez de fumer à l'intérieur de votre maison, car la fumée de cigarette peut être toxique pour les personnes qui y vivent.\
+	"+ourDictionnaire["evitez"][Math.floor(Math.random()*ourDictionnaire["evitez"].length)]+" de fumer à l'intérieur de votre maison, car la fumée de cigarette peut être toxique pour les personnes qui y vivent.\
 	Respectez les consignes d'utilisation des appareils à combustion. \
 	N'utilisez jamais de façon prolongée des panneaux radiants à gaz ou des poêles à pétrole. \
 	Entretenez régulièrement votre cheminée si vous en avez une. \
@@ -138,14 +140,14 @@ function handleAnswersBack(kw){
 	Enfin, il est important de ne pas utiliser de produits chimiques à l'intérieur de votre maison sans une ventilation adéquate."],
 	etouffement:["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*ourDictionnaire["prevenir"].length)]+" les étouffements, il est important de bien mastiquer les aliments avant de les avaler.\
 	Prenez soin d'avoir une bonne hydratation et de ne pas parler en mangeant.\
-	Mangez dans une position assise et stable. Évitez de manger trop vite, de trop manger ou de manger en paralant.\
+	Mangez dans une position assise et stable. "+ourDictionnaire["evitez"][Math.floor(Math.random()*ourDictionnaire["evitez"].length)]+" de manger trop vite, de trop manger ou de manger en paralant.\
 	Faites attention aux noyaux des fruits et aux arêtes de poisson."],
 	noyade:["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*ourDictionnaire["prevenir"].length)]+" la noyade, ne buvez pas d'alcool avant de vous baigner, cela risque d'altérer la \
-	coordination des gestes et d'entrainer des troubles de la vision. Évitez également de nager trop longtemps loin des bords, vous risquez de vous fatiguer \
+	coordination des gestes et d'entrainer des troubles de la vision. "+ourDictionnaire["evitez"][Math.floor(Math.random()*ourDictionnaire["evitez"].length)]+" également de nager trop longtemps loin des bords, vous risquez de vous fatiguer \
 	ou de vous laisser surprendre par les courants et ne pas être en état de revenir. Si vous êtes sujet à des maladies cardio-vasculaire, la dépression ou a des vertiges, \
 	la proscription de la baignade est de mise."],
-	elongation:["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*ourDictionnaire["prevenir"].length)]+"de vous élonguer un muscle lors d'un effort intense, pratiquer une activité physique régulière permet de maintenir les muscles en forme \
-	de réduire les risques de traumatisme. Évitez de porter ou de pousser des objets trop lourds, demandez de l'aide à quelqu'un ou utilisez \
+	elongation:["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*ourDictionnaire["prevenir"].length)]+"de vous élonguer un muscle lors d'un effort intense, pratiquer de l"+ourDictionnaire["activephysique"][Math.floor(Math.random()*ourDictionnaire["activephysique"].length)]+" régulièrement permet de maintenir les muscles en forme \
+	de réduire les risques de traumatisme. "+ourDictionnaire["evitez"][Math.floor(Math.random()*ourDictionnaire["evitez"].length)]+" de porter ou de pousser des objets trop lourds, demandez de l'aide à quelqu'un ou utilisez \
 	des objets adéquats comme une brouette ou un chario, par exemple."],
 	coupe:["Pour "+ ourDictionnaire["prevenir"][Math.floor(Math.random()*ourDictionnaire["prevenir"].length)]+" de vous couper ou de vous blaisser avec un objets tranchant, prenez soin de toujours \
 	vos couteaux et ustensiles de cuisines ou de jardinage la lame vers le bas, ainsi vous pourrez les empoignez sereinement (Attention, cependant, vous n'êtes jamais \
