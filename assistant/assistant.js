@@ -13,15 +13,6 @@ let ourDictionnaire = {
 	phrasesRappel:["Il semblerait que vous souhaitez en savoir plus.","Bien sur, voici d'autres informations à ce sujets:"],
 	surtout:["surtout","particulièrement"]
 }
-const randomStrings = [
-	"Je ne comprends pas",
-	"Pouvez-vous m'aider",
-	"Continuez",
-	"Plus d'informations",
-	"Expliquez-moi",
-	"Donnez un exemple",
-	"Recommendations"
-]
 let keywords= {//les Objects sont interprétés comme un id commun aux mots "synonymes"
 	chute:0, tombe:0,tombé:0,chuté:0,
 	brulure:1,brûlé:1, brûlée:1, brule:101,
@@ -39,7 +30,6 @@ let keywords= {//les Objects sont interprétés comme un id commun aux mots "syn
 	renseignements: 11,"dis moi en plus":11
 }
 function handleAnswersBack(kw){
-	console.log(kw)
 	switch(keywords[kw[0]]){
 		case 0: 
 		fkw="chute";break;
@@ -58,9 +48,6 @@ function handleAnswersBack(kw){
 					break;
 				}
 			}
-
-			console.log(c);
-			console.log(b);
 			if (c) fkw="brulureChim";
 			if (b) fkw="brulureFeu";
 			if(!b&!c) fkw="brulure";
@@ -90,6 +77,8 @@ function handleAnswersBack(kw){
 	Utilisez les appareils de chauffage "+ourDictionnaire["prevenir"][Math.floor(Math.random()*ourDictionnaire["prevenir"].length)]+" et tenez-les éloignés de tout ce qui peut brûler. Ne laissez jamais les bougies sans surveillance.\n \
 	 Abaissez la température du chauffe-eau (inférieure à 50°C).\n\
 	 Gardez les boissons chaudes, loin des bords de la table ou du comptoir.\n "],
+	brulureBis:[ourDictionnaire["phrasesRappel"][Math.floor(Math.random()*ourDictionnaire["phrasesRappel"].length)]+"\
+	Vous pourriez par exemple tourner les poignées des casseroles vers l’intérieurou encore ne pas oublier de laisser un peu refroidir les aliments chauffés au micro-ondes","test"],
 	brulureChim:["Vous pouvez aider à "+ourDictionnaire["prevenir"][Math.floor(Math.random()*ourDictionnaire["prevenir"].length)]+" les brûlures chimiques en :\n\
 		 lisant et en suivant toujours les instructions lors de l’utilisation de produits chimiques.\n \
 		 en portant toujours des gants de sécurité et des lunettes de protection lorsque vous utilisez des produits chimiques. en vous lavant toujours les mains après avoir utilisé un produit chimique."],
@@ -117,8 +106,8 @@ function handleAnswersBack(kw){
 	arme:[""],
 	no:["Précisez votre demande, je suis là pour faire de la prévention primaire."]
 	}
-	console.log(answers[fkw]);
-	return answers[fkw][0];
+	ans=answers[fkw];
+	return ans[Math.floor(Math.random()*ans.length)];
 }
 
 function searchKeyword(userMsg){
@@ -134,7 +123,6 @@ const createChatLi = (message, className) => {
 	return chatLi;
 }
 function handleAnswerUI(userMsg){
-	console.log("hello");
 	const kw= searchKeyword(userMsg);
 	if (!kw){
 		chatbox.appendChild(createChatLi("No keyword found","incoming"));
@@ -143,24 +131,28 @@ function handleAnswerUI(userMsg){
 	chatbox.appendChild(createChatLi(handleAnswersBack(kw),"incoming"));
 }
 
-
-function pickRandString(){
-	const l = randomStrings.length;
-	const myRandString = randomStrings[Math.floor(Math.random()*l)]
-	return myRandString;
-}
 function generateRandomButtons(){
+	console.log(context);
 	btnGrp.innerHTML=""; // Clear previous content
-	const btnNumber = Math.floor(Math.random()*4)+2;
-	for (let i=0; i < btnNumber; i++){
-		const btn = document.createElement("button");
-		btn.classList="btn-grp";
-		btn.textContent = pickRandString(); //test
-		btn.addEventListener("click", function() {
-			createChatLi(btn.textContent, "outgoing");
-			updateUI(btn.textContent);
-		});
-		btnGrp.appendChild(btn);	}
+	const btn = document.createElement("button");
+	btn.classList="btn-grp";
+	btn.textContent = "Donnez-moi plus d'informations"; //test
+	btn.addEventListener("click", function() {
+		chatbox.appendChild(createChatLi(btn.textContent, "outgoing"));
+
+		handleAnswerUI(context);
+	});
+	btnGrp.appendChild(btn);
+	const btn2 = document.createElement("button");
+	btn2.classList="btn-grp";
+	btn2.textContent = "Je ne comprends pas"; //test
+	btn2.addEventListener("click", function() {
+		chatbox.appendChild(createChatLi(btn2.textContent, "outgoing"));
+		myword=context;
+		context="";
+		handleAnswerUI(myword);
+	});
+	btnGrp.appendChild(btn2);
 	chatbox.scrollTop=chatbox.scrollHeight;
 }
 function updateUI(Usermsg){
