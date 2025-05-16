@@ -104,14 +104,28 @@ function handleAnswersBack(kw){
 		default: fkw="no"	
 	}
 
+    let mainTheme = fkw;
+
 	if (keywords[fkw]&&keywords[context]==keywords[fkw]){ // si l'id du keyword de context == l'id du keyword de fkw, alors on ajoute bis
 		context = fkw;//mettre le context avant d'ajouter le bis car si on redemande ca decontextualise
 		fkw = fkw +"Bis";
 	}
 	else{context=fkw;} // on store pour la prochaine fois, au cas ou l user demande plus de renseignements
-	
+	updateThemeData(mainTheme);
+ 
+    if (mainTheme === "brulureChim" || mainTheme === "brulureFeu") {
+        updateThemeData("brulure");
+    }
 	const answer = getAnswerString(fkw);
 	return getFilledAnswer(answer)
+}
+// Nouvelle fonction pour mettre à jour les données d'un thème
+function updateThemeData(themeName) {
+    if (data.themes[themeName]) {
+        data.themes[themeName].date = Math.floor(Date.now() / 1000);
+        data.themes[themeName].count += 1;
+        saveData();
+    }
 }
 function getAnswerString(fkw) { 
 	const ans = data.answers[fkw];
@@ -136,14 +150,19 @@ function getWord(str) {
 	return ourDictionnaire[str][Math.floor(Math.random()*ourDictionnaire[str].length)];
 }
 
-function createSuggestions(){
-	let occurencesTotal=0
-	let themes=data.themes;
-	for (var w in themes){
-		if ((w[date].getTime()-Date.now().getTime()/1000)<604800){// une semaine en secondes
-			suggestions.append[w.key]
-		}
-	}
+function createSuggestions() {
+  suggestions = [];
+  let themes = data.themes;
+  const now = Date.now() / 1000; // Temps actuel en secondes
+  for (const themeName in themes) {
+    const theme = themes[themeName];
+    const themeDate = theme.date || 0;
+    if (now - themeDate > 604800) { // 604800 secondes = 1 semaine
+      suggestions.push(themeName);
+    }
+  }
+  
+  return suggestions;
 }
 
 function searchKeyword(userMsg){
@@ -204,11 +223,11 @@ function generateRandomButtons(){
 		if(suggestions.length==1){
 			myString="Nous n'avons pas parlé de"+suggestions[0]+"depuis quelques temps. Voici ce que je peux vous dire à ce sujet";
 			handleAnswerUI(suggestions[0])
-			data.themes[suggestions[0]][count]+=1
-			data.themes[suggestions[0]][date]+=Date.now();
+			data.themes[suggestions[0]]["count"]+=1
+			data.themes[suggestions[0]]["date"]+=Date.now();
 			return ;
 		}
-		myString= "Nous n'avons pas parlé de "+suggestions.join(', ')+" récemment. Lequel de ces thèmes préferiez-vous aborder?"
+		let myString= "Nous n'avons pas parlé de "+suggestions.join(', ')+" récemment. Lequel de ces thèmes préferiez-vous aborder?"
 		chatbox.appendChild(createChatLi(myString,"incoming"));
 	});
 	btnGrp.appendChild(btn3);
