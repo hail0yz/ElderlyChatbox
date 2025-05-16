@@ -5,8 +5,8 @@
       "count": 0
     },
     "brulure": {
-      "date": 0,
-      "count": 0
+      "date": 1747383774,
+      "count": 4
     },
     "incendie": {
       "date": 0,
@@ -50,6 +50,12 @@
       "Pour %prevenir% les chutes, restez actif .\n L%activephysique% peut contribuer grandement à la prévention des chutes.\n Avec l'accord de votre professionnel de santé, envisagez des activités comme la marche, l'aquagym ou le tai-chi, un exercice doux qui implique des mouvements lents et gracieux, semblables à ceux d'une danse.",
       "Les facteurs de risques de chute sont l'âge, vos activités de la vie quotidienne, la mobilité réduite, certaines pathologies telles que Parkinson, ou des troubles locomoteurs et neuro-musculaires. Pour ce qui est des facteurs extrinsèques, il s'agit de facteurs comportementaux: la consommation d'alcool, la sédentarité et la malnutrition, ou bien de facteurs environnementaux comme la nécessité d'un instrument d'aide, la prise de risque ou un habitat mal adapté."
     ],
+    "denutrition":[
+      "Rendre les moments des repas plus agréables",
+      "Réhausser le goût des plats avec des épices, aromates, condiments, …",
+      "Organiser des livraisons de repas à domicile afin de garantir la prise de repas adaptés aux goûts des personnes tout en répondant à leurs besoins nutritionnels",
+      "Augmenter le nombre de prises alimentaires en ajoutant des collations entre les repas"
+    ],
     "chuteBis": [
       "%phrasesRappel%Vous pouvez aussi par exemple éviter tapis aux bords élevés, restez vigilant dans les escaliers%surtout% en cas de pluie ou de gel.",
       "%phrasesRappel%Réaliser quelques tests simples peut être utile à titre systématique pour confirmer l’absence de risque de chute au cours de la consultation. C’est indispensable en cas de chute signalée, même si elle paraît banale, ou en présence de facteurs de risque de chute. Vous pouvez demander à un professionnel de santé de réaliser ces tests."
@@ -83,25 +89,50 @@
       "Pour %prevenir% les étouffements, il est important de bien mastiquer les aliments avant de les avaler. Prenez soin d'avoir une bonne hydratation et de ne pas parler en mangeant. Mangez dans une position assise et stable. %evitez% de manger trop vite, de trop manger ou de manger en paralant. Faites attention aux noyaux des fruits et aux arêtes de poisson."
     ],
     "noyade": [
-      "Pour %prevenir% la noyade, ne buvez pas d'alcool avant de vous baigner, cela risque d'altérer la coordination des gestes et d'entrainer des troubles de la vision. %evitez% également de nager trop longtemps loin des bords, vous risquez de vous fatiguer ou de vous laisser surprendre par les courants et ne pas être en état de revenir. Si vous êtes sujet à des maladies cardio-vasculaire, la dépression ou a des vertiges, la proscription de la baignade est de mise."
+     "Ne pas boire d’alcool avant de se baigner",
+     "Éviter de se baigner en cas de maladie cardio-vasculaire, de dépression, ou de vertiges",
+    "Éviter de se baigner en cas de maladie cardio-vasculaire, de dépression, ou de vertiges"
+    
     ],
     "elongation": [
-      "Pour %prevenir%de vous élonguer un muscle lors d'un effort intense, pratiquer de l%activephysique% régulièrement permet de maintenir les muscles en forme de réduire les risques de traumatisme. %evitez% de porter ou de pousser des objets trop lourds, demandez de l'aide à quelqu'un ou utilisez des objets adéquats comme une brouette ou un chario, par exemple."
+    "Eviter de porter des objets trop lourds",
+    "Pratiquer une activité physique régulière"
     ],
     "coupe": [
-      "Pour %prevenir% de vous couper ou de vous blaisser avec un objets tranchant, prenez soin de toujours vos couteaux et ustensiles de cuisines ou de jardinage la lame vers le bas, ainsi vous pourrez les empoignez sereinement (Attention, cependant, vous n'êtes jamais à l'abri d'une innatention). Pensez également à prendre votre temps et à vous appliquer pendant votre tâche pour ne pas faire de mauvaise manipulation."
-    ],
+      "Toujours ranger les couteaux la lame vers le bas",
+      "Prendre son temps et se concentrer sur sa tâche"
+        ],
     "morsure": [
-      "Pour %prevenir% les morsures ou griffures d'animaux domestiques comme les chats ou les chiens, veillez à ne pas insister à caresser l'animal lorsque celui-ci refuse. Ne tirez pas trop sur la laisse lors d'une promenade, cela risque de l'énerver et de le rendre plus aggressif. Lorsque vous le caressez, prenez garde à placer vos doigts loins de sa gueule, il pourrait vous mordre sans même le vouloir. Afin d'éviter certaines maladies graves lors d'un accident, il est nécessaire de tenir à jour les vaccins de l'animal."
+      "Ne pas insister à vouloir caresser les animaux",
+      "Ne pas tirer trop fort sur la laisse quand l’animal résiste",
+      "Eviter de placer ses doigts proche de la gueule de l’animal",
+      "Tenir à jour les vaccins de l’animal"
     ],
     "arme": [
-      "Les accidents domestiques d'armes à feu sont souvent sous-estimés. Pour %prevenir% les accidents d'armes à feu, il est important de garder les armes à feu et les munitions dans un endroit sûr et sécurisé. Traitez les armes à feu comme si elles étaient toujours chargées. Ne jamais pointer une arme à feu dans une direction sûre."
+      "Toujours traiter l’arme comme si elle était chargée",
+      "Toujours pointer l’arme vers une direction sûre",
+      "Toujours garder le doigt hors de la détente",
+      "Toujours utiliser un drapeau de sécurité pour indiquer que l’arme est inopérante",
+      "Toujours demander l’autorisation du propriétaire avant de manipuler une arme qui ne nous appartient pas",
+      "Entretenir l’arme régulièrement",
+      "Stockage obligatoire un coffre-fort ou une armoire à armes forte",
+      "Sécurisation des munitions"
     ],
     "no": [
       "Précisez votre demande, je suis là pour faire de la prévention primaire."
     ],
     "infos": [
       "Il semblerait que vous vouliez des renseignements sur des produits chimiques.%souhaitezvous% prévenir les brulures chimiques, ou les intoxations chimiques? %prevenir% "
+    ],
+    "electrocution":[
+      "Réparer les prises cassées",
+      "Utiliser peu de multiprise et privilégier celles avec un coupe-circuit",
+      "Ne pas laisser les fils électriques dénudés et ne pas les toucher",
+      "Éviter de clouer et agrafer des câbles électriques, de les faires passer sous une porte ou un tapis ou d’y accrocher des objets pour ne pas les abimer",
+      "Éviter au maximum d’utiliser des rallonges ou de les laisser branchées",
+      "Jeter les vieilles rallonges fendillées",
+      "Ne jamais utiliser d’appareil électrique branché sur secteur avec les mains mouillées, les pieds dans l’eau, près d’une arrivées d’eau ni sous la douche ou dans un bain",
+      "Charger les appareils électroniques en dehors des pièces humides"
     ]
   },
   "ourDictionnaire": {
