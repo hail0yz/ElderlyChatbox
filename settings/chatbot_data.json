@@ -1,12 +1,12 @@
 {
   "themes": {
     "chute": {
-      "date": 0,
-      "count": 0
+      "date": 1747401112,
+      "count": 1
     },
     "brulure": {
-      "date": 0,
-      "count": 0
+      "date": 1747401095,
+      "count": 2
     },
     "incendie": {
       "date": 0,
@@ -179,7 +179,7 @@
     ],
     "elongationBis": [
       "%Ne pas%  soulever des objets lourds",
-      "%Ne pas%  porter des charges trop lourdes",
+      "%Ne pas%  porter des charges trop lourdes"
     ],
     "coupe": [
       "ranger %toujours% les couteaux la lame vers le bas",
@@ -312,7 +312,6 @@
       "Ne pas essayer de"
     ]
   },
-
   "keywords": {
     "chute": {
       "clé": [
