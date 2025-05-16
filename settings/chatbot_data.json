@@ -55,12 +55,6 @@
       "Avec l'accord de votre professionnel de santé, envisagez des activités comme la marche, l'aquagym ou le tai-chi, un exercice doux qui implique des mouvements lents et gracieux, semblables à ceux d'une danse",
       "Les facteurs de risques de chute sont l'âge, vos activités de la vie quotidienne, la mobilité réduite, certaines pathologies telles que Parkinson, ou des troubles locomoteurs et neuro-musculaires. Pour ce qui est des facteurs extrinsèques, il s'agit de facteurs comportementaux: la consommation d'alcool, la sédentarité et la malnutrition, ou bien de facteurs environnementaux comme la nécessité d'un instrument d'aide, la prise de risque ou un habitat mal adapté"
     ],
-    "denutrition": [
-      "Rendez les moments des repas plus agréables",
-      "Réhaussez le goût des plats avec des épices, aromates, condiments, …",
-      "Organisez des livraisons de repas à domicile afin de garantir la prise de repas adaptés aux goûts des personnes tout en répondant à leurs besoins nutritionnels",
-      "Augmentez le nombre de prises alimentaires en ajoutant des collations entre les repas"
-    ],
     "chuteBis": [
       "Vous pouvez, par exemple, éviter les tapis aux bords élevés",
       "Restez vigilant dans les escaliers %surtout% en cas de pluie ou de gel",
@@ -68,24 +62,46 @@
       "C’est indispensable en cas de chute signalée, même si elle paraît banale, ou en présence de facteurs de risque de chute",
       "Vous pouvez demander à un professionnel de santé de réaliser ces tests"
     ],
+    "denutrition": [
+      "Rendez les moments des repas plus agréables",
+      "Réhaussez le goût des plats avec des épices, aromates, condiments, …",
+      "Organisez des livraisons de repas à domicile afin de garantir la prise de repas adaptés aux goûts des personnes tout en répondant à leurs besoins nutritionnels",
+      "Augmentez le nombre de prises alimentaires en ajoutant des collations entre les repas"
+    ],
+    "denutritionBis": [
+      "Vous pouvez, par exemple, %evitez% de rester seul pendant les repas",
+      "Mangez à des heures régulières et dans un endroit calme",
+      "Mangez lentement et mastiquez bien vos aliments",
+      "Ne pas hésiter à demander de l'aide pour se nourrir"
+    ],
     "brulure": [
       "Utilisez les appareils de chauffage %prevenir% et tenez-les éloignés de tout ce qui peut brûler",
       "Ne laissez jamais les bougies sans surveillance",
       "Abaissez la température du chauffe-eau (inférieure à 50°C)",
       "Gardez les boissons chaudes, loin des bords de la table ou du comptoir"
     ],
+    "brulureBis": [
+      "Tourner les poignées des casseroles vers l’intérieur",
+      "%evitez% de porter des vêtements amples lorsque vous cuisinez",
+      "Utilisez des maniques pour manipuler les plats chauds et les ustensiles de cuisine",
+      "%attention% aux liquides bouillants et aux graisses chaudes"
+    ],
     "brulureChim": [
       "Vous pouvez aider à %prevenir% les brûlures chimiques en lisant et en suivant toujours les instructions lors de l’utilisation de produits chimiques",
       "En portant toujours des gants de sécurité et des lunettes de protection lorsque vous utilisez des produits chimiques",
       "En vous lavant toujours les mains après avoir utilisé un produit chimique"
+    ],
+    "brulureChimBis": [
+      "%evitez% de mélanger des produits chimiques",
+      "Ne jamais utiliser de produits chimiques à l'intérieur de votre maison sans une ventilation adéquate",
+      "Ne jamais utiliser de produits chimiques à proximité d'une source de chaleur ou d'une flamme nue"
     ],
     "brulureFeu": [
       "Il est important de ne pas fumer à l'intérieur de votre maison",
       "Tournez les poignées des casseroles vers l'intérieur de la cuisinière",
       "Laissez un peu refroidrir les aliments chauffés au micro-ondes"
     ],
-    "brulureBis": [
-      "Vous pourriez par exemple tourner les poignées des casseroles vers l’intérieur ou encore ne pas oublier de laisser un peu refroidir les aliments chauffés au micro-ondes",
+    "brulureFeuBis": [
       "%evitez% de porter des vêtements amples lorsque vous cuisinez",
       "Utilisez des maniques pour manipuler les plats chauds et les ustensiles de cuisine",
       "%attention% aux liquides bouillants et aux graisses chaudes"
@@ -94,6 +110,11 @@
       "Installez des détecteurs de fumée en réseau",
       "Faites vérifier les appareils et les installations électriques",
       "Apprenez en plus sur les risques incendies"
+    ],
+    "incendieBis": [
+      "%evitez% de fumer à l'intérieur de votre maison",
+      "Ne laissez jamais les bougies sans surveillance",
+      "Abaissez la température du chauffe-eau (inférieure à 50°C)"
     ],
     "intoxication": [
       "Pour %prevenir% les intoxications alimentares, il est important de bien se laver les mains avant de cuisiner et de manger.\n",
@@ -149,19 +170,33 @@
       "Ne pas boire d’alcool avant de se baigner",
       "%evitez% de se baigner en cas de maladie cardio-vasculaire, de dépression, ou de vertiges"
     ],
+    "noyadeBis": [
+      "%Ne pas%  se baigner seul"
+    ],
     "elongation": [
       "%evitez% de porter des objets trop lourds",
       "Pratiquez une activité physique régulière"
+    ],
+    "elongationBis": [
+      "%Ne pas%  soulever des objets lourds",
+      "%Ne pas%  porter des charges trop lourdes",
     ],
     "coupe": [
       "%toujours% ranger les couteaux la lame vers le bas",
       "Prendre son temps et se concentrer sur sa tâche"
     ],
+    "coupeBis": [
+      "%evitez% de couper des aliments sur une surface glissante",
+      "%Ne pas% utiliser de couteaux émoussés"
+    ],
     "morsure": [
-      "Ne pas insistez à vouloir caresser les animaux",
-      "Ne pas tirez trop fort sur la laisse quand l’animal résiste",
+      "%Ne pas%  insistez à vouloir caresser les animaux",
+      "%Ne pas%  tirez trop fort sur la laisse quand l’animal résiste",
       "%evitez% de placer ses doigts proche de la gueule de l’animal",
       "Tenez à jour les vaccins de l’animal"
+    ],
+    "morsureBis": [
+      "%Ne pas% jouer avec les animaux"
     ],
     "arme": [
       "%toujours% traiter l’arme comme si elle était chargée",
@@ -187,6 +222,10 @@
       "%evitez% au maximum d’utiliser des rallonges ou de les laisser branchées",
       "Jeter les vieilles rallonges fendillées",
       "Ne jamais utiliser d’appareil électrique branché sur secteur avec les mains mouillées, les pieds dans l’eau, près d’une arrivées d’eau ni sous la douche ou dans un bain",
+      "Charger les appareils électroniques en dehors des pièces humides"
+    ],
+    "electrocutionBis": [
+      "%Ne pas% utiliser d’appareil électrique branché sur secteur avec les mains mouillées, les pieds dans l’eau, près d’une arrivées d’eau ni sous la douche ou dans un bain",
       "Charger les appareils électroniques en dehors des pièces humides"
     ]
   },
@@ -270,8 +309,14 @@
       "faites attention",
       "soyez vigilant",
       "prenez garde"
+    ],
+    "Ne pas": [
+      "Ne pas",
+      "Evitez de",
+      "Ne pas essayer de"
     ]
   },
+
   "keywords": {
     "chute": {
       "clé": [

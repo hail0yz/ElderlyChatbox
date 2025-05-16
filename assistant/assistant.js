@@ -286,3 +286,11 @@ function ourDictionnaireFromData(){
 			ourDictionnaire[key]=data.ourDictionnaire[key];
 		}
 }
+
+
+// Fonction pour récupérer les thèmes les moins abordés
+function getLeastDiscussedThemes() {
+    const themes = Object.entries(data.themes);
+    themes.sort((a, b) => a[1].count - b[1].count); 
+    return themes.slice(0, 3).map(theme => theme[0]); 
+}
