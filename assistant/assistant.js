@@ -52,13 +52,16 @@ let keywords= {//les Objects sont interprétés comme un id commun aux mots "syn
 	renseignements: 11,"dis moi en plus":11
 }
 function handleAnswersBack(kw){
+	let fkw;
 	switch(keywords[kw[0]]){
 		case 0: 
 		fkw="chute";break;
 		case 1: 
-			for (w in kw){
+		let c; let b;
+			for (var w in kw){
 				console.log(w)
-				c=0;b=0;
+				c=0;
+				b=0;
 				if (keywords[kw[w]]== 101){
 					c=1;
 				}
@@ -70,7 +73,7 @@ function handleAnswersBack(kw){
 					break;
 				}
 			}
-			if (context=="infos") c=1
+			if (context=="infos")  c=1
 			if (c) fkw="brulureChim";
 			if (b) fkw="brulureFeu";
 			if(!b&!c) fkw="brulure";
@@ -134,9 +137,9 @@ function getWord(str) {
 }
 
 function createSuggestions(){
-	occurencesTotal=0
-	themes=data.themes;
-	for (w in themes){
+	let occurencesTotal=0
+	let themes=data.themes;
+	for (var w in themes){
 		if ((w[date].getTime()-Date.now().getTime()/1000)<604800){// une semaine en secondes
 			suggestions.append[w.key]
 		}
@@ -165,9 +168,8 @@ function handleAnswerUI(userMsg){
 }
 
 function generateRandomButtons(){
-	console.log(context);
 	btnGrp.innerHTML=""; // Clear previous content
-	let re= new RegExp('Bis','g')
+	//let re= new RegExp('Bis','g')
 	const btn = document.createElement("button");
 	btn.classList="btn-grp";
 	btn.textContent = "Donnez-moi plus d'informations"; //test
@@ -177,7 +179,7 @@ function generateRandomButtons(){
 		handleAnswerUI(context);
 	});
 	btnGrp.appendChild(btn);
-	if (!(context.test(re))){ //pas de reformulation de bis pour l'instant
+	/*if (!(context.test(re))){ //pas de reformulation de bis pour l'instant
 		const btn2 = document.createElement("button");
 		btn2.classList="btn-grp";
 		btn2.textContent = "Je ne comprends pas"; //test
@@ -188,7 +190,7 @@ function generateRandomButtons(){
 			handleAnswerUI(myword);
 		});
 	}
-	btnGrp.appendChild(btn2);
+	btnGrp.appendChild(btn2);*/
 	const btn3 = document.createElement("button");
 	btn3.classList="btn-grp";
 	btn3.textContent = "Pouvez-vous me suggérer un thème"; //test
@@ -209,7 +211,7 @@ function generateRandomButtons(){
 		myString= "Nous n'avons pas parlé de "+suggestions.join(', ')+" récemment. Lequel de ces thèmes préferiez-vous aborder?"
 		chatbox.appendChild(createChatLi(myString,"incoming"));
 	});
-	btnGrp.appendChild(btn2);
+	btnGrp.appendChild(btn3);
 	chatbox.scrollTop=chatbox.scrollHeight;
 }
 function updateUI(Usermsg){
@@ -221,7 +223,7 @@ function updateUI(Usermsg){
 	
 }
 const handleChat = () => {
-	chatInput = document.getElementById("msg");
+	let chatInput = document.getElementById("msg");
 	userMessage = chatInput.value;
 	if (!userMessage) return;
 	updateUI(userMessage.trim());
