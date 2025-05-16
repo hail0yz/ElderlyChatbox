@@ -21,20 +21,8 @@ let userMessage;
 let keyCount=0;
 let context;
 let suggestions;
-let ourDictionnaire = {
-	prevenir:["prévenir","aviser","pallier"],
-	sports:["gymnastique douce","gym sénior","marche à pied","tai-chi","aquagym"],
-	prudemment:["prudemment","avec prudence","précautionneusement"],
-	phrasesFin:[" Si vous souhaitez en savoir plus, dites-le moi!", " N'hésitez pas à me demander plus de renseignements.",
-		" Prenez soin de vous."],
-	phrasesRappel:["Il semblerait que vous souhaitez en savoir plus.","Bien sur, voici d'autres informations à ce sujets:"],
-	surtout:["surtout","particulièrement"],
-	souhaitezvous:["Souhaitez-vous", "Voudriez-vous", "Voulez-vous","Desirez-vous"],
-	activephysique:["\' activité physique","\' exercice physique","a forme physique", "\'entrainement physique"],
-	evitez:["evitez","abstenez vous","eliminer au plus possible"],
-	verifiez:["Contrôlez","Vérifiez","Testez","Evaluez","Surveillez"],
-	respectez:["Respectez","Appliquez"]
-}
+let ourDictionnaire = {};
+ourDictionnaireFromData();
 let keywords= {}
 listKeyFromData();
 
@@ -285,11 +273,16 @@ window.resetDataTheme = function () {
 function listKeyFromData(){
 	for (let themesname in data.themes){
 		for (let key in data.keywords[themesname]["clé"]) {
-			console.log(data.keywords[themesname]["clé"][key]);
-			console.log(data.keywords[themesname]["id"]);
+			//console.log(data.keywords[themesname]["clé"][key]);
+			//console.log(data.keywords[themesname]["id"]);
 			keywords[data.keywords[themesname]["clé"][key]]=data.keywords[themesname]["id"];
 		}
 	}
+}
 
-	console.log(keywords);
+function ourDictionnaireFromData(){
+		for (let key in data.ourDictionnaire) {
+			//console.log("mot ",key,data.ourDictionnaire[key]);
+			ourDictionnaire[key]=data.ourDictionnaire[key];
+		}
 }
