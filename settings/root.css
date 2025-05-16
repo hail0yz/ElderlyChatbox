@@ -1,8 +1,22 @@
 :root { 
     --red: #ff0000;
-    color: black;
-    background-color: white;
+    color: #596475;
+    background-color: #FDE8E9;
     border-color: black;
     font-family: Arial;
     font-size: 20px;
+    chatbot-background: #FDE8E9;
+    header-background-start: #0e86b5;
+    header-background-end: #82dcff;
+    header-text-color: #e0e0e0;
+    outgoing-background: #BC9EC1;
+    outgoing-text-color: #fff;
+    incoming-background-start: #E3BAC6;
+    incoming-background-end: #c097a3;
+    incoming-text-color: #000;
+    chat-icon-color: #BC9EC1;
+    fontoutgoing: #1F2232;
+    incoming: #E3BAC6;
+    outgoing: #BC9EC1;
+    button-background: #BC9EC1;
 }

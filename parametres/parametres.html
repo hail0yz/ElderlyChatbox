@@ -18,51 +18,15 @@
             <h3>Taille de la police d'écriture</h3>
             <button onclick="fontZoom()">+</button>
             <button onclick="fontDezoom()">-</button>
-            <h3>Couleur de la police d'écriture</h3>
-            <label>Choisir une couleur : </label>
-            <select id="fontColors">
-                <option value="black">Noir</option>
-                <option value="blue">Bleu</option>
-                <option value="red">Rouge</option>
-                <option value="green">Vert</option>
-                <option value="purple">Violet</option>
-                <option value="orange">Orange</option>
-                <option value="pink">Rose</option>
-                <option value="brown">Marron</option>
-                <option value="gray">Gris</option>
-                <option value="yellow">Jaune</option>
-                <option value="cyan">Cyan</option>
-                <option value="magenta">Magenta</option>
-                <option value="lightgray">Gris clair</option>
-                <option value="lightgreen">Vert clair</option>
-                <option value="lightblue">Bleu clair</option>
-                <option value="lightyellow">Jaune clair</option>
-            </select>
-            <button onclick="setFontColor()">Sélectionner</button>
-            <h3>Couleur de fond</h3>
-            <label>Choisir une couleur : </label>
-            <select id="backgroundColors">
-                <option value="white">Blanc</option>
-                <option value="lightblue">Bleu clair</option>
-                <option value="lightgreen">Vert clair</option>
-                <option value="lightyellow">Jaune clair</option>
-                <option value="lightpink">Rose clair</option>
-                <option value="lightgray">Gris clair</option>
-                <option value="lightcoral">Corail clair</option>
-            </select>
-            <button onclick="setBackgroundColor()">Sélectionner</button>
-            <h3>Couleur de la bordure</h3>
-            <label>Choisir une couleur : </label>
-            <select id="borderColors">
-                <option value="black">Noir</option>
-                <option value="blue">Bleu</option>
-                <option value="red">Rouge</option>
-                <option value="green">Vert</option>
-                <option value="purple">Violet</option>
-                <option value="orange">Orange</option>
-            </select>
-            <button onclick="setBorderColor()">Sélectionner</button>
-
+            <div class="palette choice">
+            <h3>Choix de palette</h3>
+            <div class="btn-grp" id="palettebuttons">
+            <button onclick="updateUI('#6C534E','#C89FA3','#C2E7D9','#DBB3B1','#2C1A1D')" style="background-color:#6C534E;"></button>
+            <button onclick="updateUI('#0F084B','#0D0221','#C2E7D9','#A6CFD5','#26408B')" style="background-color:#0F084B;"></button>
+            <button onclick="updateUI('#F38375','#F7A399','#EF6351','#FBC3BC','#26408B')" style="background-color:#F38375;">
+            </button>
+            <button onclick="updateUI('#FDE8E9','#BC9EC1','#E3BAC6','#596475','#1F2232')" style="background-color:#BC9EC1;">
+            </button>
             <h3>Type de police</h3>
             <label>Choisir une police : </label>
             <select id="fontTypes">
