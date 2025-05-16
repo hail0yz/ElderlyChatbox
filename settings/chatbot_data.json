@@ -43,57 +43,67 @@
     "arme": {
       "date": 0,
       "count": 0
+    },
+    "Déshydratation": {
+      "date": 0,
+      "count": 0
     }
   },
   "answers": {
     "chute": [
-      "Restez actif et bougez régulièrement, L%activephysique% peut contribuer grandement à la prévention des chutes",
-      "Avec l'accord de votre professionnel de santé, envisagez des activités comme la marche, l'aquagym ou le tai-chi, un exercice doux qui implique des mouvements lents et gracieux, semblables à ceux d'une danse",
-      "Les facteurs de risques de chute sont l'âge, vos activités de la vie quotidienne, la mobilité réduite, certaines pathologies telles que Parkinson, ou des troubles locomoteurs et neuro-musculaires. Pour ce qui est des facteurs extrinsèques, il s'agit de facteurs comportementaux: la consommation d'alcool, la sédentarité et la malnutrition, ou bien de facteurs environnementaux comme la nécessité d'un instrument d'aide, la prise de risque ou un habitat mal adapté"
+      "Pour %prevenir% les chutes, restez actif .\n L%activephysique% peut contribuer grandement à la prévention des chutes.\n Avec l'accord de votre professionnel de santé, envisagez des activités comme la marche, l'aquagym ou le tai-chi, un exercice doux qui implique des mouvements lents et gracieux, semblables à ceux d'une danse.",
+      "Les facteurs de risques de chute sont l'âge, vos activités de la vie quotidienne, la mobilité réduite, certaines pathologies telles que Parkinson, ou des troubles locomoteurs et neuro-musculaires. Pour ce qui est des facteurs extrinsèques, il s'agit de facteurs comportementaux: la consommation d'alcool, la sédentarité et la malnutrition, ou bien de facteurs environnementaux comme la nécessité d'un instrument d'aide, la prise de risque ou un habitat mal adapté."
     ],
     "chuteBis": [
-      "Vous pouvez aussi par exemple éviter tapis aux bords élevés, restez vigilant dans les escaliers%surtout% en cas de pluie ou de gel",
-      "Réaliser quelques tests simples peut être utile à titre systématique pour confirmer l’absence de risque de chute au cours de la consultation",
-      "C’est indispensable en cas de chute signalée, même si elle paraît banale, ou en présence de facteurs de risque de chute",
-      "Vous pouvez demander à un professionnel de santé de réaliser ces tests"
+      "%phrasesRappel%Vous pouvez aussi par exemple éviter tapis aux bords élevés, restez vigilant dans les escaliers%surtout% en cas de pluie ou de gel.",
+      "%phrasesRappel%Réaliser quelques tests simples peut être utile à titre systématique pour confirmer l’absence de risque de chute au cours de la consultation. C’est indispensable en cas de chute signalée, même si elle paraît banale, ou en présence de facteurs de risque de chute. Vous pouvez demander à un professionnel de santé de réaliser ces tests."
     ],
     "brulure": [
-      "Utilisez les appareils de chauffage %prevenir% et tenez-les éloignés de tout ce qui peut brûler",
-      "Ne laissez jamais les bougies sans surveillance",
-      "Abaissez la température du chauffe-eau (inférieure à 50°C)",
-      "Gardez les boissons chaudes, loin des bords de la table ou du comptoir"
+      "Pour %prevenir% les brûlures, vous devriez:\n Utilisez les appareils de chauffage %prevenir% et tenez-les éloignés de tout ce qui peut brûler. Ne laissez jamais les bougies sans surveillance.\n Abaissez la température du chauffe-eau (inférieure à 50°C).\n Gardez les boissons chaudes, loin des bords de la table ou du comptoir.\n "
     ],
     "brulureChim": [
-      "Vous pouvez aider à %prevenir% les brûlures chimiques en lisant et en suivant toujours les instructions lors de l’utilisation de produits chimiques",
-      "En portant toujours des gants de sécurité et des lunettes de protection lorsque vous utilisez des produits chimiques",
-      "En vous lavant toujours les mains après avoir utilisé un produit chimique"
+      "Vous pouvez aider à %prevenir% les brûlures chimiques en lisant et en suivant toujours les instructions lors de l’utilisation de produits chimiques.\n en portant toujours des gants de sécurité et des lunettes de protection lorsque vous utilisez des produits chimiques. en vous lavant toujours les mains après avoir utilisé un produit chimique."
     ],
     "brulureFeu": [
-      "Il est important de ne pas fumer à l'intérieur de votre maison",
-      "Tournez les poignées des casseroles vers l'intérieur de la cuisinière",
-      "Laissez un peu refroidrir les aliments chauffés au micro-ondes"
+      "Pour %prevenir% les brûlures de feu, il est important de ne pas fumer à l'intérieur de votre maison. Tournez les poignées des casseroles vers l'intérieur de la cuisinière. Laissez un peu refroidrir les aliments chauffés au micro-ondes."
     ],
     "brulureBis": [
-      "Vous pourriez par exemple tourner les poignées des casseroles vers l’intérieur ou encore ne pas oublier de laisser un peu refroidir les aliments chauffés au micro-ondes",
-      "%evitez% de porter des vêtements amples lorsque vous cuisinez",
-      "Utilisez des maniques pour manipuler les plats chauds et les ustensiles de cuisine",
-      "Faites attention aux liquides bouillants et aux graisses chaudes"
+      "%phrasesRappel% Vous pourriez par exemple tourner les poignées des casseroles vers l’intérieur ou encore ne pas oublier de laisser un peu refroidir les aliments chauffés au micro-ondes",
+      "test",
+      "%evitez% de porter des vêtements amples lorsque vous cuisinez. Utilisez des maniques pour manipuler les plats chauds et les ustensiles de cuisine. Faites attention aux liquides bouillants et aux graisses chaudes. "
     ],
     "incendie": [
-      "Installez des détecteurs de fumée en réseau",
-      "Faites vérifier les appareils et les installations électriques",
-      "Apprenez en plus sur les risques incendies"
+      "Voici les principes de la prévention  incendie:\n- installer des détecteurs de fumée en réseau,\n-faire vérifier les appareils et les installations électriques\n-apprenez en plus sur les risques incendies.\n%phrasesFin%"
     ],
     "intoxication": [
-      "Pour %prevenir% les intoxications alimentares, il est important de bien se laver les mains avant de cuisiner et de manger. Désinfectez régulièrement les surfaces de travail, les ustensiles de cuisine et le réfrigérateur. ",
-      "%evitez% les dates de péremption des aliments et conservez-les correctement. %respectez% la chaîne du froid et cuisez suffisemment vos aliments. ",
-      "Si vous souhaitez réduire au maximum le risque d'intoxication, voici quelques conseils:%evitez% de consommer des aliments crus ou mal cuits, en particulier les viandes, les œufs et les produits laitiers. %respectez% de consommer des aliments périmés ou dont l'emballage est endommagé. Lavez soigneusement les fruits et légumes avant de les consommer. Coupez les aliments en petits morceaux pour faciliter la cuisson et réduire le risque de contamination croisée. Faites en sorte de rendre les produits toxiques identifiables en les rangeant dans des contenants hermétiques et en les étiquetant clairement. Enfin, conservez vos produits d'entretien et vos médicaments dans leurs emballages d'origine."
+      "Pour %prevenir% les intoxications alimentares, il est important de bien se laver les mains avant de cuisiner et de manger.\n",
+      "Désinfectez régulièrement les surfaces de travail, les ustensiles de cuisine et le réfrigérateur. \n",
+      "%evitez% les dates de péremption des aliments et conservez-les correctement. %respectez% la chaîne du froid et cuisez suffisemment vos aliments. \n",
+      "Si vous souhaitez réduire au maximum le risque d'intoxication, voici quelques conseils:%evitez% de consommer des aliments crus ou mal cuits, en particulier les viandes, les œufs et les produits laitiers. \n %respectez% de consommer des aliments périmés ou dont l'emballage est endommagé. \n Lavez soigneusement les fruits et légumes avant de les consommer. \n Coupez les aliments en petits morceaux pour faciliter la cuisson et réduire le risque de contamination croisée. \n Faites en sorte de rendre les produits toxiques identifiables en les rangeant dans des contenants hermétiques et en les étiquetant clairement. Enfin, conservez vos produits d'entretien et vos médicaments dans leurs emballages d'origine."
     ],
     "inhalation": [
-      "Pour %prevenir% l'inhalation de gaz toxiques, il est important de bien ventiler les pièces de votre maison. %verifiez% la bonne évacuation des équipements de gaz sur l'extérieur de votre maison. %verifiez% également que les appareils de chauffage à combustion sont en bon état de fonctionnement et qu'ils sont correctement installés. %evitez% de fumer à l'intérieur de votre maison, car la fumée de cigarette peut être toxique pour les personnes qui y vivent. Respectez les consignes d'utilisation des appareils à combustion. N'utilisez jamais de façon prolongée des panneaux radiants à gaz ou des poêles à pétrole. Entretenez régulièrement votre cheminée si vous en avez une. Ne jamais utiliser une cuisinière ou un brasero comme chauffage de secours dans une pièce fermée. Enfin, il est important de ne pas utiliser de produits chimiques à l'intérieur de votre maison sans une ventilation adéquate."
+      "Pour %prevenir% l'inhalation de gaz toxiques, il est important de bien ventiler les pièces de votre maison.\n",
+      "%verifiez% la bonne évacuation des équipements de gaz sur l'extérieur de votre maison.\n",
+      "%verifiez% également que les appareils de chauffage à combustion sont en bon état de fonctionnement et qu'ils sont correctement installés. \n",
+      "%evitez% de fumer à l'intérieur de votre maison, car la fumée de cigarette peut être toxique pour les personnes qui y vivent. \n",
+      "Respectez les consignes d'utilisation des appareils à combustion.\n",
+      "N'utilisez jamais de façon prolongée des panneaux radiants à gaz ou des poêles à pétrole.\n",
+      "Entretenez régulièrement votre cheminée si vous en avez une. Ne jamais utiliser une cuisinière ou un brasero comme chauffage de secours dans une pièce fermée. Enfin, il est important de ne pas utiliser de produits chimiques à l'intérieur de votre maison sans une ventilation adéquate.\n"
     ],
     "etouffement": [
-      "Pour %prevenir% les étouffements, il est important de bien mastiquer les aliments avant de les avaler. Prenez soin d'avoir une bonne hydratation et de ne pas parler en mangeant. Mangez dans une position assise et stable. %evitez% de manger trop vite, de trop manger ou de manger en paralant. Faites attention aux noyaux des fruits et aux arêtes de poisson."
+      "Pour %prevenir% les étouffements, il est important de bien mastiquer les aliments avant de les avaler.\n",
+      "Prenez soin d'avoir une bonne hydratation et de ne pas parler en mangeant.\n ",
+      "Mangez dans une position assise et stable. %evitez% de manger trop vite, de trop manger ou de manger en paralant.\n",
+      "Faites attention aux noyaux des fruits et aux arêtes de poisson.\n",
+      "Mangez lentement et prenez le temps de bien mastiquer vos aliments.\n "
+    ],
+    "Déshydratation": [
+      "Pour %prevenir% la déshydratation, il est important de boire suffisamment d'eau tout au long de la journée. \n",
+      "En cas de forte chaleur ou d'effort physique, il est recommandé de boire encore plus. \n",
+      "%evitez% l'alcool et les boissons à forte teneur en caféine\n",
+      "Il est recommandé de boir 1,5 L d'eau par jour.\n",
+      "Pensez également à consommer des fruits et légumes. \n",
+      "En cas d’incontinence urinaire, en parler à son médecin dans les meilleurs délais ou consulter un pharmacien.\n"
     ],
     "noyade": [
       "Pour %prevenir% la noyade, ne buvez pas d'alcool avant de vous baigner, cela risque d'altérer la coordination des gestes et d'entrainer des troubles de la vision. %evitez% également de nager trop longtemps loin des bords, vous risquez de vous fatiguer ou de vous laisser surprendre par les courants et ne pas être en état de revenir. Si vous êtes sujet à des maladies cardio-vasculaire, la dépression ou a des vertiges, la proscription de la baignade est de mise."
@@ -225,6 +235,16 @@
       "fumer",
       "fume",
       "intoxiquer"
+    ],
+    "Déshydratation": [
+      "déshydratation",
+      "déshydrater",
+      "déshydraté",
+      "déshydrate",
+      "sueur",
+      "transpiration",
+      "suer",
+      "transpirer"
     ],
     "etouffement": [
       "étouffement",

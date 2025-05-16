@@ -38,6 +38,7 @@ let ourDictionnaire = {
 let keywords= {//les Objects sont interprétés comme un id commun aux mots "synonymes"
 	chute:0, tombe:0,tombé:0,chuté:0,
 	brulure:1,"br_lé":1, brûlure:1, brule:101,
+	Déshydratation:11, déshydratation:11, deshydratation:11, deshydraté:11,déshydrater:11, déshydratée:11, déshydraté:11, sueur:11, transpiration:11, "transpiration excessive":11,
 	chimique:101,substance:101, nettoyant:101, solvant:101,
 	cigarette:102, thermique:102, barbecue:102, "alcool à bruler":102,
 	incendie:2, incendier:2, feu:2, flamme:2, 
@@ -87,6 +88,7 @@ function handleAnswersBack(kw){
 		case 8: fkw="coupe";break;
 		case 9: fkw="morsure";break;
 		case 10: fkw="arme";break;
+		case 11: fkw="Déshydratation";break;
 		case 101:
 			for (w in kw){
 				if (keywords[kw[w]]==1){
