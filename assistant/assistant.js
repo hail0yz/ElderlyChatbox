@@ -285,3 +285,11 @@ document.getElementById("msg").addEventListener("keydown", (e) => {
 }
 );
 
+
+window.resetDataTheme = function () {
+	for (const themeName in data.themes) {
+		data.themes[themeName].count = 0;
+		data.themes[themeName].date = 0;
+	}
+	saveData();
+}
