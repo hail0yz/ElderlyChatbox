@@ -186,52 +186,81 @@ function handleAnswerUI(userMsg){
 	chatbox.appendChild(createChatLi(handleAnswersBack(kw),"incoming"));
 }
 
-function generateRandomButtons(){
-	btnGrp.innerHTML=""; // Clear previous content
-	//let re= new RegExp('Bis','g')
-	const btn = document.createElement("button");
-	btn.classList="btn-grp";
-	btn.textContent = "Donnez-moi plus d'informations"; //test
-	btn.addEventListener("click", function() {
-		chatbox.appendChild(createChatLi(btn.textContent, "outgoing"));
-		
-		handleAnswerUI(context);
-	});
-	btnGrp.appendChild(btn);
-	/*if (!(context.test(re))){ //pas de reformulation de bis pour l'instant
-		const btn2 = document.createElement("button");
-		btn2.classList="btn-grp";
-		btn2.textContent = "Je ne comprends pas"; //test
-		btn2.addEventListener("click", function() {
-			chatbox.appendChild(createChatLi(btn2.textContent, "outgoing"));
-			myword=context;
-			context="";
-			handleAnswerUI(myword);
-		});
-	}
-	btnGrp.appendChild(btn2);*/
-	const btn3 = document.createElement("button");
-	btn3.classList="btn-grp";
-	btn3.textContent = "Pouvez-vous me suggérer un thème"; //test
-	btn3.addEventListener("click", function() {
-		chatbox.appendChild(createChatLi(btn3.textContent, "outgoing"));
-		createSuggestions();
-		if (!suggestions){
-			chatbox.appendChild(createChatLi("Nous avons parlé de tous les thèmes disponibles récemment. souhaitez-vous en raborder un?","incoming"));
-			return;
-		}
-		if(suggestions.length==1){
-			myString="Nous n'avons pas parlé de"+suggestions[0]+"depuis quelques temps. Voici ce que je peux vous dire à ce sujet";
-			handleAnswerUI(suggestions[0])
-			data.themes[suggestions[0]]["count"]+=1
-			data.themes[suggestions[0]]["date"]+=Date.now();
-			return ;
-		}
-		let myString= "Nous n'avons pas parlé de "+suggestions.join(', ')+" récemment. Lequel de ces thèmes préferiez-vous aborder?"
-		chatbox.appendChild(createChatLi(myString,"incoming"));
-	});
-	btnGrp.appendChild(btn3);
-	chatbox.scrollTop=chatbox.scrollHeight;
+function generateRandomButtons() {
+    btnGrp.innerHTML = ""; // Clear previous content
+    
+    // Bouton 1 - Plus d'informations
+    const btn = document.createElement("button");
+    btn.classList = "btn-grp";
+    btn.textContent = "Donnez-moi plus d'informations";
+    btn.addEventListener("click", function() {
+        chatbox.appendChild(createChatLi(btn.textContent, "outgoing"));
+        handleAnswerUI(context);
+    });
+    btnGrp.appendChild(btn);
+    
+    // Bouton 2 - Je ne comprends pas
+    // Vérifie si context est défini et ne contient pas "Bis"
+    if (context && !context.includes("Bis")) {
+        const btn2 = document.createElement("button");
+        btn2.classList = "btn-grp";
+        btn2.textContent = "Je ne comprends pas";
+        btn2.addEventListener("click", function() {
+            chatbox.appendChild(createChatLi(btn2.textContent, "outgoing"));
+            let myword = context;
+            context = "";
+            handleAnswerUI(myword);
+        });
+        btnGrp.appendChild(btn2);
+    }
+    
+    // Bouton 3 - Suggestions de thèmes
+    const btn3 = document.createElement("button");
+    btn3.classList = "btn-grp";
+    btn3.textContent = "Pouvez-vous me suggérer un thème";
+    btn3.addEventListener("click", function() {
+        chatbox.appendChild(createChatLi(btn3.textContent, "outgoing"));
+        suggestions = createSuggestions(); // Assurez-vous que createSuggestions() renvoie un tableau
+        
+        if (!suggestions || suggestions.length === 0) {
+            chatbox.appendChild(createChatLi("Nous avons parlé de tous les thèmes disponibles récemment. Souhaitez-vous en aborder un à nouveau?", "incoming"));
+            return;
+        }
+        
+        if (suggestions.length === 1) {
+            let myString = "Nous n'avons pas parlé de " + suggestions[0] + " depuis quelques temps. Voici ce que je peux vous dire à ce sujet";
+            chatbox.appendChild(createChatLi(myString, "incoming"));
+            handleAnswerUI(suggestions[0]);
+            data.themes[suggestions[0]].count += 1;
+            data.themes[suggestions[0]].date = Math.floor(Date.now() / 1000);
+            return;
+        }
+        
+        let myString = "Nous n'avons pas parlé de " + suggestions.join(', ') + " récemment. Lequel de ces thèmes préféreriez-vous aborder?";
+        chatbox.appendChild(createChatLi(myString, "incoming"));
+    });
+    btnGrp.appendChild(btn3);
+    
+    // Bouton 4 - Liste des thèmes disponibles
+    const btn4 = document.createElement("button");
+    btn4.classList = "btn-grp";
+    btn4.textContent = "De quels thèmes pouvez-vous parler?";
+    btn4.addEventListener("click", function() {
+        chatbox.appendChild(createChatLi(btn4.textContent, "outgoing"));
+        
+        // Crée un tableau avec tous les noms de thèmes
+        let keys = [];
+        for (const themeName in data.themes) {
+            keys.push(themeName);
+        }
+        
+        // Affiche la liste des thèmes
+        let myString = "Nous pouvons parler de " + keys.join(', ') + ".";
+        chatbox.appendChild(createChatLi(myString, "incoming"));
+    });
+    btnGrp.appendChild(btn4);
+    
+    chatbox.scrollTop = chatbox.scrollHeight;
 }
 function updateUI(Usermsg){
 	btnGrp.innerHTML="";
