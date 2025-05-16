@@ -1,8 +1,8 @@
 {
   "themes": {
     "chute": {
-      "date": 0,
-      "count": 0
+      "date": 1747387280,
+      "count": 3
     },
     "brulure": {
       "date": 0,
@@ -45,8 +45,8 @@
       "count": 0
     },
     "Déshydratation": {
-      "date": 0,
-      "count": 0
+      "date": 1747387356,
+      "count": 1
     }
   },
   "answers": {
@@ -55,7 +55,7 @@
       "Avec l'accord de votre professionnel de santé, envisagez des activités comme la marche, l'aquagym ou le tai-chi, un exercice doux qui implique des mouvements lents et gracieux, semblables à ceux d'une danse",
       "Les facteurs de risques de chute sont l'âge, vos activités de la vie quotidienne, la mobilité réduite, certaines pathologies telles que Parkinson, ou des troubles locomoteurs et neuro-musculaires. Pour ce qui est des facteurs extrinsèques, il s'agit de facteurs comportementaux: la consommation d'alcool, la sédentarité et la malnutrition, ou bien de facteurs environnementaux comme la nécessité d'un instrument d'aide, la prise de risque ou un habitat mal adapté"
     ],
-    "denutrition":[
+    "denutrition": [
       "Rendez les moments des repas plus agréables",
       "Réhaussez le goût des plats avec des épices, aromates, condiments, …",
       "Organisez des livraisons de repas à domicile afin de garantir la prise de repas adaptés aux goûts des personnes tout en répondant à leurs besoins nutritionnels",
@@ -239,7 +239,7 @@
       "employez",
       "recourez à"
     ],
-    "toujours":[
+    "toujours": [
       "régulièrement",
       "en permanence",
       "toujours",
@@ -253,129 +253,174 @@
     ]
   },
   "keywords": {
-    "chute": [
-      "chute",
-      "tombe",
-      "tombé",
-      "chuté"
-    ],
-    "brulure": [
-      "brulure",
-      "br_lé",
-      "brûlure",
-      "brule"
-    ],
-    "brulureChim": [
-      "brule",
-      "chimique",
-      "substance",
-      "nettoyant",
-      "solvant"
-    ],
-    "brulureFeu": [
-      "cigarette",
-      "brule",
-      "thermique",
-      "barbecue",
-      "alcool à bruler"
-    ],
-    "incendie": [
-      "incendie",
-      "incendier",
-      "feu",
-      "flamme"
-    ],
-    "intoxication": [
-      "intoxication",
-      "intoxiquer",
-      "toxique",
-      "alimentaire"
-    ],
-    "inhalation": [
-      "inhalation",
-      "inhaler",
-      "inhale",
-      "gaz",
-      "fumée",
-      "fumer",
-      "fume",
-      "intoxiquer"
-    ],
-    "Déshydratation": [
-      "déshydratation",
-      "déshydrater",
-      "déshydraté",
-      "déshydrate",
-      "sueur",
-      "transpiration",
-      "suer",
-      "transpirer"
-    ],
-    "etouffement": [
-      "étouffement",
-      "étouffe",
-      "suffoquer",
-      "suffocation",
-      "suffoque",
-      "asphyxie",
-      "asphyxier"
-    ],
-    "noyade": [
-      "noyade",
-      "noyer",
-      "baignade",
-      "baigner",
-      "piscine",
-      "plage",
-      "mer",
-      "nager",
-      "natation",
-      "bateau"
-    ],
-    "elongation": [
-      "élongation",
-      "muscle",
-      "musculaire",
-      "entorse",
-      "porter",
-      "soulever",
-      "dos",
-      "lumbago",
-      "mal",
-      "effort"
-    ],
-    "coupe": [
-      "coupe",
-      "coupure",
-      "blessure",
-      "blesser",
-      "cisailles",
-      "lame",
-      "sang",
-      "saigner"
-    ],
-    "morsure": [
-      "morsure",
-      "mordre",
-      "griffure",
-      "griffer",
-      "animal",
-      "chat",
-      "chien"
-    ],
-    "arme": [
-      "arme",
-      "pistolet",
-      "fusil",
-      "revolver"
-    ],
-    "renseignement": [
-      "renseignement",
-      "renseignements",
-      "informations",
-      "info",
-      "infos",
-      "dis moi en plus"
-    ]
+    "chute": {
+      "clé": [
+        "chute",
+        "tombe",
+        "tombé",
+        "chuté"
+      ],
+      "id": 0
+    },
+    "brulure": {
+      "clé": [
+        "brulure",
+        "brulé",
+        "brûlure",
+        "brule"
+      ],
+      "id": 1
+    },
+    "brulureChim": {
+      "clé": [
+        "brule",
+        "chimique",
+        "substance",
+        "nettoyant",
+        "solvant"
+      ],
+      "id": 101
+    },
+    "brulureFeu": {
+      "clé": [
+        "cigarette",
+        "brule",
+        "thermique",
+        "barbecue",
+        "alcool à bruler"
+      ],
+      "id": 102
+    },
+    "incendie": {
+      "clé": [
+        "incendie",
+        "incendier",
+        "feu",
+        "flamme"
+      ],
+      "id": 2
+    },
+    "intoxication": {
+      "clé": [
+        "intoxication",
+        "intoxiquer",
+        "toxique",
+        "alimentaire"
+      ],
+      "id": 3
+    },
+    "inhalation": {
+      "clé": [
+        "inhalation",
+        "inhaler",
+        "inhale",
+        "gaz",
+        "fumée",
+        "fumer",
+        "fume",
+        "intoxiquer"
+      ],
+      "id": 4
+    },
+    "Déshydratation": {
+      "clé": [
+        "déshydratation",
+        "déshydrater",
+        "déshydraté",
+        "déshydrate",
+        "sueur",
+        "transpiration",
+        "suer",
+        "transpirer"
+      ],
+      "id": 12
+    },
+    "etouffement": {
+      "clé": [
+        "étouffement",
+        "étouffe",
+        "suffoquer",
+        "suffocation",
+        "suffoque",
+        "asphyxie",
+        "asphyxier"
+      ],
+      "id": 5
+    },
+    "noyade": {
+      "clé": [
+        "noyade",
+        "noyer",
+        "baignade",
+        "baigner",
+        "piscine",
+        "plage",
+        "mer",
+        "nager",
+        "natation",
+        "bateau"
+      ],
+      "id": 6
+    },
+    "elongation": {
+      "clé": [
+        "élongation",
+        "muscle",
+        "musculaire",
+        "entorse",
+        "porter",
+        "soulever",
+        "dos",
+        "lumbago",
+        "mal",
+        "effort"
+      ],
+      "id": 7
+    },
+    "coupe": {
+      "clé": [
+        "coupe",
+        "coupure",
+        "blessure",
+        "blesser",
+        "cisailles",
+        "lame",
+        "sang",
+        "saigner"
+      ],
+      "id": 8
+    },
+    "morsure": {
+      "clé": [
+        "morsure",
+        "mordre",
+        "griffure",
+        "griffer",
+        "animal",
+        "chat",
+        "chien"
+      ],
+      "id": 9
+    },
+    "arme": {
+      "clé": [
+        "arme",
+        "pistolet",
+        "fusil",
+        "revolver"
+      ],
+      "id": 10
+    },
+    "renseignement": {
+      "clé": [
+        "renseignement",
+        "renseignements",
+        "informations",
+        "info",
+        "infos",
+        "dis moi en plus"
+      ],
+      "id": 11
+    }
   }
 }
