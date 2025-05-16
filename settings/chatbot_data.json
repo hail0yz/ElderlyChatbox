@@ -5,8 +5,8 @@
       "count": 0
     },
     "brulure": {
-      "date": 1747383774,
-      "count": 4
+      "date": 1747385355,
+      "count": 5
     },
     "incendie": {
       "date": 0,
@@ -51,11 +51,11 @@
       "Avec l'accord de votre professionnel de santé, envisagez des activités comme la marche, l'aquagym ou le tai-chi, un exercice doux qui implique des mouvements lents et gracieux, semblables à ceux d'une danse",
       "Les facteurs de risques de chute sont l'âge, vos activités de la vie quotidienne, la mobilité réduite, certaines pathologies telles que Parkinson, ou des troubles locomoteurs et neuro-musculaires. Pour ce qui est des facteurs extrinsèques, il s'agit de facteurs comportementaux: la consommation d'alcool, la sédentarité et la malnutrition, ou bien de facteurs environnementaux comme la nécessité d'un instrument d'aide, la prise de risque ou un habitat mal adapté"
     ],
-    "denutrition":[
-      "Rendre les moments des repas plus agréables",
-      "Réhausser le goût des plats avec des épices, aromates, condiments, …",
-      "Organiser des livraisons de repas à domicile afin de garantir la prise de repas adaptés aux goûts des personnes tout en répondant à leurs besoins nutritionnels",
-      "Augmenter le nombre de prises alimentaires en ajoutant des collations entre les repas"
+    "denutrition": [
+      "Rendez les moments des repas plus agréables",
+      "Réhaussez le goût des plats avec des épices, aromates, condiments, …",
+      "Organisez des livraisons de repas à domicile afin de garantir la prise de repas adaptés aux goûts des personnes tout en répondant à leurs besoins nutritionnels",
+      "Augmentez le nombre de prises alimentaires en ajoutant des collations entre les repas"
     ],
     "chuteBis": [
       "Vous pouvez aussi par exemple éviter tapis aux bords élevés, restez vigilant dans les escaliers%surtout% en cas de pluie ou de gel",
@@ -64,15 +64,15 @@
       "Vous pouvez demander à un professionnel de santé de réaliser ces tests"
     ],
     "brulure": [
-      "Utilisez les appareils de chauffage %prevenir% et tenez-les éloignés de tout ce qui peut brûler",
+      "%utlisez% les appareils de chauffage %prevenir% et tenez-les éloignés de tout ce qui peut brûler",
       "Ne laissez jamais les bougies sans surveillance",
       "Abaissez la température du chauffe-eau (inférieure à 50°C)",
       "Gardez les boissons chaudes, loin des bords de la table ou du comptoir"
     ],
     "brulureChim": [
-      "Vous pouvez aider à %prevenir% les brûlures chimiques en lisant et en suivant toujours les instructions lors de l’utilisation de produits chimiques",
-      "En portant toujours des gants de sécurité et des lunettes de protection lorsque vous utilisez des produits chimiques",
-      "En vous lavant toujours les mains après avoir utilisé un produit chimique"
+      "Vous pouvez aider à %prevenir% les brûlures chimiques en lisant et en suivant %toujours% les instructions lors de l’utilisation de produits chimiques",
+      "En portant %toujours% des gants de sécurité et des lunettes de protection lorsque vous %utlisez% des produits chimiques",
+      "En vous lavant %toujours% les mains après avoir utilisé un produit chimique"
     ],
     "brulureFeu": [
       "Il est important de ne pas fumer à l'intérieur de votre maison",
@@ -82,7 +82,7 @@
     "brulureBis": [
       "Vous pourriez par exemple tourner les poignées des casseroles vers l’intérieur ou encore ne pas oublier de laisser un peu refroidir les aliments chauffés au micro-ondes",
       "%evitez% de porter des vêtements amples lorsque vous cuisinez",
-      "Utilisez des maniques pour manipuler les plats chauds et les ustensiles de cuisine",
+      "%utlisez% des maniques pour manipuler les plats chauds et les ustensiles de cuisine",
       "Faites attention aux liquides bouillants et aux graisses chaudes"
     ],
     "incendie": [
@@ -96,37 +96,35 @@
       "Si vous souhaitez réduire au maximum le risque d'intoxication, voici quelques conseils:%evitez% de consommer des aliments crus ou mal cuits, en particulier les viandes, les œufs et les produits laitiers. %respectez% de consommer des aliments périmés ou dont l'emballage est endommagé. Lavez soigneusement les fruits et légumes avant de les consommer. Coupez les aliments en petits morceaux pour faciliter la cuisson et réduire le risque de contamination croisée. Faites en sorte de rendre les produits toxiques identifiables en les rangeant dans des contenants hermétiques et en les étiquetant clairement. Enfin, conservez vos produits d'entretien et vos médicaments dans leurs emballages d'origine."
     ],
     "inhalation": [
-      "Pour %prevenir% l'inhalation de gaz toxiques, il est important de bien ventiler les pièces de votre maison. %verifiez% la bonne évacuation des équipements de gaz sur l'extérieur de votre maison. %verifiez% également que les appareils de chauffage à combustion sont en bon état de fonctionnement et qu'ils sont correctement installés. %evitez% de fumer à l'intérieur de votre maison, car la fumée de cigarette peut être toxique pour les personnes qui y vivent. Respectez les consignes d'utilisation des appareils à combustion. N'utilisez jamais de façon prolongée des panneaux radiants à gaz ou des poêles à pétrole. Entretenez régulièrement votre cheminée si vous en avez une. Ne jamais utiliser une cuisinière ou un brasero comme chauffage de secours dans une pièce fermée. Enfin, il est important de ne pas utiliser de produits chimiques à l'intérieur de votre maison sans une ventilation adéquate."
+      "Pour %prevenir% l'inhalation de gaz toxiques, il est important de bien ventiler les pièces de votre maison. %verifiez% la bonne évacuation des équipements de gaz sur l'extérieur de votre maison. %verifiez% également que les appareils de chauffage à combustion sont en bon état de fonctionnement et qu'ils sont correctement installés. %evitez% de fumer à l'intérieur de votre maison, car la fumée de cigarette peut être toxique pour les personnes qui y vivent. Respectez les consignes d'utilisation des appareils à combustion. N'%utlisez% jamais de façon prolongée des panneaux radiants à gaz ou des poêles à pétrole. Entretenez régulièrement votre cheminée si vous en avez une. Ne jamais utiliser une cuisinière ou un brasero comme chauffage de secours dans une pièce fermée. Enfin, il est important de ne pas utiliser de produits chimiques à l'intérieur de votre maison sans une ventilation adéquate."
     ],
     "etouffement": [
       "Pour %prevenir% les étouffements, il est important de bien mastiquer les aliments avant de les avaler. Prenez soin d'avoir une bonne hydratation et de ne pas parler en mangeant. Mangez dans une position assise et stable. %evitez% de manger trop vite, de trop manger ou de manger en paralant. Faites attention aux noyaux des fruits et aux arêtes de poisson."
     ],
     "noyade": [
-     "Ne pas boire d’alcool avant de se baigner",
-     "Éviter de se baigner en cas de maladie cardio-vasculaire, de dépression, ou de vertiges",
-    "Éviter de se baigner en cas de maladie cardio-vasculaire, de dépression, ou de vertiges"
-    
+      "Ne pas boire d’alcool avant de se baigner",
+      "%evitez% de se baigner en cas de maladie cardio-vasculaire, de dépression, ou de vertiges"
     ],
     "elongation": [
-    "Eviter de porter des objets trop lourds",
-    "Pratiquer une activité physique régulière"
+      "%evitez% de porter des objets trop lourds",
+      "Pratiquez une activité physique régulière"
     ],
     "coupe": [
-      "Toujours ranger les couteaux la lame vers le bas",
+      "%toujours% ranger les couteaux la lame vers le bas",
       "Prendre son temps et se concentrer sur sa tâche"
-        ],
+    ],
     "morsure": [
-      "Ne pas insister à vouloir caresser les animaux",
-      "Ne pas tirer trop fort sur la laisse quand l’animal résiste",
-      "Eviter de placer ses doigts proche de la gueule de l’animal",
-      "Tenir à jour les vaccins de l’animal"
+      "Ne pas insistez à vouloir caresser les animaux",
+      "Ne pas tirez trop fort sur la laisse quand l’animal résiste",
+      "%evitez% de placer ses doigts proche de la gueule de l’animal",
+      "Tenez à jour les vaccins de l’animal"
     ],
     "arme": [
-      "Toujours traiter l’arme comme si elle était chargée",
-      "Toujours pointer l’arme vers une direction sûre",
-      "Toujours garder le doigt hors de la détente",
-      "Toujours utiliser un drapeau de sécurité pour indiquer que l’arme est inopérante",
-      "Toujours demander l’autorisation du propriétaire avant de manipuler une arme qui ne nous appartient pas",
+      "%toujours% traiter l’arme comme si elle était chargée",
+      "%toujours% pointer l’arme vers une direction sûre",
+      "%toujours% garder le doigt hors de la détente",
+      "%utilisez% %toujours% un drapeau de sécurité pour indiquer que l’arme est inopérante",
+      "%toujours% demander l’autorisation du propriétaire avant de manipuler une arme qui ne nous appartient pas",
       "Entretenir l’arme régulièrement",
       "Stockage obligatoire un coffre-fort ou une armoire à armes forte",
       "Sécurisation des munitions"
@@ -137,12 +135,12 @@
     "infos": [
       "Il semblerait que vous vouliez des renseignements sur des produits chimiques.%souhaitezvous% prévenir les brulures chimiques, ou les intoxations chimiques? %prevenir% "
     ],
-    "electrocution":[
+    "electrocution": [
       "Réparer les prises cassées",
-      "Utiliser peu de multiprise et privilégier celles avec un coupe-circuit",
+      "%utilisez% peu de multiprise et %privilegiez% celles avec un coupe-circuit",
       "Ne pas laisser les fils électriques dénudés et ne pas les toucher",
-      "Éviter de clouer et agrafer des câbles électriques, de les faires passer sous une porte ou un tapis ou d’y accrocher des objets pour ne pas les abimer",
-      "Éviter au maximum d’utiliser des rallonges ou de les laisser branchées",
+      "%evitez% de clouer et agrafer des câbles électriques, de les faires passer sous une porte ou un tapis ou d’y accrocher des objets pour ne pas les abimer",
+      "%evitez% au maximum d’utiliser des rallonges ou de les laisser branchées",
       "Jeter les vieilles rallonges fendillées",
       "Ne jamais utiliser d’appareil électrique branché sur secteur avec les mains mouillées, les pieds dans l’eau, près d’une arrivées d’eau ni sous la douche ou dans un bain",
       "Charger les appareils électroniques en dehors des pièces humides"
@@ -206,6 +204,22 @@
     "respectez": [
       "Respectez",
       "Appliquez"
+    ],
+    "privilegiez": [
+      "privilégiez",
+      "préférez",
+      "favorisez"
+    ],
+    "utilisez": [
+      "utilisez",
+      "employez",
+      "recourez à"
+    ],
+    "toujours":[
+      "régulièrement",
+      "en permanence",
+      "toujours",
+      "tout le temps"
     ]
   },
   "keywords": {
