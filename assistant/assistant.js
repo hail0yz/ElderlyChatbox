@@ -21,37 +21,11 @@ let userMessage;
 let keyCount=0;
 let context;
 let suggestions;
-let ourDictionnaire = {
-	prevenir:["prévenir","aviser","pallier"],
-	sports:["gymnastique douce","gym sénior","marche à pied","tai-chi","aquagym"],
-	prudemment:["prudemment","avec prudence","précautionneusement"],
-	phrasesFin:[" Si vous souhaitez en savoir plus, dites-le moi!", " N'hésitez pas à me demander plus de renseignements.",
-		" Prenez soin de vous."],
-	phrasesRappel:["Il semblerait que vous souhaitez en savoir plus.","Bien sur, voici d'autres informations à ce sujets:"],
-	surtout:["surtout","particulièrement"],
-	souhaitezvous:["Souhaitez-vous", "Voudriez-vous", "Voulez-vous","Desirez-vous"],
-	activephysique:["\' activité physique","\' exercice physique","a forme physique", "\'entrainement physique"],
-	evitez:["evitez","abstenez vous","eliminer au plus possible"],
-	verifiez:["Contrôlez","Vérifiez","Testez","Evaluez","Surveillez"],
-	respectez:["Respectez","Appliquez"]
-}
-let keywords= {//les Objects sont interprétés comme un id commun aux mots "synonymes"
-	chute:0, tombe:0,tombé:0,chuté:0,
-	brulure:1,"br_lé":1, brûlure:1, brule:101,
-	Déshydratation:11, déshydratation:11, deshydratation:11, deshydraté:11,déshydrater:11, déshydratée:11, déshydraté:11, sueur:11, transpiration:11, "transpiration excessive":11,
-	chimique:101,substance:101, nettoyant:101, solvant:101,
-	cigarette:102, thermique:102, barbecue:102, "alcool à bruler":102,
-	incendie:2, incendier:2, feu:2, flamme:2, 
-	intoxication:3, induction: 3, toxique:3,
-	inhalation:4, gaz:4, fumée:4, intoxiquer:4, intoxiquer:4,
-	etouffement:5, asphyxie: 5,
-	noyade:6, noyer:6, baignade:6, baigner:6, piscine:6, plage:6, mer:6, nager:6, natation:6, bateau:6,
-	elongation:7, muscle:7, porter:7, dos:7, lumbago:7, mal:7, effort:7, soulever:7,
-	coupe:8, coupure:8, blessure:8, blesser:8, cisailles:8, lame:8, sang:8, saigner:8,
-	morsure:9, griffure:9, chat:9, chien:9, mord:9, griffe:9,
-	arme:10,
-	renseignements: 11,"dis moi en plus":11
-}
+let ourDictionnaire = {};
+ourDictionnaireFromData();
+let keywords= {}
+listKeyFromData();
+
 function handleAnswersBack(kw){
 	let fkw;
 	switch(keywords[kw[0]]){
@@ -88,7 +62,7 @@ function handleAnswersBack(kw){
 		case 8: fkw="coupe";break;
 		case 9: fkw="morsure";break;
 		case 10: fkw="arme";break;
-		case 11: fkw="Déshydratation";break;
+		case 12: fkw="Déshydratation";break;
 		case 101:
 			for (w in kw){
 				if (keywords[kw[w]]==1){
@@ -294,4 +268,29 @@ window.resetDataTheme = function () {
 		data.themes[themeName].date = 0;
 	}
 	saveData();
+}
+
+function listKeyFromData(){
+	for (let themesname in data.themes){
+		for (let key in data.keywords[themesname]["clé"]) {
+			//console.log(data.keywords[themesname]["clé"][key]);
+			//console.log(data.keywords[themesname]["id"]);
+			keywords[data.keywords[themesname]["clé"][key]]=data.keywords[themesname]["id"];
+		}
+	}
+}
+
+function ourDictionnaireFromData(){
+		for (let key in data.ourDictionnaire) {
+			//console.log("mot ",key,data.ourDictionnaire[key]);
+			ourDictionnaire[key]=data.ourDictionnaire[key];
+		}
+}
+
+
+// Fonction pour récupérer les thèmes les moins abordés
+function getLeastDiscussedThemes() {
+    const themes = Object.entries(data.themes);
+    themes.sort((a, b) => a[1].count - b[1].count); 
+    return themes.slice(0, 3).map(theme => theme[0]); 
 }
