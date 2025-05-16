@@ -101,6 +101,11 @@
       "%evitez% les dates de péremption des aliments et conservez-les correctement. %respectez% la chaîne du froid et cuisez suffisemment vos aliments. \n",
       "Si vous souhaitez réduire au maximum le risque d'intoxication, voici quelques conseils:%evitez% de consommer des aliments crus ou mal cuits, en particulier les viandes, les œufs et les produits laitiers. \n %respectez% de consommer des aliments périmés ou dont l'emballage est endommagé. \n Lavez soigneusement les fruits et légumes avant de les consommer. \n Coupez les aliments en petits morceaux pour faciliter la cuisson et réduire le risque de contamination croisée. \n Faites en sorte de rendre les produits toxiques identifiables en les rangeant dans des contenants hermétiques et en les étiquetant clairement. Enfin, conservez vos produits d'entretien et vos médicaments dans leurs emballages d'origine."
     ],
+    "intoxicationBis": [
+      "Si vous souhaitez approfondir ou poser une question spécifique, n'hésitez pas à me le faire savoir.\n",
+      "Si vous avez besoin de plus de détails ou d'autres informations, dites-le-moi.\n",
+      "Les intoxications peuvent être évitées en suivant des mesures d'hygiène et de conservation des aliments. Si vous avez une question précise, je suis là pour vous aider.\n"
+    ],
     "inhalation": [
       "Pour %prevenir% l'inhalation de gaz toxiques, il est important de bien ventiler les pièces de votre maison.\n",
       "%verifiez% la bonne évacuation des équipements de gaz sur l'extérieur de votre maison.\n",
@@ -110,12 +115,22 @@
       "N'utilisez jamais de façon prolongée des panneaux radiants à gaz ou des poêles à pétrole.\n",
       "Entretenez régulièrement votre cheminée si vous en avez une. Ne jamais utiliser une cuisinière ou un brasero comme chauffage de secours dans une pièce fermée. Enfin, il est important de ne pas utiliser de produits chimiques à l'intérieur de votre maison sans une ventilation adéquate.\n"
     ],
+    "inhalationBis": [
+      "Si vous souhaitez approfondir ou poser une question spécifique, n'hésitez pas à me le faire savoir.\n",
+      "Si vous avez besoin de plus de détails ou d'autres informations, dites-le-moi.\n",
+      "Les inhalations de gaz toxiques peuvent être évitées en suivant des mesures de sécurité. Si vous avez une question précise, je suis là pour vous aider.\n"
+    ],
     "etouffement": [
       "Pour %prevenir% les étouffements, il est important de bien mastiquer les aliments avant de les avaler.\n",
       "Prenez soin d'avoir une bonne hydratation et de ne pas parler en mangeant.\n ",
       "Mangez dans une position assise et stable. %evitez% de manger trop vite, de trop manger ou de manger en paralant.\n",
       "Faites attention aux noyaux des fruits et aux arêtes de poisson.\n",
       "Mangez lentement et prenez le temps de bien mastiquer vos aliments.\n "
+    ],
+    "etouffementBis": [
+      "Si vous souhaitez approfondir ou poser une question spécifique, n'hésitez pas à me le faire savoir.\n",
+      "Si vous avez besoin de plus de détails ou d'autres informations, dites-le-moi.\n",
+      "Les étouffements peuvent être évités en suivant des mesures de sécurité. Si vous avez une question précise, je suis là pour vous aider.\n"
     ],
     "Déshydratation": [
       "Pour %prevenir% la déshydratation, il est important de boire suffisamment d'eau tout au long de la journée. \n",
@@ -124,6 +139,11 @@
       "Il est recommandé de boir 1,5 L d'eau par jour.\n",
       "Pensez également à consommer des fruits et légumes. \n",
       "En cas d’incontinence urinaire, en parler à son médecin dans les meilleurs délais ou consulter un pharmacien.\n"
+    ],
+    "DéshydratationBis": [
+      "Si vous souhaitez approfondir ou poser une question spécifique, n'hésitez pas à me le faire savoir.\n",
+      "Si vous avez besoin de plus de détails ou d'autres informations, dites-le-moi.\n",
+      "La déshydratation peut être évitée en suivant des mesures de sécurité. Si vous avez une question précise, je suis là pour vous aider.\n"
     ],
     "noyade": [
       "Ne pas boire d’alcool avant de se baigner",
