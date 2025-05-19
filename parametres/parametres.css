@@ -3,8 +3,38 @@
 #exemple {
     border: 5px solid #999;
     border-radius: 15px;
-    width: 20%
+    width: 40%;
+    min-width: 250px;
+    height: fit-content;
+    min-height: 100px;
 }
+
+#update_size {
+  display: flex;
+  justify-content: left;
+}
+#update_size button {
+  height: 30px;
+  width: 50px;
+}
+
+.color-palette-option {
+  display: flex;
+}
+.palette-option {
+  display: flex;
+  margin-block: 5px;
+  align-items: center;
+}
+.single-palette-color {
+  height: 40px;
+  width: 40px;
+  border: 2px black solid;
+  border-radius: 100%;
+  margin-inline: 2px;
+}
+
+
 .btn-grp button{
   border: none;
   padding: 20px;

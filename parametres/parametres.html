@@ -1,42 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Assistant personnel | Groupe A </title>
-        <link rel="stylesheet" href="parametres.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"/>
-        <script src="parametres.js" defer></script>
-    </head>
-    <body>
-        <h1>Paramètres</h1>
-        <button onclick="window.location='../menu/menu.html';">Retour</button>
-        <div id="exemple">
-            <p>Exemple de texte.</p>
-        </div>
-        <div>
+<head>
+    <meta charset="utf-8">
+    <title>Assistant personnel | Groupe A </title>
+    <link rel="stylesheet" href="parametres.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"/>
+    <script src="parametres.js" type="module" defer></script>
+</head>
+<body>
+    <h1>Paramètres</h1>
+    <button onclick="window.location='../menu/menu.html';">Retour</button>
+    <div id="exemple">
+        <p>Exemple de texte.</p>
+    </div>
+
+    <div id="inputs">
+
+        <div id="font_size">
             <h3>Taille de la police d'écriture</h3>
-            <button onclick="fontZoom()">+</button>
-            <button onclick="fontDezoom()">-</button>
-            <div class="palette choice">
-            <h3>Choix de palette</h3>
-            <div class="btn-grp" id="palettebuttons">
-            <button onclick="updateUI('#6C534E','#C89FA3','#C2E7D9','#DBB3B1','#2C1A1D')" style="background: #6C534E;background: linear-gradient(90deg,rgba(108, 83, 78, 1) 0%, rgba(242, 107, 107, 1) 100%);"></button>
-            <button onclick="updateUI('#0F084B','#0D0221','#C2E7D9','#A6CFD5','#26408B')" style="background: #0F084B;background: linear-gradient(90deg, rgba(15, 8, 75, 1) 0%, rgba(194, 231, 217, 1) 100%);"></button>
-            <button onclick="updateUI('#FDE8E9','#BC9EC1','#E3BAC6','#596475','#1F2232')" style="background: #BC9EC1;background: linear-gradient(90deg, rgba(188, 158, 193, 1) 0%, rgba(253, 232, 233, 1) 100%);">
-            </button>
-            <h3>Type de police</h3>
-            <label>Choisir une police : </label>
-            <select id="fontTypes">
-                <option value="Arial" style="font-family: Arial;">Arial</option>
-                <option value="Courier New" style="font-family: 'Courier New';">Courier New</option>
-                <option value="Georgia" style="font-family: Georgia;">Georgia</option>
-                <option value="Times New Roman" style="font-family: 'Times New Roman';">Times New Roman</option>
-                <option value="Verdana" style="font-family: Verdana;">Verdana</option>
-                <option value="Tahoma" style="font-family: Tahoma;">Tahoma</option>
-            </select>
-            <button onclick="setFontType()">Sélectionner</button>
+            <div id="update_size">
+                <button id="sizeDOWN">-</button>
+                <button id="sizeUP">+</button>
+            </div>
         </div>
-        <button onclick="storeParametres();">Enregistrer les modifications</button>
-    </body>
+
+        <div id="color_palette"> 
+            <h3>Choix de la palette</h3>
+            <!-- OPTIONS REMPLIT AUTOMATIQUEMENT --> 
+        </div>
+
+    </div>
+    <button id="save">Enregistrer les modifications</button>
+</body>
 </html>
