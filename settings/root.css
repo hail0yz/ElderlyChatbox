@@ -5,6 +5,13 @@
     border-color: black;
     font-family: Arial;
     font-size: 20px;
+
+    --col1: "#0D1B2A";
+    --col2: "#1B263B";
+    --col3: "#415A77";
+    --col4: "#778DA9";
+    --col5: "#E0E1DD";
+
     chatbot-background: #FDE8E9;
     header-background-start: #0e86b5;
     header-background-end: #82dcff;

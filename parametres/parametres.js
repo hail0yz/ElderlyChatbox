@@ -1,3 +1,9 @@
+// ========== DATA et SAVING ==========
+
+const data = await window.chatbot_app.get_disponible_settings();
+
+// ========== VARIABES ==========
+
 const root_css_style = document.styleSheets[0].rules.item("../settings/root.css").styleSheet.cssRules.item(":root").style;
 
 console.log(root_css_style["font-size"]);
@@ -27,18 +33,26 @@ console.log(new_style["font-size"]);
 // Pour l'exemple et "se souvenir" de comment faire
 const new_vars = {
     // var_name : var_value
-    "red": "#ff0000"
+    "red": "#ff0000",
+    "col1": getValueOf('col1'),
+    "col2": getValueOf('col2'),
+    "col3": getValueOf('col3'),
+    "col4": getValueOf('col4'),
+    "col5": getValueOf('col5'),
 };
 
 const exemple_style = document.getElementById("exemple").style; 
+
+// ========== FUNCTIONS ==========
+function getValueOf(var_name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(`--${var_name}`);
+}
 
 function storeParametres() {
     new_style["font-size"] = `${new_style["font-size"]}px`;
     window.chatbot_app.update_css_settings({
         "usual_settings": new_style,
-        "vars": {
-            "red": "#ff0000"
-        }
+        "vars": new_vars
     });
     window.location.reload();
 }
