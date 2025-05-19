@@ -34,6 +34,7 @@ msg_input.addEventListener("keydown", (e) => {
 	if (e.key === "Enter") handleChat();
 });
 sendChatBtn.addEventListener("click", handleChat);
+generateRandomButtons(); // Générer les 1er bouton
 
 // ========== FUNCTIONS ==========
 
