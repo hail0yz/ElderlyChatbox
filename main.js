@@ -26,7 +26,6 @@ app.whenReady().then(() => {
     return getData(__dirname);
   })
   ipcMain.handle('set_bot_data', (_, obj) => {
-    console.log("SAVING FOR :", obj.f);
     setData(__dirname, obj);
   })
   createWindow()
