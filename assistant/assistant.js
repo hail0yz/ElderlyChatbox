@@ -189,7 +189,12 @@ function generateRandomButtons() {
 	btn.textContent = "Donnez-moi plus d'informations";
 	btn.addEventListener("click", function() {
 		chatbox.appendChild(createChatLi(btn.textContent, "outgoing"));
-		handleAnswerUI(context);
+		if(context){
+			handleAnswerUI(context);
+		}
+		else{
+			chatbox.appendChild(createChatLi("Je n'ai pas de contexte pour vous donner plus d'informations.", "incoming"));
+		}
 	});
 	btnGrp.appendChild(btn);
 	

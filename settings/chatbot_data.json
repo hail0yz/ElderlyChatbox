@@ -1,12 +1,12 @@
 {
   "themes": {
     "chute": {
-      "date": 1747401112,
-      "count": 1
+      "date": 0,
+      "count": 0
     },
     "brulure": {
-      "date": 1747401177,
-      "count": 4
+      "date": 0,
+      "count": 0
     },
     "incendie": {
       "date": 0,
@@ -318,7 +318,9 @@
         "chute",
         "tombe",
         "tombé",
-        "chuté"
+        "chuté",
+        "chut",
+        "trébuche"
       ],
       "id": 0
     },
