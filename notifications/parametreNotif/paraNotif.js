@@ -2,13 +2,9 @@
 document.getElementById('form').addEventListener('submit', function (event) {
     event.preventDefault(); 
     const textNotif = document.querySelector('input[placeholder="Text de la notif"]').value.trim();
-    console.log(textNotif);
     const intervalleTemp = document.querySelector('input[id="Intervalle de temps"]').value.trim();
-    console.log(intervalleTemp);
     const targetDate = document.querySelector('input[id="cible_date"]').value.trim();
-    console.log(targetDate);
     const targetTime = document.querySelector('input[id="Heure cible"]').value.trim();
-    console.log(targetTime);
     
     if (!textNotif) {
         window.alert('Veuillez entrer un texte pour la notification.');
@@ -22,17 +18,24 @@ function addlist(message, intervalleTemp, targetTime,targetDate) {
     let n = document.getElementById('cadreNotif');
     const newNotification = document.createElement('li');
     newNotification.className = 'notif';
-    newNotification.textContent = `${message} (Intervalle: ${intervalleTemp}s)`;
+    newNotification.textContent = `${message}`;
+
+    const Intervalle = document.createElement('span');
+    Intervalle.textContent = ` Intervalle: ${intervalleTemp}s`;
+    newNotification.appendChild(Intervalle);
+    if (!intervalleTemp || intervalleTemp === 'undefined') {
+      Intervalle.style.display = 'none';
+    }
 
     const date= document.createElement('date');
-    date.textContent = `Date: ${targetDate}`;
+    date.textContent = ` Date: ${targetDate}`;
     newNotification.appendChild(date);
     if (!targetDate || targetDate === 'undefined') {
       date.style.display = 'none';
     }
 
     const notifTime = document.createElement('time');
-    notifTime.textContent = `Cible: ${targetTime}`;
+    notifTime.textContent = ` Heure: ${targetTime}`;
     newNotification.appendChild(notifTime);
     if(!targetTime || targetTime === 'undefined') {
       notifTime.style.display = 'none';
@@ -66,15 +69,14 @@ window.addEventListener('load', () => {
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = storedNotifList;
         const notifications = tempDiv.querySelectorAll('.notif');
-        console.log(notifications.length);
         if(notifications.length === 0) {
             ajoutBasicNotif();
         }
 
         notifications.forEach(notification => {
-            const message = notification.textContent.split(' (')[0];
+            const message = notification.textContent.split('Intervalle: ')[0];
             const intervalleTemp = parseInt(notification.textContent.split('Intervalle: ')[1].split('s')[0], 10);
-            const targetTime = notification.textContent.split('Cible: ')[1].split(' ')[0];
+            const targetTime = notification.textContent.split('Heure: ')[1].split(' ')[0];
             const targetDate = notification.querySelector('date').textContent.split('Date: ')[1].split(' ')[0];
 
             console.log(message);

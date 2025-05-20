@@ -54,7 +54,6 @@ function updateTime() {
 }
 
 function rappel(intervalleTemp,message) {
-    console.log(intervalleTemp);
 
     if(intervalleTemp > 0) {
         setInterval(addNotification, intervalleTemp * 1000, message);
@@ -125,9 +124,9 @@ window.addEventListener('load', () => {
         tempDiv.innerHTML = savedNotiflist;
         const notifications = tempDiv.querySelectorAll('.notif');
         notifications.forEach(notification => {
-            const message = notification.textContent.split(' (')[0];
+            const message = notification.textContent.split('Intervalle: ')[0];
             const intervalleTemp = parseInt(notification.textContent.split('Intervalle: ')[1].split('s')[0], 10);
-            const targetTime = notification.textContent.split('Cible: ')[1].split(' ')[0];
+            const targetTime = notification.textContent.split('Heure: ')[1].split('Supprimer')[0];
             const targetDate = notification.querySelector('date').textContent.split('Date: ')[1].split(' ')[0];
             rappel(
                 intervalleTemp,
@@ -137,3 +136,4 @@ window.addEventListener('load', () => {
         });
     }
 });
+
