@@ -1,8 +1,12 @@
+import { ChatGroq } from "@langchain/groq";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 const { app, BrowserWindow, ipcMain, Menu } = require('electron/main')
 const path = require("node:path");
 const { update_css_settings } = require("./settings/updateRootCSS")
 const { getData, setData } = require('./settings/chatbot_data')
-
+GROQ_API_KEY="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";
 Menu.setApplicationMenu(false)
 
 const createWindow = () => {
@@ -30,3 +34,8 @@ app.whenReady().then(() => {
   })
   createWindow()
 })
+
+const llm = new ChatGroq({
+  model: "llama-3.3-70b-versatile",
+  temperature: 0
+});

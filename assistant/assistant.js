@@ -1,13 +1,11 @@
 // ========== DATA et SAVING ==========
 
-const data = await window.chatbot_app.get_bot_data();
-
 window.addEventListener('beforeunload', saveData);
 
 let laste_mouseleave = Date.now();
 document.body.addEventListener("mouseleave", ()=>{
 	const now = Date.now();
-	console.log(now-laste_mouseleave);
+	console.log(now-laste_mouseleave);	
 	if(now-laste_mouseleave > 15000 /* 15 secondes */) {
 		laste_mouseleave = now;
 		saveData();
@@ -18,135 +16,65 @@ function saveData() {
 }
 
 // ========== VARIABLES ==========
-
+const GROQ_API_KEY="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"
+const API_URL= "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}"
 const sendChatBtn = document.querySelector(".chat-input span");
+const chatInput=document.querySelector(".chat-input textarea");
 const chatbox = document.querySelector(".chatbox");
 const btnGrp = document.querySelector("#dynamicButtons");
 let context;
 let ourDictionnaire = data.ourDictionnaire;
 let keywords = listKeyFromData();
-
+const userData={
+	message:null
+}
 const msg_input = document.getElementById("msg");
+let userMessage;
 
-// ========== EVENTS HANDLE ==========
 
-msg_input.addEventListener("keydown", (e) => {
-	if (e.key === "Enter") handleChat();
-});
-sendChatBtn.addEventListener("click", handleChat);
-generateRandomButtons(); // Générer les 1er bouton
 
 // ========== FUNCTIONS ==========
+const llm = new ChatGroq({
+  model: "llama-3.3-70b-versatile",
+  temperature: 0
+});const data = await window.chatbot_app.get_bot_data();
 
-function handleChat() {
-	const userMessage = msg_input.value;
-	if (!userMessage) return;
-	updateUI(userMessage.trim());
+const generateBotResponse= async ()=> {
+	const requestOptions={
+		method: "POST",
+		headers:{"Content-Type":"application/json"},
+		body: JSON.stringify({
+			contents:[{
+			parts:[{text:userData.message}]
+			}]
+		})
+	}
+	try{
+		const response = await ollama.chat({
+  model: 'llama3.1',
+  messages: [{ role: 'user', content: 'Why is the sky blue?' }],
+})
+console.log(response.message.content)
+	} catch (error){
+		console.log(error);
+	}
+
 }
 
-function updateUI(usermsg){
-	btnGrp.innerHTML="";
-	chatbox.appendChild(createChatLi(usermsg,"outgoing"));
-	msg_input.value = "";
-	handleAnswerUI(usermsg);
-	generateRandomButtons();
-}
-
-const createChatLi = (message, className) => {
+const createChatLi = (content, className) => {
 	const chatLi= document.createElement("li");
 	chatLi.classList.add("chat", className);
-	chatLi.innerHTML = `<p>${message}</p>`;
+	chatLi.innerHTML = `<p>${content}</p>`;
 	return chatLi;
 }
 
-function handleAnswerUI(userMsg){
-	const kw= searchKeyword(userMsg);
-	if (!kw){
-		chatbox.appendChild(createChatLi("No keyword found","incoming"));
-		return;
-	}
-	chatbox.appendChild(createChatLi(handleAnswersBack(kw),"incoming"));
-}
 
 function searchKeyword(userMsg){
 	let re= new RegExp('(?<!\S)'+'('+keywords.keys.join('|')+')','g')//le mot peut etre conjugué mais pas avoir de prefxe
 	return userMsg.toLowerCase().match(re)
 }
 
-function handleAnswersBack(kw){
-	let fkw = getFKW(keywords[kw[0]]);
-	
-	let mainTheme = fkw;
-	
-	if (keywords[fkw]&&keywords[context]==keywords[fkw]){ // si l'id du keyword de context == l'id du keyword de fkw, alors on ajoute bis
-		context = fkw;//mettre le context avant d'ajouter le bis car si on redemande ca decontextualise
-		fkw = fkw +"Bis";
-	}
-	else{context=fkw;} // on store pour la prochaine fois, au cas ou l user demande plus de renseignements
-	updateThemeData(mainTheme);
-	
-	if (mainTheme === "brulureChim" || mainTheme === "brulureFeu") {
-		updateThemeData("brulure");
-	}
-	const answer = getAnswerString(fkw);
-	return getFilledAnswer(answer)
-}
 
-function getFKW(key_word){
-	let fkw;
-	switch(key_word){
-		case 0: 
-		fkw="chute";break;
-		case 1: 
-		let c; let b;
-		for (var w in kw){
-			console.log(w)
-			c=0;
-			b=0;
-			if (keywords[kw[w]]== 101){
-				c=1;
-			}
-			if (keywords[kw[w]]== 102){
-				b=1;
-			}
-			if (b&c){
-				fkw="brulure";
-				break;
-			}
-		}
-		if (context=="infos")  c=1
-		if (c) fkw="brulureChim";
-		if (b) fkw="brulureFeu";
-		if(!b&!c) fkw="brulure";
-		break;
-		case 2: fkw="incendie";break;
-		case 3: fkw="intoxication";break;
-		case 4: fkw="inhalation";break;
-		case 5: fkw="etouffement";break;
-		case 6: fkw="noyade";break;
-		case 7: fkw="";break;
-		case 8: fkw="coupe";break;
-		case 9: fkw="morsure";break;
-		case 10: fkw="arme";break;
-		case 12: fkw="Déshydratation";break;
-		case 101:
-		for (w in kw){
-			if (keywords[kw[w]]==1){
-				fkw="brulureChim";
-				break;
-			}
-			if (keywords[kw]==3){
-				fkw="intoxication";
-				break;
-			}
-		}
-		fkw="infos"
-		break;
-		case 102:
-		default: fkw="no"	
-	}
-	return fkw;
-}
 
 // Nouvelle fonction pour mettre à jour les données d'un thème
 function updateThemeData(themeName) {
@@ -302,3 +230,19 @@ function getLeastDiscussedThemes() {
 	themes.sort((a, b) => a[1].count - b[1].count); 
 	return themes.slice(0, 3).map(theme => theme[0]); 
 }
+const handleChat=()=>{
+	userMessage= chatInput.value.trim();
+	if(!userMessage) return;
+	chatbox.appendChild(createChatLi(userMessage,"outgoing"));
+	setTimeout(()=>{
+		chatbox.appendChild(createChatLi("Je réflechis...s","incoming"));
+		generateBotResponse();
+	},600)
+}
+
+// ========== EVENTS HANDLE ==========
+msg_input.addEventListener("keydown", (e) => {
+	if (e.key === "Enter") handleChat();
+});
+sendChatBtn.addEventListener("click", handleChat);
+generateRandomButtons(); // Générer les 1er bouton
