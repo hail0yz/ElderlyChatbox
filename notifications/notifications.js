@@ -82,11 +82,11 @@ function cibleRappel(message, targetTime, targetDate) {
     console.log(jour);
     console.log(now.getDate());
     console.log(mois); 
-    console.log(now.getMonth());
+    console.log(now.getMonth()+1);
     console.log(annee);
     console.log(now.getFullYear());
 
-    if(tempsseconde == now.getHours()*3600 + now.getMinutes()*60 && now.getDate() == jour && now.getMonth() == mois && now.getFullYear() == annee) {
+    if(tempsseconde == now.getHours()*3600 + now.getMinutes()*60 && now.getDate() == jour && now.getMonth()+1 == mois && now.getFullYear() == annee && now.getSeconds() == 0) {
         console.log('Notification');
         addNotification(message);
     }

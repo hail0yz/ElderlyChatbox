@@ -27,10 +27,16 @@ function addlist(message, intervalleTemp, targetTime,targetDate) {
     const date= document.createElement('date');
     date.textContent = `Date: ${targetDate}`;
     newNotification.appendChild(date);
+    if (!targetDate || targetDate === 'undefined') {
+      date.style.display = 'none';
+    }
 
     const notifTime = document.createElement('time');
     notifTime.textContent = `Cible: ${targetTime}`;
     newNotification.appendChild(notifTime);
+    if(!targetTime || targetTime === 'undefined') {
+      notifTime.style.display = 'none';
+    }
     
 
     const deleteButton = document.createElement('button');
