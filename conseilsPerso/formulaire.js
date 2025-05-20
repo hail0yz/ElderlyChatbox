@@ -1,7 +1,12 @@
-const questParPage = 10;
-var nbQuestPage = 0;
-var nbPages = 0;
-var currentPage = 1;
+// Consts
+const nextButton = document.getElementById("nextButton");
+const prevButton = document.getElementById("prevButton");
+const finishButton = document.getElementById("finishButton");
+const okButton = document.getElementById("okButton");
+const pageList = document.getElementById("pageList");
+const lastPage = document.getElementById("lastPage");
+const form = document.querySelector("form");
+const form_data = await window.chatbot_app.get_form_data();
 const dictionnaireOrdinaux = [
     "Première",
     "Deuxième",
@@ -14,22 +19,26 @@ const dictionnaireOrdinaux = [
     "Neuvième",
     "Dixième"
 ];
+const questParPage = 10;
 
-var form = document.querySelector("form");
-const form_data = await window.chatbot_app.get_form_data();
+// Vars
+var nbQuestPage = 0;
+var nbPages = 0;
+var currentPage = 1;
 
-form.addEventListener("submit", submit, false);
-document.getElementById("prevButton").addEventListener("click", prevPage, false);
-document.getElementById("nextButton").addEventListener("click", nextPage, false);
 
 /**
  * 
  * @description Fonction d'initialisation du formulaire qui crée les pages et les questions
- * @param {*} event 
  * @returns {void}
  */
-function initForm(event) {
+function initForm() {
     console.log("initForm");
+    form.addEventListener("submit", submit, false);
+    prevButton.addEventListener("click", prevPage, false);
+    nextButton.addEventListener("click", nextPage, false);
+    okButton.addEventListener("click", pressOkButton, false)
+
     let questions = form_data.questions;
     let newPage;
 
@@ -47,7 +56,6 @@ function initForm(event) {
         }
         
         let question = questions[q];
-        console.log("for");
     
         let questionBox = document.createElement("div");
         questionBox.setAttribute("class", "question-box");
@@ -55,20 +63,17 @@ function initForm(event) {
         let questionDiv = document.createElement("div");
         questionDiv.setAttribute("class", "question");
         questionDiv.textContent = question.question;
-        console.log(question);
     
         let answerDiv = document.createElement("div");
         answerDiv.setAttribute("class", "answers");
     
         if (question.type == "text") {
-            console.log("text");
             let input = document.createElement("input");
             input.type = "text";
             input.name = question.name;
             input.placeholder = question.placeholder || "";
             answerDiv.appendChild(input);
         } else if (question.type == "radio") {
-            console.log("radio");
             for (let i = 0; i < question.options.length; i++) {
                 let label = document.createElement("label");
                 label.textContent = question.options[i];
@@ -92,30 +97,37 @@ function initForm(event) {
         nbQuestPage++;
         if (nbQuestPage == questParPage) {
             nbQuestPage = 0;
-            document.getElementById("page-list").appendChild(newPage);
-            console.log("Ajout de la page " + nbPages);
+            pageList.appendChild(newPage);
         }
     }
 
-    document.getElementById("page-list").appendChild(newPage);
+    pageList.appendChild(newPage);
 
-    console.log("Affichage des pages");
     let page = document.getElementById("page1");
     if (page) {
         page.style.display = "block";
     }
-    for(let iPage = 2; iPage <= nbPages; iPage++) {
-        page = document.getElementById("page" + iPage);
-        if (page) {
-            page.style.display = "none";
-        }
-    }
+
+    lastPage.style.display = "none";
+
+    updateButtonDisplay();
+
 }
 
 
 /***********
  * Boutons *
  ***********/
+
+/**
+ * @description Fonction de redirection vers le menu
+ * @param {*} event 
+ * @returns {void}
+ */
+function pressOkButton(event) {
+    console.log("ok");
+    window.location = "../menu/menu.html";
+}
 
 /**
  * @description Fonction de soumission du formulaire
@@ -134,6 +146,9 @@ function submit(event) {
     }
     form_data.done = true;
     window.chatbot_app.set_form_data(form_data);
+
+    document.getElementById("form").style.display = "none";
+    lastPage.style.display = "block";
 }
 
 /**
@@ -150,6 +165,8 @@ function nextPage(event) {
         page = document.getElementById("page" + currentPage);
         page.style.display = "block";
     }
+
+    updateButtonDisplay();
 }
 
 /**
@@ -159,12 +176,35 @@ function nextPage(event) {
  */
 function prevPage(event) {
     console.log("prevPage");
+
     if (currentPage > 1) {
         let page = document.getElementById("page" + currentPage);
         page.style.display = "none";
         currentPage--;
         page = document.getElementById("page" + currentPage);
         page.style.display = "block";
+    }
+
+    updateButtonDisplay();
+}
+
+/**
+ * @description Fonction d'affichage des boutons
+ * @returns {void}
+ */
+function updateButtonDisplay() {
+    if (currentPage == 1) {
+        prevButton.style.display = "none";
+    } else {
+        prevButton.style.display = "block";
+    }
+
+    if (currentPage == nbPages) {
+        nextButton.style.display = "none";
+        finishButton.style.display = "block";
+    } else {
+        nextButton.style.display = "block";
+        finishButton.style.display = "none";
     }
 }
 
