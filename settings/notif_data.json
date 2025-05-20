@@ -1,1 +1,24 @@
-{}
+{
+  "notif_def": {
+    "0": {
+      "intervalle": 3,
+      "message": "N'oublie pas de manger !",
+      "targetTime": null,
+      "targetDate": null
+    },
+    "1": {
+      "intervalle": 3,
+      "message": "N'oublie pas de boire !",
+      "targetTime": null,
+      "targetDate": null
+    },
+    "undefined": {
+      "message": "N'oublie pas de boire !",
+      "targetTime": null,
+      "targetDate": null
+    }
+  },
+  "notif_histo": {
+    "ul": "<ul><li class=\"notif_msg\"><span>N'oublie pas de boire !</span><button class=\"button_del\"> Supprimer</button></li></ul>"
+  }
+}

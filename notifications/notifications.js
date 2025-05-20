@@ -1,14 +1,16 @@
-let data = window.chatbot_app.get_bot_data();
-
-
-function saveData() {
-	window.chatbot_app.set_bot_data(data);
-}
-
 document.getElementById('timebox').innerHTML = new Date().toLocaleTimeString();
 document.getElementById('timebox').className = 'timebox';
-
 setInterval(updateTime, 1000);
+
+function saveData() {
+	window.chatbot_app.set_notif_data(data);
+}
+
+
+let data = await window.chatbot_app.get_notif_data();
+
+console.log(data);
+
 
 function addNotification(message) {
     let n=document.getElementById('notification');
@@ -99,50 +101,89 @@ function cibleRappel(message, targetTime, targetDate) {
 
 }
 
-export function clearNotifications() {
-    n=document.getElementById('notification');
+function clearNotifications() {
+    let n=document.getElementById('notification');
     n.innerHTML = ''; 
-    localStorage.removeItem('savedNotifications');
+    data["notif_histo"]["ul"]= n.innerHTML;
     saveData();
 }
 
 
 function saveNotifications() {
     const notifications = document.getElementById('notification').innerHTML;
-    localStorage.setItem('savedNotifications', notifications);
+    data["notif_histo"]["ul"]= notifications;
     saveData();
 }
 
 window.addEventListener('beforeunload', saveNotifications);
 
-window.addEventListener('load', () => {
-    const savedNotifications = localStorage.getItem('savedNotifications');
-    if (savedNotifications) {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = savedNotifications;
-        const notifications = tempDiv.querySelectorAll('.notif_msg');
-        notifications.forEach(notification => {
-            addNotification(notification.getElementsByTagName('span')[0].textContent);
-        });
+function loaddata() {
+    const notif_def=data["notif_def"];
+    console.log("notif para",notif_def);
+        for (const notif in notif_def) {
+            console.log(notif_def[notif]);
+            const message = notif_def[notif].message;
+            const intervalleTemp = notif_def[notif].intervalle;
+            const targetTime = notif_def[notif].targetTime;
+            const targetDate = notif_def[notif].targetDate;
+
+            console.log("message",message);
+            console.log("intervalle",intervalleTemp);
+            console.log("targetTime",targetTime);
+            console.log("targetDate",targetDate);
+            if(intervalleTemp > 0 ) {
+                rappel(
+                    intervalleTemp,
+                    message
+                );
+            }
+            if(targetTime != null && targetDate != null) {
+                cibleRappel(
+                    message,
+                    targetTime,
+                    targetDate
+                );
+            }
     }
 
-    const savedNotiflist = localStorage.getItem('notiflist');
-    console.log(savedNotiflist);
-    if (savedNotiflist) {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = savedNotiflist;
-        const notifications = tempDiv.querySelectorAll('.notif');
-        notifications.forEach(notification => {
-            const message = notification.textContent.split('Intervalle: ')[0];
-            const intervalleTemp = parseInt(notification.textContent.split('Intervalle: ')[1].split('s')[0], 10);
-            const targetTime = notification.textContent.split('Heure: ')[1].split('Supprimer')[0];
-            const targetDate = notification.querySelector('date').textContent.split('Date: ')[1].split(' ')[0];
-            rappel(
-                intervalleTemp,
-                message
-            );
-            setInterval(cibleRappel, 1000,message, targetTime, targetDate);
-        });
-    }
-});
+    const savedNotifications= data["notif_histo"]["ul"];
+    console.log("savedNotifications",savedNotifications);
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = savedNotifications;
+    const notifications = tempDiv.querySelectorAll('.notif_msg');
+    notifications.forEach(notification => {
+        addNotification(notification.getElementsByTagName('span')[0].textContent);
+    })
+}
+window.addEventListener('load', loaddata());
 
+
+
+document.getElementById('clearButton').onclick = () => clearNotifications();
+
+
+function ajoutBaseNotif(){
+    const intervalleTemp = 3;
+    let length=Object.keys(data["notif_def"]).length;
+    
+    data["notif_def"][length]={
+        "intervalle": intervalleTemp,
+        "message": "N'oublie pas de manger !",
+        "targetTime": null,
+        "targetDate": null
+    };
+
+    data["notif_def"][length+1]={
+        "intervalle": intervalleTemp,
+        "message": "N'oublie pas de boire !",
+        "targetTime": null,
+        "targetDate": null
+    };
+
+    saveData();
+}
+
+function initData(){
+    data["notif_def"] = {}
+    data["notif_histo"]= {}
+}

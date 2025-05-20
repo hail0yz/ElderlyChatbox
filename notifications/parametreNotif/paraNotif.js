@@ -1,3 +1,12 @@
+function saveData() {
+	window.chatbot_app.set_notif_data(data);
+}
+
+let data = await window.chatbot_app.get_notif_data();
+
+console.log("data para",data);
+loadNotif();
+
 
 document.getElementById('form').addEventListener('submit', function (event) {
     event.preventDefault(); 
@@ -17,6 +26,8 @@ document.getElementById('form').addEventListener('submit', function (event) {
 function addlist(message, intervalleTemp, targetTime,targetDate) {
     let n = document.getElementById('cadreNotif');
     const newNotification = document.createElement('li');
+    newNotification.id = `${data["notif_def"].length}`;
+    console.log(newNotification.id);
     newNotification.className = 'notif';
     newNotification.textContent = `${message}`;
 
@@ -46,61 +57,35 @@ function addlist(message, intervalleTemp, targetTime,targetDate) {
     deleteButton.textContent = ' Supprimer';
     deleteButton.onclick = () => {
         n.removeChild(newNotification);
-        localStorage.setItem('notiflist', n);
+        data["notif_def"][newNotification.id] = null;
+
     };
     deleteButton.className = 'button_del_notif';
 
     newNotification.appendChild(deleteButton);
     n.appendChild(newNotification);
 
-    localStorage.setItem('notiflist',n);
+    data["notif_def"][newNotification.id] = {
+        "message": message,
+        "intervalleTemp": intervalleTemp,
+        "targetTime": targetTime,
+        "targetDate": targetDate,
+    };
+    saveData();
 }
 
-function saveNotifications() {
-    notiflist = document.getElementById('cadreNotif').innerHTML;
-    localStorage.setItem('notiflist',notiflist);
+function loadNotif(){
+    for (const n in data["notif_def"]) {
+      const notif = data["notif_def"][n];
+      console.log("test",notif);
+      addlist(notif.message, notif.intervalleTemp, notif.targetTime, notif.targetDate);
+  }
 }
 
-window.addEventListener('beforeunload', saveNotifications);
+window.addEventListener('load', loadNotif);
 
-window.addEventListener('load', () => {
-    storedNotifList = localStorage.getItem('notiflist');
-    if (storedNotifList) {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = storedNotifList;
-        const notifications = tempDiv.querySelectorAll('.notif');
-        if(notifications.length === 0) {
-            ajoutBasicNotif();
-        }
 
-        notifications.forEach(notification => {
-            const message = notification.textContent.split('Intervalle: ')[0];
-            const intervalleTemp = parseInt(notification.textContent.split('Intervalle: ')[1].split('s')[0], 10);
-            const targetTime = notification.textContent.split('Heure: ')[1].split(' ')[0];
-            const targetDate = notification.querySelector('date').textContent.split('Date: ')[1].split(' ')[0];
-
-            console.log(message);
-            console.log(intervalleTemp);
-            console.log(targetTime);
-            console.log(targetDate);
-
-            addlist(message, intervalleTemp, targetTime,targetDate);
-        });
-    }
-    console.log(storedNotifList);
-});
-
-function ajoutBasicNotif(){
-    intervalleTemp = 3;
-   
-    addlist("N'oublie pas de manger !", intervalleTemp);
-
-    addlist("N'oublie pas de boire !", intervalleTemp);
-
-    addlist("Pense à faire de l'exercice (marche, mini footing, ...) !", intervalleTemp);
-}
-
-intervalleTemp = document.getElementById("Intervalle de temps");
+let intervalleTemp = document.getElementById("Intervalle de temps");
 
 intervalleTemp.addEventListener(
   "input",
@@ -110,7 +95,7 @@ intervalleTemp.addEventListener(
   false,
 );
 
-targetTime = document.getElementById("Heure cible");
+let targetTime = document.getElementById("Heure cible");
 
 targetTime.addEventListener(
   "input",
@@ -120,7 +105,7 @@ targetTime.addEventListener(
   false,
 );
 
-targetDate= document.getElementById("cible_date");
+let targetDate= document.getElementById("cible_date");
 
 targetDate.addEventListener(
   "input",

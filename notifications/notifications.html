@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="./notifications.css">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"/>
-        <script src="notifications.js"  defer></script>
+        <script src="notifications.js" type="module"  defer></script>
     </head>
     <body>
         <h1 style="text-align: center;">Notifications</h1>
@@ -25,10 +25,10 @@
                             </div>
                             <script>
                                 const clearButton = document.createElement('button');
+                                clearButton.id = 'clearButton';
                                 clearButton.textContent = 'Effacer les notifications';
                                 clearButton.className = 'button_clear';
                                 document.body.appendChild(clearButton);
-                                clearButton.onclick = () => clearNotifications('notification');
                             </script>
                              <div class="notification">
                                 <p id="notification"></p>
