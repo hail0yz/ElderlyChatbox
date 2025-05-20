@@ -7,6 +7,15 @@
     "color_palette": [
         ["#0D1B2A", "#1B263B", "#415A77", "#778DA9", "#E0E1DD"],
         ["#422040", "#E57A44", "#E3D985", "#D6DBB2", "#BCD8C1"],
-        ["#615055", "#946E83", "#B4A6AB", "#CDD5D1", "#DDF8E8"]
-    ]
+        ["#615055", "#946E83", "#B4A6AB", "#CDD5D1", "#DDF8E8"],
+        ["#000000", "#48B1DA", "#000000", "#a1ccd3", "#FAF9F6"]
+    ],
+    "font_family": {
+        "Arial": "Arial, Helvetica, sans-serif",
+        "Courier New": "'Courier New', Courier, monospace",
+        "Georgia": "Georgia, 'Times New Roman', Times, serif",
+        "Times New Roman": "'Times New Roman', Times, serif",
+        "Geneva": "Verdana, Geneva, Tahoma, sans-serif",
+        "Tahoma": "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+    }
 }

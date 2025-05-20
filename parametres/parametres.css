@@ -7,6 +7,8 @@
     min-width: 250px;
     height: fit-content;
     min-height: 100px;
+    background-color: var(--col2);
+    color: var(--col5);
 }
 
 #update_size {
@@ -34,6 +36,9 @@
   margin-inline: 2px;
 }
 
+#font_family select {
+  font-size: inherit;
+}
 
 .btn-grp button{
   border: none;
