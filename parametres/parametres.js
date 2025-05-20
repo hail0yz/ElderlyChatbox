@@ -25,6 +25,9 @@ const new_vars = {
     "col5": getValueOf('col5'),
 };
 
+const palette_button = document.getElementById('palette_button');
+let palette_button_state = false;
+
 const exemple_style = document.getElementById("exemple").style; 
 set_color_options();
 set_font_family_options(data.font_family);
@@ -37,8 +40,9 @@ document.getElementById("sizeDOWN").addEventListener("click", ()=>{updateFontSiz
 
 // palette
 document.querySelectorAll('.palette-option input').forEach(color_input=>{
-    color_input.addEventListener("change",()=>updateColorPalette(color_input.value))
+    color_input.addEventListener("change",()=>updateColorPalette(color_input))
 });
+palette_button.addEventListener("click", paletteButtonFun)
 
 // font family
 document.querySelector('#font_family select').addEventListener("change", updateFontFamily)
@@ -55,8 +59,14 @@ function updateFontSize(isSizeUp) {
     }
 }
 
-function updateColorPalette(id) {
-    console.log("update of ",id);
+function updateColorPalette(color_input) {
+    document.querySelector("selected").add("notselected");
+    document.querySelector("selected").remove("selected");
+    
+    color_input.classList.remove("notselected");
+    color_input.classList.add("selected");
+    
+    const id = color_input.value;
     const palette = data.color_palette[id];
     
     for(let i = 0; i < 5; i++) {
@@ -66,6 +76,21 @@ function updateColorPalette(id) {
             `--col${i+1}`, 
             palette[i]
         );
+    }
+}
+function paletteButtonFun() {
+    if(palette_button_state) { // affichait toutes les palette
+        palette_button.textContent = "Afficher les palettes";
+        document.querySelectorAll(".notselected").forEach(elem=>{
+            elem.style.display = "none";
+        })
+        palette_button_state = false;
+    } else { // affichait une seul palette
+        palette_button.textContent = "Masquer les palettes";
+        document.querySelectorAll(".notselected").forEach(elem=>{
+            elem.style.display = "";
+        })
+        palette_button_state = true;
     }
 }
 
@@ -91,7 +116,6 @@ function getValueOf(var_name) {
 function set_color_options() {
     const options = document.getElementById("color_palette");
     for(let id in data.color_palette) {
-        console.log(id);
         options.appendChild(createColorOption(data.color_palette[id], id));
     }
 }
@@ -104,7 +128,14 @@ function createColorOption(palette, id) {
     
     const label = document.createElement('label');
     label.appendChild(input);
-    label.classList.add("palette-option");
+    
+    if(palette[0]===new_vars.col1) {
+        label.classList.add("palette-option", "selected");
+        input.checked = true;
+    } else {
+        label.classList.add("palette-option", "notselected");
+        label.style.display = "none";
+    }
     
     palette.forEach(color=>{
         const color_div = document.createElement("div");
@@ -119,12 +150,12 @@ function createColorOption(palette, id) {
 function set_font_family_options(font_family_obj) {
     const select_part = document.querySelector('#font_family select');
     for(let ff in font_family_obj) {
-
+        
         const option = document.createElement('option');
         option.style.fontFamily = font_family_obj[ff];
         option.textContent = ff;
         option.value = ff;
-
+        
         select_part.appendChild(option);
     }
 }

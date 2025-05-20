@@ -38,6 +38,7 @@
 
 #font_family select {
   font-size: inherit;
+  text-align: center;
 }
 
 .btn-grp button{
