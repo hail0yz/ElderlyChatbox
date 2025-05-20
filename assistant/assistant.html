@@ -10,10 +10,11 @@
         <script src="./assistant.js" type="module" defer></script>
     </head>
     <body style="height: 100vh; width: 100vw;">
-        <button class="chatbot-toggler" onclick="window.close()">
-            <span style='font-size:25px;'>&#10060;</span>
-        </button>
-        <button class="goBackBtn" onclick="window.location='../menu/menu.html'">Retour</button>
+        <div id="sticked_info">
+            <button id="retour" onclick="window.location='../menu/menu.html';">Retour</button>
+            <h2 id="app_name"><strong>Elderly ChatBox</strong></h2>
+            <button id="close" onclick="window.close()">x fermer</button>
+        </div>
         <div class="chatbot">
             <header>
                 <h2>Assistant</h2> 

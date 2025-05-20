@@ -4,7 +4,7 @@ const data = await window.chatbot_app.get_disponible_settings();
 
 // ========== VARIABES ==========
 
-const root_css_style = document.styleSheets[0].rules.item("../settings/root.css").styleSheet.cssRules.item(":root").style;
+const root_css_style = document.styleSheets[0].rules["0"].styleSheet.rules.item("../settings/root.css").styleSheet.cssRules.item(':root').style;
 
 // Récupérer les anciens style du root.css
 const new_style = { 
