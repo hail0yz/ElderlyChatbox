@@ -22,8 +22,9 @@ const new_vars = {
     "col2": getValueOf('col2'),
     "col3": getValueOf('col3'),
     "col4": getValueOf('col4'),
-    "col5": getValueOf('col5'),
+    "col5": getValueOf('col5')
 };
+get_custom_vars();
 
 const palette_button = document.getElementById('palette_button');
 let palette_button_state = false;
@@ -60,23 +61,28 @@ function updateFontSize(isSizeUp) {
 }
 
 function updateColorPalette(color_input) {
-    document.querySelector("selected").add("notselected");
-    document.querySelector("selected").remove("selected");
+    document.querySelector(".selected").classList.add("notselected");
+    document.querySelector(".selected").classList.remove("selected");
     
     color_input.classList.remove("notselected");
     color_input.classList.add("selected");
     
     const id = color_input.value;
-    const palette = data.color_palette[id];
     
-    for(let i = 0; i < 5; i++) {
-        new_vars[`col${i+1}`] = palette[i];
-        // Change la couleur de partout, pas que de l'exemple, pour tester quand on utilisera les --col
-        document.documentElement.style.setProperty(
-            `--col${i+1}`, 
-            palette[i]
-        );
+    const palette = data.color_palette[id].palette;
+    const spe = data.color_palette[id].spe;
+    
+    for(let i = 0; i < 5; i++) updateVar(`col${i+1}`, palette[i]);
+    
+    for(let s in spe) {
+        const v = spe[s];
+        updateVar(s, `${v}`.startsWith("#")?v:palette[v]);
     }
+}
+function updateVar(name, value) {
+    new_vars[name] = value;
+    // Change la couleur de partout, pas que de l'exemple, pour tester quand on utilisera les --col
+    document.documentElement.style.setProperty(`--${name}`, value);
 }
 function paletteButtonFun() {
     if(palette_button_state) { // affichait toutes les palette
@@ -116,7 +122,7 @@ function getValueOf(var_name) {
 function set_color_options() {
     const options = document.getElementById("color_palette");
     for(let id in data.color_palette) {
-        options.appendChild(createColorOption(data.color_palette[id], id));
+        options.appendChild(createColorOption(data.color_palette[id].palette, id));
     }
 }
 function createColorOption(palette, id) {
@@ -157,5 +163,11 @@ function set_font_family_options(font_family_obj) {
         option.value = ff;
         
         select_part.appendChild(option);
+    }
+}
+
+function get_custom_vars() {
+    for(let v in data.color_palette[0].spe) {
+        new_vars[v] = getValueOf(v)
     }
 }

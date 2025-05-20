@@ -1,13 +1,16 @@
 :root { 
     --red: #ff0000;
-    --col1: #615055;
-    --col2: #946E83;
-    --col3: #B4A6AB;
-    --col4: #CDD5D1;
-    --col5: #DDF8E8;
-    color: rgb(89, 100, 117);
-    background-color: rgb(253, 232, 233);
+    --col1: #1B2845;
+    --col2: #274060;
+    --col3: #557EA2;
+    --col4: #5899E2;
+    --col5: #d8f8f3;
+    --background_color: #557EA2;
+    --text_color: #d8f8f3;
+    --title_color: #d8f8f3;
+    color: var(--text_color);
+    background-color: var(--col3);
     border-color: black;
     font-family: Arial;
-    font-size: 24px;
+    font-size: 20px;
 }

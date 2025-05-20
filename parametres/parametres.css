@@ -1,14 +1,23 @@
 @import url(../settings/root.css);
 
 #exemple {
-    border: 5px solid #999;
-    border-radius: 15px;
-    width: 40%;
-    min-width: 250px;
-    height: fit-content;
-    min-height: 100px;
-    background-color: var(--col2);
-    color: var(--col5);
+  border: 5px var(--col5) solid;
+  border-radius: 15px;
+  
+  width: 40%;
+  min-width: 250px;
+  height: fit-content;
+  min-height: 150px;
+  
+  background-color: var(--col2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text_color);
+}
+
+h1, h2, h3, h4 {
+  color: var(--col1);
 }
 
 #update_size {

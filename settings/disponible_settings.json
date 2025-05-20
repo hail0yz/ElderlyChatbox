@@ -1,21 +1,67 @@
 {
     "font_size" : {
         "min": 14,
-        "max": 32,
+        "max": 38,
         "step": 2
     },
+
+    "info_sur_color_palette" : "Les elements dans spe sont : soit des couleur hexdécimal : #123456 ou un idx entre 0 et 4 qui représente la couleur de la palette",
     "color_palette": [
-        ["#0D1B2A", "#1B263B", "#415A77", "#778DA9", "#E0E1DD"],
-        ["#422040", "#E57A44", "#E3D985", "#D6DBB2", "#BCD8C1"],
-        ["#615055", "#946E83", "#B4A6AB", "#CDD5D1", "#DDF8E8"],
-        ["#000000", "#48B1DA", "#000000", "#a1ccd3", "#FAF9F6"]
+        {
+            "palette": ["#FFFFFF","#EEEEEE","#DDDDDD","#CCCCCC","#000000"],
+            "spe": {
+                "background_color": 2,
+                "text_color": 4,
+                "title_color": 4
+            }
+        },
+        {
+            "palette": ["#0D1B2A","#2B365B","#415A77","#778DA9","#E0E1DD"],
+            "spe": {
+                "background_color": 2,
+                "text_color": 4,
+                "title_color": 4
+            }
+        },
+        {
+            "palette": ["#1B2845","#274060","#557EA2","#5899E2","#d8f8f3"],
+            "spe": {
+                "background_color": 2,
+                "text_color": 4,
+                "title_color": 4
+            }
+        },
+        {
+            "palette": ["#615055","#946E83","#B4A6AB","#CDD5D1","#DDF8E8"],
+            "spe": {
+                "background_color": 2,
+                "text_color": 4,
+                "title_color": 4
+            }
+        },
+        {
+            "palette": ["#9F7E69","#D2BBA0","#E1DEB6","#F7FFE0","#FFEEE2"],
+            "spe": {
+                "background_color": 2,
+                "text_color": 4,
+                "title_color": 4
+            }
+        },
+        {
+            "palette": ["#847577","#A6A2A2","#CFD2CD","#E5E6E4","#FBFBF2"],
+            "spe": {
+                "background_color": 2,
+                "text_color": 4,
+                "title_color": 4
+            }
+        }
     ],
     "font_family": {
-        "Arial": "Arial, Helvetica, sans-serif",
-        "Courier New": "'Courier New', Courier, monospace",
-        "Georgia": "Georgia, 'Times New Roman', Times, serif",
-        "Times New Roman": "'Times New Roman', Times, serif",
-        "Geneva": "Verdana, Geneva, Tahoma, sans-serif",
-        "Tahoma": "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+        "Arial": "Arial,Helvetica,sans-serif",
+        "Courier New": "'Courier New',Courier,monospace",
+        "Georgia": "Georgia,'Times New Roman',Times,serif",
+        "Times New Roman": "'Times New Roman',Times,serif",
+        "Geneva": "Verdana,Geneva,Tahoma,sans-serif",
+        "Tahoma": "'Segoe UI',Tahoma,Geneva,Verdana,sans-serif"
     }
 }
