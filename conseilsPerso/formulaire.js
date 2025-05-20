@@ -1,3 +1,5 @@
+const questParPage = 10;
+var nbQuestPage = 0;
 var nbPages = 0;
 var currentPage = 1;
 const dictionnaireOrdinaux = [
@@ -28,20 +30,22 @@ document.getElementById("nextButton").addEventListener("click", nextPage, false)
  */
 function initForm(event) {
     console.log("initForm");
-
-    nbPages++;
-    let newPage = document.createElement("div");
-    newPage.setAttribute("id", "page" + nbPages);
-    newPage.setAttribute("class", "page");
-    newPage.style.display = "none";
-
-    let pageTitle = document.createElement("h3");
-    pageTitle.textContent = dictionnaireOrdinaux[nbPages - 1] + " page";
-    newPage.appendChild(pageTitle);
-
     let questions = form_data.questions;
-    console.log(questions.length);
+    let newPage;
+
     for (const q in questions) {
+        if (nbQuestPage == 0) {
+            nbPages++;
+            newPage = document.createElement("div");
+            newPage.setAttribute("id", "page" + nbPages);
+            newPage.setAttribute("class", "page");
+            newPage.style.display = "none";
+
+            let pageTitle = document.createElement("h3");
+            pageTitle.textContent = dictionnaireOrdinaux[nbPages - 1] + " page";
+            newPage.appendChild(pageTitle);
+        }
+        
         let question = questions[q];
         console.log("for");
     
@@ -84,13 +88,16 @@ function initForm(event) {
         questionBox.appendChild(questionDiv);
         questionBox.appendChild(answerDiv);
         newPage.appendChild(questionBox);
-        console.log(newPage);
+        
+        nbQuestPage++;
+        if (nbQuestPage == questParPage) {
+            nbQuestPage = 0;
+            document.getElementById("page-list").appendChild(newPage);
+            console.log("Ajout de la page " + nbPages);
+        }
     }
+
     document.getElementById("page-list").appendChild(newPage);
-
-
-
-
 
     console.log("Affichage des pages");
     let page = document.getElementById("page1");
@@ -104,8 +111,6 @@ function initForm(event) {
         }
     }
 }
-
-
 
 
 /***********
