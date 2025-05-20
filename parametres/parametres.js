@@ -75,11 +75,17 @@ function updateColorPalette(color_input) {
     for(let i = 0; i < 5; i++) updateVar(`col${i+1}`, palette[i]);
     
     for(let s in spe) {
+        if(s==="chatbox_header_bg_gradiant" && spe[s]==="auto") {
+            const c = (`${spe["chatbox_header_bg"]}`.startsWith("#")?spe["chatbox_header_bg"]:palette[spe["chatbox_header_bg"]]).slice(1);
+            updateVar(s, `#${c.split('').map(e=>(Math.floor(Math.min(15,parseInt(e,16)+4))).toString(16)).join('')}`);
+            continue;
+        }
         const v = spe[s];
         updateVar(s, `${v}`.startsWith("#")?v:palette[v]);
     }
 }
 function updateVar(name, value) {
+    console.log('parametre', name, "go from", new_vars[name], "to", value);
     new_vars[name] = value;
     // Change la couleur de partout, pas que de l'exemple, pour tester quand on utilisera les --col
     document.documentElement.style.setProperty(`--${name}`, value);
