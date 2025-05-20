@@ -1,4 +1,4 @@
-const nbPages = 3;
+const nbPages = 4;
 var currentPage = 1;
 
 var form = document.querySelector("form");
@@ -26,6 +26,8 @@ function submit(event) {
     event.preventDefault();
     console.log("submit");
     let data = new FormData(form);
+
+    form_data.username = document.getElementById("username").value;
     for(const entry of data) {
         form_data.answers[entry[0]] = entry[1];
         console.log(JSON.parse(JSON.stringify(form_data)));

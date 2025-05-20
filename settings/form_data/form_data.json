@@ -1,9 +1,9 @@
 {
-  "done": true,
-  "name": "",
+  "done": false,
+  "username": "",
   "answers": {
-    "seulacc": "accompagne",
-    "chutesFrequentes": "oui",
-    "animaux": "non"
+    "seulacc": "",
+    "chutesFrequentes": "",
+    "animaux": ""
   }
 }
