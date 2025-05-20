@@ -6,10 +6,9 @@ Faire que quand chatbox pleine : auto scroll up;
     margin: 0;
     padding: 0;
     box-sizing: 0;
-    font-family: "Poppins", sans-serif;
 }
 body{
-    background: #a1ccd3;
+    background: var(--background_color);
 }
 .chatbot-toggler{ /*A MODIFIER: calquer sur les autres pages pour meme endroit glboal.*/
     position:fixed;
@@ -26,13 +25,12 @@ body{
 }
 .chatbot header {
     background: #0e86b5;
-background: linear-gradient(90deg,rgba(14, 134, 181, 1) 0%, rgba(130, 220, 255, 1) 100%);
+    background: linear-gradient(90deg,var(--chatbox_header_bg) 0%, var(--chatbox_header_bg_gradiant) 100%);
     padding: 4px 0;
     border-radius: 10px 10px 0px 0px;
     text-align: center;
 }
 .chatbot header h2{
-    color: #e0e0e0;
     font-size: 1.4rem;
 }
 .chatbot .chatbox{
@@ -53,30 +51,28 @@ background: linear-gradient(90deg,rgba(14, 134, 181, 1) 0%, rgba(130, 220, 255, 
     max-width: 80%;
     border-radius: 10px 10px 0px 10px;
     font-size: 0.95rem;
-    color: #fff;
     background-color: #48B1DA;
 }
 .chatbox .incoming p{
     color: #000;
     background: #d9d9d9;
     background: linear-gradient(90deg, rgba(217, 217, 217, 1) 0%, rgba(182, 182, 182, 1) 100%);
-border-radius: 10px 10px 10px 0px;
+    border-radius: 10px 10px 10px 0px;
 }
 .chatbox .incoming span {
     height: 32px;
     width: 32px;
-    color: #fff;
-    background-color: #48B1DA;
+    background-color: var(--col2);
     text-align: center;
     line-height: 32px;
     border-radius: 4px;
     margin: 0 10px 7px 0;
 }
 .chatbox .chat-option{
-  display: block;
-  float: right;
-  margin-left: -50%;
-
+    display: block;
+    float: right;
+    margin-left: -50%;
+    
 }
 .chatbot .chat-input{
     width:100%;
@@ -113,13 +109,13 @@ border-radius: 10px 10px 10px 0px;
     font-size: inherit;
 }
 .btn-grp button {
-  margin: 3px;
-  background-color: #48B1DA;;
-  color: #FAF9F6;
-  border-radius: 5px;
-  cursor: pointer;
-  border:none;
-  text-align: center;  
+    margin: 3px;
+    background-color: var(--col2);;
+    color: #FAF9F6;
+    border-radius: 5px;
+    cursor: pointer;
+    border:none;
+    text-align: center;  
 }
 .chat-input textarea:valid ~ span {
     visibility:visible;

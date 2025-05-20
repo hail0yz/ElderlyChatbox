@@ -1,13 +1,15 @@
 :root { 
     --red: #ff0000;
-    --col1: #1B2845;
-    --col2: #274060;
-    --col3: #557EA2;
-    --col4: #5899E2;
-    --col5: #d8f8f3;
-    --background_color: #557EA2;
-    --text_color: #d8f8f3;
-    --title_color: #d8f8f3;
+    --col1: #FFFFFF;
+    --col2: #48B1DA;
+    --col3: #a1ccd3;
+    --col4: #CCCCCC;
+    --col5: #000000;
+    --background_color: #a1ccd3;
+    --chatbox_header_bg: #0e86b5;
+    --chatbox_header_bg_gradiant: #82dcff;
+    --text_color: #000000;
+    --title_color: #000000;
     color: var(--text_color);
     background-color: var(--col3);
     border-color: black;
