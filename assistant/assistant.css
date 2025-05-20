@@ -1,4 +1,4 @@
-@import url(../settings/root.css);
+@import url(../settings/default.css);
 /*
 Faire que quand chatbox pleine : auto scroll up;
 */
@@ -6,6 +6,7 @@ Faire que quand chatbox pleine : auto scroll up;
     margin: 0;
     padding: 0;
     box-sizing: 0;
+    color: inherit;
 }
 body{
     background: var(--background_color);
@@ -19,12 +20,11 @@ body{
     width:70%;
     top:5%;
     bottom:5%;    
-    background: #fff;
+    background: var(--col5);
     border-radius: 10px;
     box-shadow: 11px 7px 12px 1px rgba(95,0,0,0.55)
 }
 .chatbot header {
-    background: #0e86b5;
     background: linear-gradient(90deg,var(--chatbox_header_bg) 0%, var(--chatbox_header_bg_gradiant) 100%);
     padding: 4px 0;
     border-radius: 10px 10px 0px 0px;
@@ -51,12 +51,11 @@ body{
     max-width: 80%;
     border-radius: 10px 10px 0px 10px;
     font-size: 0.95rem;
-    background-color: #48B1DA;
+    background-color: var(--col2);
 }
 .chatbox .incoming p{
-    color: #000;
-    background: #d9d9d9;
-    background: linear-gradient(90deg, rgba(217, 217, 217, 1) 0%, rgba(182, 182, 182, 1) 100%);
+    color: var(--col1);
+    background: var(--col4);
     border-radius: 10px 10px 10px 0px;
 }
 .chatbox .incoming span {
@@ -76,8 +75,6 @@ body{
 }
 .chatbot .chat-input{
     width:100%;
-    background: #fff;
-    border-top: 1px solid #ccc;
     bottom:70px;
     display:flex;
 }
@@ -97,9 +94,7 @@ body{
     position:absolute;
     bottom: 0;
     width:100%;
-    background: #fff;
     gap:5px;
-    border-top: 1px solid #ccc;
     padding: 5px 0px;
 }
 .bottom .btn-grp{
@@ -111,7 +106,6 @@ body{
 .btn-grp button {
     margin: 3px;
     background-color: var(--col2);;
-    color: #FAF9F6;
     border-radius: 5px;
     cursor: pointer;
     border:none;
@@ -123,4 +117,7 @@ body{
 .goBackBtn{
     position: fixed;
     left: 40px; 
+}
+#send-btn, #msg {
+    color: black;
 }

@@ -1,4 +1,4 @@
-@import url(../settings/root.css);
+@import url(../settings/default.css);
 
 #exemple {
   border: 5px var(--col5) solid;
