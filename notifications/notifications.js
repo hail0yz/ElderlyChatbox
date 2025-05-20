@@ -1,3 +1,10 @@
+let data = window.chatbot_app.get_bot_data();
+
+
+function saveData() {
+	window.chatbot_app.set_bot_data(data);
+}
+
 document.getElementById('timebox').innerHTML = new Date().toLocaleTimeString();
 document.getElementById('timebox').className = 'timebox';
 
@@ -92,16 +99,18 @@ function cibleRappel(message, targetTime, targetDate) {
 
 }
 
-function clearNotifications() {
+export function clearNotifications() {
     n=document.getElementById('notification');
     n.innerHTML = ''; 
     localStorage.removeItem('savedNotifications');
+    saveData();
 }
 
 
 function saveNotifications() {
     const notifications = document.getElementById('notification').innerHTML;
     localStorage.setItem('savedNotifications', notifications);
+    saveData();
 }
 
 window.addEventListener('beforeunload', saveNotifications);

@@ -3,5 +3,7 @@ const { contextBridge, ipcRenderer } = require('electron')
 contextBridge.exposeInMainWorld('chatbot_app', {
   update_css_settings: (obj) => ipcRenderer.invoke('update_css_settings', obj),
   get_bot_data: () => ipcRenderer.invoke('get_bot_data'),
-  set_bot_data: (obj) => ipcRenderer.invoke('set_bot_data', obj)
+  set_bot_data: (obj) => ipcRenderer.invoke('set_bot_data', obj),
+  get_notif_data: () => ipcRenderer.invoke('get_notif_data'),
+  set_notif_data: (obj) => ipcRenderer.invoke('set_notif_data', obj)
 })
