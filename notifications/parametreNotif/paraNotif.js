@@ -2,10 +2,16 @@ function saveData() {
 	window.chatbot_app.set_notif_data(data);
 }
 
-let data = await window.chatbot_app.get_notif_data();
 
-console.log("data para",data);
-loadNotif();
+let data;
+
+window.addEventListener('load', async () => {
+  data = await window.chatbot_app.get_notif_data();
+  loadNotif();
+  console.log("data",data);
+});
+
+
 
 
 document.getElementById('form').addEventListener('submit', function (event) {
@@ -20,14 +26,12 @@ document.getElementById('form').addEventListener('submit', function (event) {
         return;
     }
 
-    addlist(textNotif, intervalleTemp,targetTime,targetDate);
+    addInData(textNotif, intervalleTemp,targetTime,targetDate);
 });
 
-function addlist(message, intervalleTemp, targetTime,targetDate) {
-    let n = document.getElementById('cadreNotif');
+function chargementLabel(message, intervalleTemp, targetTime,targetDate,id) { 
+  let n = document.getElementById('cadreNotif');
     const newNotification = document.createElement('li');
-    newNotification.id = `${data["notif_def"].length}`;
-    console.log(newNotification.id);
     newNotification.className = 'notif';
     newNotification.textContent = `${message}`;
 
@@ -52,34 +56,47 @@ function addlist(message, intervalleTemp, targetTime,targetDate) {
       notifTime.style.display = 'none';
     }
     
-
     const deleteButton = document.createElement('button');
     deleteButton.textContent = ' Supprimer';
     deleteButton.onclick = () => {
         n.removeChild(newNotification);
-        data["notif_def"][newNotification.id] = null;
+        console.log("delete",id);
+        data["notif_def"][`${id}`] = null;
+        saveData();
 
     };
     deleteButton.className = 'button_del_notif';
 
     newNotification.appendChild(deleteButton);
     n.appendChild(newNotification);
-
-    data["notif_def"][newNotification.id] = {
-        "message": message,
-        "intervalleTemp": intervalleTemp,
-        "targetTime": targetTime,
-        "targetDate": targetDate,
-    };
-    saveData();
 }
 
+function addlist(message, intervalleTemp, targetTime,targetDate,id) {
+  chargementLabel(message, intervalleTemp, targetTime,targetDate,id);
+}
+
+function addInData(message, intervalleTemp, targetTime,targetDate) {
+  let id =Object.keys(data["notif_def"]).length;
+  chargementLabel(message, intervalleTemp, targetTime,targetDate,id);
+
+  data["notif_def"][id] = {
+      "message": message,
+      "intervalleTemp": intervalleTemp,
+      "targetTime": targetTime,
+      "targetDate": targetDate,
+      "id": id
+  };
+  saveData();
+}
+
+
 function loadNotif(){
+    console.log("loadNotif");
     for (const n in data["notif_def"]) {
-      const notif = data["notif_def"][n];
-      console.log("test",notif);
-      addlist(notif.message, notif.intervalleTemp, notif.targetTime, notif.targetDate);
-  }
+        const notif = data["notif_def"][n];
+        console.log("test",notif);
+        addlist(notif.message, notif.intervalleTemp, notif.targetTime, notif.targetDate,notif.id);
+    }
 }
 
 window.addEventListener('load', loadNotif);

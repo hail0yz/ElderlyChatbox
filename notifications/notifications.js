@@ -6,10 +6,7 @@ function saveData() {
 	window.chatbot_app.set_notif_data(data);
 }
 
-
-let data = await window.chatbot_app.get_notif_data();
-
-console.log(data);
+let data;
 
 
 function addNotification(message) {
@@ -118,12 +115,13 @@ function saveNotifications() {
 window.addEventListener('beforeunload', saveNotifications);
 
 function loaddata() {
+    console.log("loaddata");
     const notif_def=data["notif_def"];
     console.log("notif para",notif_def);
         for (const notif in notif_def) {
             console.log(notif_def[notif]);
             const message = notif_def[notif].message;
-            const intervalleTemp = notif_def[notif].intervalle;
+            const intervalleTemp = parseInt(notif_def[notif].intervalleTemp);
             const targetTime = notif_def[notif].targetTime;
             const targetDate = notif_def[notif].targetDate;
 
@@ -155,7 +153,11 @@ function loaddata() {
         addNotification(notification.getElementsByTagName('span')[0].textContent);
     })
 }
-window.addEventListener('load', loaddata());
+window.addEventListener('load', async () => {
+    data = await window.chatbot_app.get_notif_data();
+    loaddata();
+    console.log("data",data);
+});
 
 
 
@@ -167,14 +169,14 @@ function ajoutBaseNotif(){
     let length=Object.keys(data["notif_def"]).length;
     
     data["notif_def"][length]={
-        "intervalle": intervalleTemp,
+        "intervalleTemp": intervalleTemp,
         "message": "N'oublie pas de manger !",
         "targetTime": null,
         "targetDate": null
     };
 
     data["notif_def"][length+1]={
-        "intervalle": intervalleTemp,
+        "intervalleTemp": intervalleTemp,
         "message": "N'oublie pas de boire !",
         "targetTime": null,
         "targetDate": null
