@@ -1,11 +1,12 @@
 {
   "notif_def": {
-    "0": {
-      "message": "test",
-      "intervalleTemp": "1",
-      "targetTime": "",
-      "targetDate": "",
-      "id": 0
+    "1": null,
+    "2": {
+      "message": "testcible",
+      "intervalleTemp": "",
+      "targetTime": "15:15",
+      "targetDate": "2025-05-20",
+      "id": 2
     }
   },
   "notif_histo": {

@@ -75,6 +75,14 @@ function cibleRappel(message, targetTime, targetDate) {
     console.log(now.toLocaleDateString());
     console.log(targetDate);
 
+    if(targetTime == null || targetTime == "" || targetTime == undefined) {
+        console.log("targetTime null");
+        return;
+    }
+    else if(targetDate == null || targetDate == "" || targetDate == undefined) {
+        console.log("targetDate null");
+        return;
+    }
     heure=targetTime.split(':')[0];
     minute=targetTime.split(':')[1];
 
@@ -120,6 +128,10 @@ function loaddata() {
     console.log("notif para",notif_def);
         for (const notif in notif_def) {
             console.log(notif_def[notif]);
+            if(notif_def[notif]== null) {
+                console.log("notif null");
+                continue;
+            }
             const message = notif_def[notif].message;
             const intervalleTemp = parseInt(notif_def[notif].intervalleTemp);
             const targetTime = notif_def[notif].targetTime;
@@ -163,27 +175,6 @@ window.addEventListener('load', async () => {
 
 document.getElementById('clearButton').onclick = () => clearNotifications();
 
-
-function ajoutBaseNotif(){
-    const intervalleTemp = 3;
-    let length=Object.keys(data["notif_def"]).length;
-    
-    data["notif_def"][length]={
-        "intervalleTemp": intervalleTemp,
-        "message": "N'oublie pas de manger !",
-        "targetTime": null,
-        "targetDate": null
-    };
-
-    data["notif_def"][length+1]={
-        "intervalleTemp": intervalleTemp,
-        "message": "N'oublie pas de boire !",
-        "targetTime": null,
-        "targetDate": null
-    };
-
-    saveData();
-}
 
 function initData(){
     data["notif_def"] = {}
