@@ -1,9 +1,57 @@
 {
   "done": false,
   "username": "",
+  "questions": {
+    "username": {
+      "name": "username",
+      "question": "Quel est votre nom ?",
+      "type": "text",
+      "placeholder": "Entrez votre nom"
+    },
+    "seulacc": {
+      "name": "seulacc",
+      "question": "Vivez-vous seul(e) ou accompagné(e) ?",
+      "type": "radio",
+      "options": [
+        "Seul(e)",
+        "Accompagné(e)"
+      ],
+      "values": [
+        "seul",
+        "accompagné"
+      ]
+    },
+    "chutesFrequentes": {
+      "name": "chutesFrequentes",
+      "question": "Vous arrive-t-il fréquemment de tomber ?",
+      "type": "radio",
+      "options": [
+        "Oui",
+        "Non"
+      ],
+      "values": [
+        "oui",
+        "non"
+      ]
+    },
+    "animaux": {
+      "name": "animaux",
+      "question": "Avez-vous des animaux de compagnie ?",
+      "type": "radio",
+      "options": [
+        "Oui",
+        "Non"
+      ],
+      "values": [
+        "oui",
+        "non"
+      ]
+    }
+  },
   "answers": {
+    "username": "",
     "seulacc": "",
     "chutesFrequentes": "",
-    "animaux": ""
+    "animaux": ""   
   }
 }

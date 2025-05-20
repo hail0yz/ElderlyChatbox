@@ -9,61 +9,9 @@
     <title>Formulaire</title>
 </head>
 <body>
-    <form>
+    <form id="form">
         <h1>Petit formulaire pour mieux comprendre votre situation</h1>
-        <div class="page" id="page1">
-            <h3>Première page</h3>
-            <div class="question-box">
-                <div class="question">
-                    <p>Quel est votre nom ?</p>
-                </div>
-                <div class="answer">
-                    <input type="text" id="username" placeholder="Entrez votre nom">
-                </div>
-            </div>
-        </div> 
-        <div class="page" id="page2">
-            <h3>Deuxième page</h3>
-            <div class="question-box">
-                <div class="question">
-                    <p>Vivez-vous seul(e) ou accompagné(e) ?</p>
-                </div>
-                <div class="answer">
-                    <label for="seulaccChoice1">Seul(e)</label>
-                    <input type="radio" value="seul" id="seulaccChoice1" name="seulacc">
-                    <label for="seulaccChoice2">Accompagné(e)</label>
-                    <input type="radio" value="accompagne" id="seulaccChoice2" name="seulacc">
-                </div>
-            </div>
-        </div>
-        <div class="page" id="page3">
-            <h3>Troisième page</h3>
-            <div class="question-box">
-                <div class="question">
-                    <p>Vous arrive-t-il de tomber fréquemment ?</p>
-                </div>
-                <div class="answer">
-                    <label for="chutesFrequentesChoice1">Oui</label>
-                    <input type="radio" value="oui" id="chutesFrequentesChoice1" name="chutesFrequentes">
-                    <label for="chutesFrequentesChoice2">Non</label>
-                    <input type="radio" value="non" id="chutesFrequenteChoice2" name="chutesFrequentes">
-                </div>
-            </div>
-        </div>
-        <div class="page" id="page4">
-            <h3>Quatrième page</h3>
-            <div class="question-box">
-                <div class="question">
-                    <p>Avez-vous ou fréquentez-vous régulièrement des animaux ?</p>
-                </div>
-                <div class="answer">
-                    <label for="animauxChoice1">Oui</label>
-                    <input type="radio" value="oui" id="animauxChoice1" name="animaux">
-                    <label for="animauxChoice2">Non</label>
-                    <input type="radio" value="non" id="animauxChoice2" name="animaux">
-                </div>
-            </div>
-        </div>
+        <div id="page-list"></div>
         <div id="btndiv">
             <button type="button" id="prevButton">Précédent</button>
             <button type="button" id="nextButton">Suivant</button>
