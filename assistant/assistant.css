@@ -14,12 +14,18 @@ body{
 .chatbot-toggler{ /*A MODIFIER: calquer sur les autres pages pour meme endroit glboal.*/
     position:fixed;
 }
+#chatbot_main_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    min-height: 300px;
+}
 .chatbot {
-    position: fixed;
-    left:15%;
-    width:70%;
-    top:5%;
-    bottom:5%;    
+    display: flex;
+    flex-direction: column;
+    width:90%;
+    height: 90%;
     background: var(--col5);
     border-radius: 10px;
     box-shadow: 11px 7px 12px 1px rgba(95,0,0,0.55)
@@ -34,7 +40,7 @@ body{
     font-size: 1.4rem;
 }
 .chatbot .chatbox{
-    height: 60vh;
+    flex: 1;
     overflow: -moz-scrollbars-vertical; 
     overflow-y: scroll;
     padding: 15px 20px 70px;
@@ -75,7 +81,8 @@ body{
 }
 .chatbot .chat-input{
     width:100%;
-    bottom:70px;
+    height: fit-content;
+    min-height: 20px;
     display:flex;
 }
 .chat-input textarea{
@@ -91,16 +98,15 @@ body{
 }
 .chatbot .bottom{
     display:flex;
-    position:absolute;
-    bottom: 0;
     width:100%;
     gap:5px;
     padding: 5px 0px;
 }
-.bottom .btn-grp{
+.bottom .btn-grp {
     width: 100%;
     display: flex;
     justify-content: center;
+    flex: 1;
     font-size: inherit;
 }
 .btn-grp button {
