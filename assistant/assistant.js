@@ -22,7 +22,6 @@ const sendChatBtn = document.querySelector(".chat-input span");
 const chatInput=document.querySelector(".chat-input textarea");
 const chatbox = document.querySelector(".chatbox");
 const btnGrp = document.querySelector("#dynamicButtons");
-let context;
 const API_KEY = "AIzaSyAKlfEF4R_qFcvV7KNCjmuebUf-j_b5vJ8"; // Gemini API key
 const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
 let userMessage;
@@ -102,7 +101,6 @@ const generateBotResponse = async (userMessage) => {
                 responseText = "Je suis désolé, je n'ai pas pu analyser votre demande. Pourriez-vous reformuler ou choisir un sujet parmi les thèmes proposés ?";
             }
             
-            context = null; // Pas de contexte spécifique pour les réponses Gemini
         } catch (error) {
             console.error("Erreur avec l'API Gemini:", error);
             responseText = "Désolé, j'ai rencontré un problème technique. Pourriez-vous essayer à nouveau ou choisir un autre sujet ?";
@@ -121,6 +119,7 @@ const generateBotResponse = async (userMessage) => {
     for (const w in answersKW){
     	updateThemeData(w);
     }
+    saveData()
     // Afficher la réponse
     chatbox.appendChild(createChatLi(responseText, "incoming"));
     chatbox.scrollTop = chatbox.scrollHeight;
@@ -192,20 +191,16 @@ function generateRandomButtons() {
 		chatbox.scrollTop = chatbox.scrollHeight;
 	});
 	btnGrp.appendChild(btn);
+	const btn2 = document.createElement("button");
+	btn2.classList = "btn-grp";
+	btn2.textContent = "Je ne comprends pas";
+	btn2.addEventListener("click", function() {
+		chatbox.appendChild(createChatLi(btn2.textContent, "outgoing"));
+		generateBotResponse("Donnez-moi plus d'informations.")
+		chatbox.scrollTop = chatbox.scrollHeight;
+	});
+	btnGrp.appendChild(btn2);
 	
-	// Bouton 2 - Je ne comprends pas
-	// Vérifie si context est défini et ne contient pas "Bis"
-	if (context && !context.includes("Bis")) {
-		const btn2 = document.createElement("button");
-		btn2.classList = "btn-grp";
-		btn2.textContent = "Je ne comprends pas";
-		btn2.addEventListener("click", function() {
-			chatbox.appendChild(createChatLi(btn2.textContent, "outgoing"));
-			generateBotResponse("Donnez-moi plus d'informations.")
-			chatbox.scrollTop = chatbox.scrollHeight;
-		});
-		btnGrp.appendChild(btn2);
-	}
 	
 	// Bouton 3 - Suggestions de thèmes
 	const btn3 = document.createElement("button");
