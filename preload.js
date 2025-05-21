@@ -7,5 +7,7 @@ contextBridge.exposeInMainWorld('chatbot_app', {
   get_form_data: () => ipcRenderer.invoke('get_form_data'),
   set_form_data: (obj) => ipcRenderer.invoke('set_form_data', obj),
   get_disponible_settings: () => ipcRenderer.invoke('get_disponible_settings'),
-  set_bot_data: (obj) => ipcRenderer.invoke('set_bot_data', obj)
+  set_bot_data: (obj) => ipcRenderer.invoke('set_bot_data', obj),
+  get_notif_data: () => ipcRenderer.invoke('get_notif_data'),
+  set_notif_data: (obj) => ipcRenderer.invoke('set_notif_data', obj)
 })
