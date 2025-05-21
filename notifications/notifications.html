@@ -16,25 +16,9 @@
         </div>
         <h1 style="text-align: center;">Notifications</h1>
     </a>
-                            <div class="timebox"></div>
-                                <p id="timebox"></p>
-                            </div>
-                            <div>
-                                <script>
-                                    const para = document.createElement('button_para');
-                                    para.textContent = 'Parametre Notifications';
-                                    document.body.appendChild(para);
-                                    para.className = 'button_para';
-                                    para.onclick = () =>window.location = '../notifications/parametreNotif/parametreNotif.html';
-                                </script>
-                            </div>
-                            <script>
-                                const clearButton = document.createElement('button');
-                                clearButton.id = 'clearButton';
-                                clearButton.textContent = 'Effacer les notifications';
-                                clearButton.className = 'button_clear';
-                                document.body.appendChild(clearButton);
-                            </script>
+                            <p id="timebox" class="timebox"></p>
+                            <button id="para" class="button_para" onclick="window.location = '../notifications/parametreNotif/parametreNotif.html'">Parametre Notifications</button>
+                            <button id="clearButton" class="button_clear">Effacer les notifications</button>
                              <div class="notification">
                                 <p id="notification"></p>
                             </div>

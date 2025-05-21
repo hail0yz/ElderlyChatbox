@@ -9,6 +9,6 @@
     }
   },
   "notif_histo": {
-    "ul": "<ul><li class=\"notif_msg\"><span>test</span><button class=\"button_del\"> Supprimer</button></li></ul>"
+    "ul": "<ul><li class=\"notif_msg\"><span>test</span><button class=\"button_del\"> Supprimer</button></li></ul><ul><li class=\"notif_msg\"><span>test</span><button class=\"button_del\"> Supprimer</button></li></ul><ul><li class=\"notif_msg\"><span>test</span><button class=\"button_del\"> Supprimer</button></li></ul><ul><li class=\"notif_msg\"><span>test</span><button class=\"button_del\"> Supprimer</button></li></ul>"
   }
 }
