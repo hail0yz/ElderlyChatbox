@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Assistant personnel | Groupe A </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"/>
-       
-        <link rel="stylesheet" href="./assistant.css"> 
-        <script src="./assistant.js" type="module" defer></script>
-    </head>
-    <body style="height: 100vh; width: 100vw;">
-        <button class="chatbot-toggler" onclick="window.close()">
-            <span style='font-size:25px;'>&#10060;</span>
-        </button>
-        <button class="goBackBtn" onclick="window.location='../menu/menu.html'">Retour</button>
+<head>
+    <meta charset="utf-8">
+    <title>Assistant personnel | Groupe A </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"/>
+    
+    <link rel="stylesheet" href="./assistant.css"> 
+    <script src="./assistant.js" type="module" defer></script>
+</head>
+<body style="height: 100vh; width: 100vw;">
+    <div id="sticked_info">
+        <button id="retour" onclick="window.location='../menu/menu.html';">Retour</button>
+        <h2 id="app_name"><strong>Elderly ChatBox</strong></h2>
+        <button id="close" onclick="window.close()">x fermer</button>
+    </div>
+    <div id="chatbot_main_div">
         <div class="chatbot">
             <header>
                 <h2>Assistant</h2> 
             </header>
             <ul class="chatbox">
-                <li class="chat incoming">
+                 <li class="chat incoming">
                     <p>Bonjour, <br>je suis xxxx, votre assistant pour vous informer sur les accidents domestiques afin de les prévenir. <br>Parler de ces risques est important. <br><br>De quel risque voulez vous-parler ?</p>
                 </li>
                 <li class="chat outgoing">
                 </li>
             </ul>
             <div class ="chat-input">
-               <textarea id="msg" placeholder="Si aucune option ne correspond à vos besoins, écrivez ici" required></textarea>
-               <span id="send-btn" >&#9755</span>
+                <textarea id="msg" placeholder="Si aucune option ne correspond à vos besoins, écrivez ici" required></textarea>
+                <span id="send-btn" >&#9755</span>
             </div>
             <div class="bottom">
-                <div class="btn-grp" id="dynamicButtons">
-                </div>
-
+                <div class="btn-grp" id="dynamicButtons"></div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

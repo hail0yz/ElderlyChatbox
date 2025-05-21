@@ -1,4 +1,4 @@
-@import url(../settings/root.css);
+@import url(../settings/default.css);
 body {
     margin: 0;
     padding: 0;
@@ -85,12 +85,16 @@ body {
 .item_box:hover {
     transform: scale(1.1);
 }
+.label {
+    width: 100%;
+    background-color: var(--col1);
+}
 .label p {
     margin: 10px;
 }
 
 a {
-    color: black;
+    color: var(--text_color);
     text-decoration: none;
 }
 .bg-color {
@@ -98,7 +102,7 @@ a {
     justify-content: center;
     align-items: center;
     
-    background-color: #ffeeee;
+    background-color: var(--col2);
     width: 100%;
     flex: 1;
     overflow: hidden;

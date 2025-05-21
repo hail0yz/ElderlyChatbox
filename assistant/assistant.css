@@ -1,4 +1,4 @@
-@import url(../settings/root.css);
+@import url(../settings/default.css);
 /*
 Faire que quand chatbox pleine : auto scroll up;
 */
@@ -6,37 +6,41 @@ Faire que quand chatbox pleine : auto scroll up;
     margin: 0;
     padding: 0;
     box-sizing: 0;
-    font-family: "Poppins", sans-serif;
+    color: inherit;
 }
 body{
-    background: #a1ccd3;
+    background: var(--background_color);
 }
 .chatbot-toggler{ /*A MODIFIER: calquer sur les autres pages pour meme endroit glboal.*/
     position:fixed;
 }
+#chatbot_main_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    min-height: 300px;
+}
 .chatbot {
-    position: fixed;
-    left:15%;
-    width:70%;
-    top:5%;
-    bottom:5%;    
-    background: #fff;
+    display: flex;
+    flex-direction: column;
+    width:90%;
+    height: 90%;
+    background: var(--col5);
     border-radius: 10px;
     box-shadow: 11px 7px 12px 1px rgba(95,0,0,0.55)
 }
 .chatbot header {
-    background: #0e86b5;
-background: linear-gradient(90deg,rgba(14, 134, 181, 1) 0%, rgba(130, 220, 255, 1) 100%);
+    background: linear-gradient(90deg,var(--chatbox_header_bg) 0%, var(--chatbox_header_bg_gradiant) 100%);
     padding: 4px 0;
     border-radius: 10px 10px 0px 0px;
     text-align: center;
 }
 .chatbot header h2{
-    color: #e0e0e0;
     font-size: 1.4rem;
 }
 .chatbot .chatbox{
-    height: 60vh;
+    flex: 1;
     overflow: -moz-scrollbars-vertical; 
     overflow-y: scroll;
     padding: 15px 20px 70px;
@@ -53,36 +57,32 @@ background: linear-gradient(90deg,rgba(14, 134, 181, 1) 0%, rgba(130, 220, 255, 
     max-width: 80%;
     border-radius: 10px 10px 0px 10px;
     font-size: 0.95rem;
-    color: #fff;
-    background-color: #48B1DA;
+    background-color: var(--col2);
 }
 .chatbox .incoming p{
-    color: #000;
-    background: #d9d9d9;
-    background: linear-gradient(90deg, rgba(217, 217, 217, 1) 0%, rgba(182, 182, 182, 1) 100%);
-border-radius: 10px 10px 10px 0px;
+    color: var(--col1);
+    background: var(--col4);
+    border-radius: 10px 10px 10px 0px;
 }
 .chatbox .incoming span {
     height: 32px;
     width: 32px;
-    color: #fff;
-    background-color: #48B1DA;
+    background-color: var(--col2);
     text-align: center;
     line-height: 32px;
     border-radius: 4px;
     margin: 0 10px 7px 0;
 }
 .chatbox .chat-option{
-  display: block;
-  float: right;
-  margin-left: -50%;
-
+    display: block;
+    float: right;
+    margin-left: -50%;
+    
 }
 .chatbot .chat-input{
     width:100%;
-    background: #fff;
-    border-top: 1px solid #ccc;
-    bottom:70px;
+    height: fit-content;
+    min-height: 20px;
     display:flex;
 }
 .chat-input textarea{
@@ -98,28 +98,24 @@ border-radius: 10px 10px 10px 0px;
 }
 .chatbot .bottom{
     display:flex;
-    position:absolute;
-    bottom: 0;
     width:100%;
-    background: #fff;
     gap:5px;
-    border-top: 1px solid #ccc;
     padding: 5px 0px;
 }
-.bottom .btn-grp{
+.bottom .btn-grp {
     width: 100%;
     display: flex;
     justify-content: center;
+    flex: 1;
     font-size: inherit;
 }
 .btn-grp button {
-  margin: 3px;
-  background-color: #48B1DA;;
-  color: #FAF9F6;
-  border-radius: 5px;
-  cursor: pointer;
-  border:none;
-  text-align: center;  
+    margin: 3px;
+    background-color: var(--col2);;
+    border-radius: 5px;
+    cursor: pointer;
+    border:none;
+    text-align: center;  
 }
 .chat-input textarea:valid ~ span {
     visibility:visible;
@@ -127,4 +123,7 @@ border-radius: 10px 10px 10px 0px;
 .goBackBtn{
     position: fixed;
     left: 40px; 
+}
+#send-btn, #msg {
+    color: black;
 }

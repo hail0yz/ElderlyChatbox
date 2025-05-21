@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, Menu } = require('electron/main')
 const path = require("node:path");
 const { update_css_settings } = require("./settings/updateRootCSS")
 const { getData, setData } = require('./settings/chatbot_data')
+const { getDS } = require('./settings/disponible_settings')
 const { getFormData, setFormData } = require('./settings/form_data/form_data')
 
 let cachedFormData = null;
@@ -35,6 +36,9 @@ app.whenReady().then(() => {
   })
   ipcMain.handle('set_bot_data', (_, obj) => {
     setData(__dirname, obj);
+  })
+  ipcMain.handle('get_disponible_settings', () => {
+    return getDS(__dirname);
   })
   ipcMain.handle('get_form_data', () => {
     return getFormData(__dirname);

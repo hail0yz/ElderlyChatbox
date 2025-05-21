@@ -1,22 +1,18 @@
 :root { 
     --red: #ff0000;
-    color: #596475;
-    background-color: #FDE8E9;
+    --col1: #615055;
+    --col2: #946E83;
+    --col3: #B4A6AB;
+    --col4: #CDD5D1;
+    --col5: #DDF8E8;
+    --background_color: #B4A6AB;
+    --chatbox_header_bg: #946E83;
+    --chatbox_header_bg_gradiant: #d8afc7;
+    --text_color: #DDF8E8;
+    --title_color: #946E83;
+    color: var(--text_color);
+    background-color: var(--col3);
     border-color: black;
     font-family: Arial;
     font-size: 20px;
-    chatbot-background: #FDE8E9;
-    header-background-start: #0e86b5;
-    header-background-end: #82dcff;
-    header-text-color: #e0e0e0;
-    outgoing-background: #BC9EC1;
-    outgoing-text-color: #fff;
-    incoming-background-start: #E3BAC6;
-    incoming-background-end: #c097a3;
-    incoming-text-color: #000;
-    chat-icon-color: #BC9EC1;
-    fontoutgoing: #1F2232;
-    incoming: #E3BAC6;
-    outgoing: #BC9EC1;
-    button-background: #BC9EC1;
 }

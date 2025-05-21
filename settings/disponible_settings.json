@@ -1,3 +1,89 @@
 {
-    "font_size" : [14,16,18,20,22,24]
+    "font_size" : {
+        "min": 14,
+        "max": 38,
+        "step": 2
+    },
+
+    "info_sur_color_palette" : "Les elements dans spe sont : soit des couleur hexdécimal : #123456 ou un idx entre 0 et 4 qui représente la couleur de la palette",
+    "color_palette": [
+        {
+            "palette": ["#0a6c93","#48B1DA","#a1ccd3","#9dd7ee","#daf4fe"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": "#0a6c93",
+                "chatbox_header_bg_gradiant": "#82dcff",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#FFFFFF","#EEEEEE","#DDDDDD","#CCCCCC","#000000"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#0D1B2A","#2B365B","#415A77","#778DA9","#E0E1DD"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#1B2845","#274060","#557EA2","#5899E2","#d8f8f3"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#615055","#946E83","#B4A6AB","#CDD5D1","#DDF8E8"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#9F7E69","#D2BBA0","#E1DEB6","#F7FFE0","#FFEEE2"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#847577","#A6A2A2","#CFD2CD","#E5E6E4","#FBFBF2"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        }
+    ],
+    "font_family": {
+        "Arial": "Arial,Helvetica,sans-serif",
+        "Courier New": "'Courier New',Courier,monospace",
+        "Georgia": "Georgia,'Times New Roman',Times,serif",
+        "Times New Roman": "'Times New Roman',Times,serif",
+        "Geneva": "Verdana,Geneva,Tahoma,sans-serif",
+        "Tahoma": "'Segoe UI',Tahoma,Geneva,Verdana,sans-serif"
+    }
 }
