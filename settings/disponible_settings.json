@@ -79,11 +79,11 @@
         }
     ],
     "font_family": {
-        "Arial": "Arial,Helvetica,sans-serif",
-        "Courier New": "'Courier New',Courier,monospace",
-        "Georgia": "Georgia,'Times New Roman',Times,serif",
-        "Times New Roman": "'Times New Roman',Times,serif",
-        "Geneva": "Verdana,Geneva,Tahoma,sans-serif",
-        "Tahoma": "'Segoe UI',Tahoma,Geneva,Verdana,sans-serif"
+        "Arial": "Arial, Helvetica, sans-serif", 
+        "Courier New": "\"Courier New\", Courier, monospace", 
+        "Georgia": "Georgia, \"Times New Roman\", Times, serif", 
+        "Times New Roman": "\"Times New Roman\", Times, serif", 
+        "Geneva": "Verdana, Geneva, Tahoma, sans-serif", 
+        "Tahoma": "\"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif"
     }
 }

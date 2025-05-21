@@ -108,6 +108,7 @@ function paletteButtonFun() {
 
 function updateFontFamily() {
     exemple_style.fontFamily = data.font_family[document.querySelector('#font_family select').value];
+    new_style["font-family"] = exemple_style.fontFamily;
 }
 
 function storeParametres() {
@@ -167,7 +168,9 @@ function set_font_family_options(font_family_obj) {
         option.style.fontFamily = font_family_obj[ff];
         option.textContent = ff;
         option.value = ff;
-        
+
+        if(new_style["font-family"] === font_family_obj[ff]) option.selected = true;
+
         select_part.appendChild(option);
     }
 }
