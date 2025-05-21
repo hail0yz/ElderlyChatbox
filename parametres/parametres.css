@@ -1,11 +1,21 @@
+
+
 @import url(../settings/default.css);
+#all_general_param_div {
+  display: flex;
+  justify-content: space-evenly;
+}
+#all_general_param_div > div {
+  border: 7px var(--col1) solid;
+  border-radius: 10px;
+  padding: 1rem;
+}
 
 #exemple {
   border: 5px var(--col5) solid;
   border-radius: 15px;
   
-  width: 40%;
-  min-width: 250px;
+  min-width: 500px;
   height: fit-content;
   min-height: 150px;
   
@@ -18,17 +28,28 @@
 
 h1, h2, h3, h4 {
   color: var(--col1);
+  text-align: center;
 }
-
+#exemple_and_inputs {
+  width: fit-content;
+  text-align: center;
+}
 #update_size {
   display: flex;
-  justify-content: left;
+  justify-content: center;
 }
 #update_size button {
-  height: 30px;
-  width: 50px;
+  height: 40px;
+  width: 60px;
+  margin-inline: 5px;
+  font-size: 70%;
 }
 
+#color_palette {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .color-palette-option {
   display: flex;
 }
@@ -44,20 +65,17 @@ h1, h2, h3, h4 {
   border-radius: 100%;
   margin-inline: 2px;
 }
-
+#font_family {
+  text-align: center;
+}
 #font_family select {
   font-size: inherit;
   text-align: center;
 }
-
-.btn-grp button{
-  border: none;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 40px;
+#save {
+  margin-block: 20px;
+  background-color: var(--col5);
+  color: var(--col1);
+  padding: 0.5rem 1rem;
+  font-size: 60%;
 }

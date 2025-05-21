@@ -2,9 +2,13 @@
 
 .timebox {
     font-size: 28px;
-    color: #555;
+    color: var(--col1); 
     display: block;
     margin: 20px auto;
+}
+
+body {
+    background: var(--background_color);
 }
 
 .notification {
@@ -12,14 +16,14 @@
     padding: 20px;
     max-width: 600px;
     max-height: 300px; 
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color: var(--col5); 
+    border: 1px solid var(--col4); 
     border-radius: 8px;
     font-family: Arial, sans-serif;
-    color: #333;
+    color: var(--col1); 
     overflow-y: auto; 
     scrollbar-width: thin; 
-    scrollbar-color: #888 #f9f9f9; 
+    scrollbar-color: var(--col2) var(--col5); 
 }
 
 .notification::-webkit-scrollbar {
@@ -27,14 +31,14 @@
 }
 
 .notification::-webkit-scrollbar:hover {
-    background-color: #555;
+    background-color: var(--col1); 
 }
 
 .notif_msg {
     margin: 10px 0;
     padding: 10px 15px;
-    background-color: #e3f2fd;
-    border-left: 4px solid #2196f3;
+    background-color: var(--col4); 
+    border-left: 4px solid var(--col2); 
     border-radius: 5px;
     font-size: 18px;
     display: flex;
@@ -42,7 +46,7 @@
 }
 
 .button_del:hover {
-    background-color: #d32f2f;
+    background-color: var(--red); 
     transform: scale(1.1);
 }
 
@@ -50,30 +54,32 @@
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-    background-color: #4caf50;
-    color: white;
+    background-color: var(--col2); 
+    color: var(--text_color); 
     border: none;
     border-radius: 5px;
     font-size: 18px;
+    cursor: pointer;
 }
 
 .button_clear:hover {
-    background-color: #388e3c;
+    background-color: var(--col1); 
     transform: scale(1.15);
 }
 
-.button_para{
+.button_para {
     display: block;
-    margin: 5px auto;
-    background-color: #555;
-    color: white;
+    margin: 20px auto;
+    padding: 10px 15px;
+    background-color: var(--col1);
+    color: var(--text_color); 
     border: none;
     border-radius: 5px;
     font-size: 18px;
-    text-align: center;
+    cursor: pointer;
 }
 
 .button_para:hover {
-    background-color: #333;
+    background-color: var(--col2); 
     transform: scale(1.15);
 }

@@ -17,6 +17,7 @@
 }
 #app_name {
     margin: 0px;
+    color: var(--col1);
 }
 
 button {
@@ -31,4 +32,9 @@ button {
 
 body {
     margin: 0;
+}
+
+#close, #retour {
+    padding: 10px 20px;
+    font-size: 80%;
 }
