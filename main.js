@@ -7,6 +7,7 @@ const { getFormData, setFormData } = require('./settings/form_data/form_data')
 
 let cachedFormData = null;
 let formDone = false;
+const { getNotifData, setNotifData } = require('./settings/notif_data')
 
 Menu.setApplicationMenu(false)
 
@@ -37,24 +38,5 @@ app.whenReady().then(() => {
   ipcMain.handle('set_bot_data', (_, obj) => {
     setData(__dirname, obj);
   })
-  ipcMain.handle('get_disponible_settings', () => {
-    return getDS(__dirname);
-  })
-  ipcMain.handle('get_form_data', () => {
-    return getFormData(__dirname);
-  })
-  ipcMain.handle('set_form_data', (_, obj) => {
-    console.log("SAVING FOR :", obj.f);
-    setFormData(__dirname, obj);
-  })
-
-  cachedFormData = getFormData(__dirname);
-  if (cachedFormData === null) {
-    cachedFormData = {
-      answers: {},
-      done: false
-    };
-  }
-  formDone = cachedFormData.done;
   createWindow()
 })
