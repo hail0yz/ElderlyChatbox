@@ -2,13 +2,12 @@ function saveData() {
 	window.chatbot_app.set_notif_data(data);
 }
 
-
 let data;
 
 window.addEventListener('load', async () => {
   data = await window.chatbot_app.get_notif_data();
-  loadNotif();
   console.log("data",data);
+  loadNotif();
 });
 
 
@@ -77,6 +76,7 @@ function addlist(message, intervalleTemp, targetTime,targetDate,id) {
 
 function addInData(message, intervalleTemp, targetTime,targetDate) {
   let id =Object.keys(data["notif_def"]).length;
+  console.log("id",id);
   chargementLabel(message, intervalleTemp, targetTime,targetDate,id);
 
   data["notif_def"][id] = {
@@ -92,9 +92,14 @@ function addInData(message, intervalleTemp, targetTime,targetDate) {
 
 function loadNotif(){
     console.log("loadNotif");
+    console.log(data);
     for (const n in data["notif_def"]) {
         const notif = data["notif_def"][n];
         console.log("test",notif);
+        if(notif == null){
+            console.log("notif null");
+            continue;
+        }
         addlist(notif.message, notif.intervalleTemp, notif.targetTime, notif.targetDate,notif.id);
     }
 }

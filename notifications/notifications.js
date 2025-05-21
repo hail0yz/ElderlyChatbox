@@ -83,21 +83,17 @@ function cibleRappel(message, targetTime, targetDate) {
         console.log("targetDate null");
         return;
     }
-    heure=targetTime.split(':')[0];
-    minute=targetTime.split(':')[1];
 
-    tempsseconde=((heure*3600)+(minute*60));
+    let heure=targetTime.split(':')[0];
+    let minute=targetTime.split(':')[1];
 
-    annee=targetDate.split('-')[0];
-    mois=targetDate.split('-')[1];
-    jour=targetDate.split('-')[2];
 
-    console.log(jour);
-    console.log(now.getDate());
-    console.log(mois); 
-    console.log(now.getMonth()+1);
-    console.log(annee);
-    console.log(now.getFullYear());
+    let tempsseconde=((heure*3600)+(minute*60));
+
+    let annee=targetDate.split('-')[0];
+    let mois=targetDate.split('-')[1];
+    let jour=targetDate.split('-')[2];
+
 
     if(tempsseconde == now.getHours()*3600 + now.getMinutes()*60 && now.getDate() == jour && now.getMonth()+1 == mois && now.getFullYear() == annee && now.getSeconds() == 0) {
         console.log('Notification');
@@ -148,7 +144,7 @@ function loaddata() {
                 );
             }
             if(targetTime != null && targetDate != null) {
-                cibleRappel(
+                setInterval(cibleRappel, 1000,
                     message,
                     targetTime,
                     targetDate
