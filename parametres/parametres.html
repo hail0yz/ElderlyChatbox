@@ -15,34 +15,40 @@
         <button id="close" onclick="window.close()">x fermer</button>
     </div>
     <h1>Paramètres</h1>
-    <div id="exemple">
-        <p>Exemple de texte.</p>
-    </div>
-    
-    <div id="inputs">
+    <div id="all_general_param_div">
         
-        <div id="font_size">
-            <h3>Taille de la police d'écriture</h3>
-            <div id="update_size">
-                <button id="sizeDOWN">-</button>
-                <button id="sizeUP">+</button>
+        <!-- STYLE SETTINGS -->
+        <div id="exemple_and_inputs">
+            <div id="exemple">
+                <p>Exemple de texte.</p>
             </div>
-        </div>
-        
-        <div id="color_palette"> 
-            <h3>Choix de la palette</h3>
-            <button id="palette_button">Afficher les palettes</button>
-            <!-- OPTIONS REMPLIT AUTOMATIQUEMENT --> 
-        </div>
-        
-        <div id="font_family"> 
-            <h3>Choix de la police</h3>
-            <select> 
-                <!-- OPTIONS REMPLIT AUTOMATIQUEMENT -->
-            </select>
+            <div id="inputs">
+                
+                <div id="font_size">
+                    <h3>Taille de la police d'écriture</h3>
+                    <div id="update_size">
+                        <button id="sizeDOWN"><strong>-</strong></button>
+                        <button id="sizeUP"><strong>+</strong></button>
+                    </div>
+                </div>
+                
+                <div id="color_palette"> 
+                    <h3>Choix de la palette</h3>
+                    <button id="palette_button">Afficher les palettes</button>
+                    <!-- OPTIONS REMPLIT AUTOMATIQUEMENT --> 
+                </div>
+                
+                <div id="font_family"> 
+                    <h3>Choix de la police</h3>
+                    <select> 
+                        <!-- OPTIONS REMPLIT AUTOMATIQUEMENT -->
+                    </select>
+                </div>
+                
+            </div>
+            <button id="save"><strong>Enregistrer les modifications</strong></button>
         </div>
         
     </div>
-    <button id="save">Enregistrer les modifications</button>
 </body>
 </html>
