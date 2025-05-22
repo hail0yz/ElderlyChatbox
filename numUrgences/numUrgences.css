@@ -1,4 +1,4 @@
-@import url(../settings/root.css);
+@import url(../settings/default.css);
 
 
 * {
@@ -7,22 +7,23 @@
     box-sizing: border-box;
 }
 .header{
-    paddding:30px;
+    padding:30px;
     text-align: center;
 }
 .header h5{
-    padding:30px
-    text-align:center;
+    padding:30px;
+    text-align: center;
+    font-size: 1.5em;
 }
 body{
     min-height: 100vh;
-    padding:20px;
+    color: var(--col1);
 }
 
 .container{
     max-width:800px;
     margin: 0 auto;
-    border-radius: :15px;
+    border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     overflow: hidden;
 }
@@ -35,7 +36,7 @@ body{
 }
 .section h4{
     margin-bottom: 20px;
-    font-size 1.8em;
+    font-size: 1.8em;
     border-bottom: 3px solid var(--col1);
     padding-bottom: 10px;
 }
@@ -72,7 +73,7 @@ body{
 }
 .description{
     padding:5px 10px;
-    border-radius: 5px
+    border-radius: 5px;
     cursor:pointer;
     opacity: 0.7;
     transition:opacity 0.3s ease;
