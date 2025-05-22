@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain, Menu } = require('electron/main')
 const path = require("node:path");
-const { update_css_settings } = require("./settings/updateRootCSS")
+const { update_css_settings, set_Setting, get_Setting } = require("./settings/updateRootCSS")
 const { getData, setData } = require('./settings/chatbot_data')
 const { getDS } = require('./settings/disponible_settings')
 const { getFormData, setFormData } = require('./settings/form_data/form_data')
@@ -53,6 +53,12 @@ app.whenReady().then(() => {
   })
   ipcMain.handle('set_notif_data', (_, obj) => {
     setNotifData(__dirname, obj);
+  })
+  ipcMain.handle('set_settings', (_, obj) => {
+    set_Setting(__dirname, obj);
+  })
+  ipcMain.handle('get_settings', () => {
+    return get_Setting(__dirname);
   })
   cachedFormData = getFormData(__dirname);
   if (cachedFormData === null) {

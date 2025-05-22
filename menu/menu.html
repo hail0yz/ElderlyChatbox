@@ -6,14 +6,30 @@
     <title>Hello from Electron renderer!</title>
     <link rel="stylesheet" href="./menu.css" />
     <script src="./menu.js" defer></script>
+    <link rel="stylesheet" href="../meteo/meteo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div id="main_div">
         
         <div id="sticked_info">
+            <button id="close" onclick="window.close()">x fermer</button>
             <button id="retour" style="visibility: hidden;">Retour</button>
             <h2 id="app_name"><strong>Elderly ChatBox</strong></h2>
-            <button id="close" onclick="window.close()">x fermer</button>
+                <span id="weather-info"
+                    class="animate__animated animate__fadeIn">
+                    <h3 id="city-name"></h3>
+                    <p id="date"></p>
+                    <img id="weather-icon" src="" alt="Weather Icon">
+                    <p id="temperature"></p>
+                    <p id="wind-speed"></p>
+            </span>
+            <script src="https://momentjs.com/downloads/moment.min.js">
+            </script>
+            <script src="../meteo/meteo.js" type="module" defer></script>
         </div>
         
         <div id="items">

@@ -52,6 +52,12 @@ document.getElementById("save").addEventListener("click", storeParametres)
 
 // ========== INPUT FUNCTIONS ==========
 
+function villeInput() {
+    const input = document.getElementById("ville");
+    const value = input.value;
+    return `${value}`;
+}
+
 function updateFontSize(isSizeUp) {
     const new_size = new_style["font-size"] + (isSizeUp?data.font_size.step:-data.font_size.step);
     if(new_size >= data.font_size.min && new_size <= data.font_size.max ) {
@@ -116,6 +122,11 @@ function storeParametres() {
     window.chatbot_app.update_css_settings({
         "usual_settings": new_style,
         "vars": new_vars
+    });
+    window.chatbot_app.set_settings({
+        "usual_settings": new_style,
+        "vars": new_vars,
+        "ville": villeInput()
     });
     window.location.reload();
 }
