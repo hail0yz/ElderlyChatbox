@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-card {
+    background-color: var(--col3);
+}
+
+#weather-icon {
+    width: auto;
+    height: auto;
+}
+
+#temperature {
+    font-size: var(--font-size);
+    color: var(--col1);
+}
+
+#city-name {
+    font-size: var(--font-size);
+    color: var(--col1);
+}
+
+#wind-speed {
+    font-size: var(--font-size);
+    color: var(--col1);
+}
+
+#date {
+    font-size: var(--font-size);
+    color: var(--col1);
+}
