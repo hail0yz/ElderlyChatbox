@@ -17,3 +17,13 @@ export function update_css_settings(path, user_settings) {
     const root_txt = `:root { \n    ${txt.join('\n    ')}\n}`;
     fs.writeFileSync(`${path}${css_root_path}`, root_txt, "utf8");
 }
+
+const cb_data_path = "/settings/user_settings.json";
+
+export function get_Setting(path) {
+    return JSON.parse(fs.readFileSync(`${path}${cb_data_path}`));
+}
+
+export function set_Setting(path, obj) {
+    fs.writeFileSync(`${path}${cb_data_path}`, JSON.stringify(obj, null, 2), "utf8");
+}

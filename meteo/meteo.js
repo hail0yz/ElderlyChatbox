@@ -3,11 +3,15 @@ const url =
 const apiKey =
 	'f00c38e0279b7bc85480c3fe775d518c';
 
+
+let data = await window.chatbot_app.get_settings();
+
+
 $(document).ready(function () {
-	weatherFn('Paris');
+	weatherFn(data["ville"]);
 });
 
-setInterval(weatherFn, 1000, 'Paris');
+setInterval(weatherFn, 1000, data["ville"]);
 
 async function weatherFn(cName) {
 	const temp =
@@ -18,7 +22,7 @@ async function weatherFn(cName) {
 		if (res.ok) {
 			weatherShowFn(data);
 		} else {
-			alert('City not found. Please try again.');
+			console.log('Error:', data.message);
 		}
 	} catch (error) {
 		console.error('Error fetching weather data:', error);
