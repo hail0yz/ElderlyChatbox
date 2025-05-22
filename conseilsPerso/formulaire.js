@@ -7,19 +7,7 @@ const pageList = document.getElementById("pageList");
 const lastPage = document.getElementById("lastPage");
 const form = document.querySelector("form");
 const form_data = await window.chatbot_app.get_form_data();
-const dictionnaireOrdinaux = [
-    "Première",
-    "Deuxième",
-    "Troisième",
-    "Quatrième",
-    "Cinquième",
-    "Sixième",
-    "Septième",
-    "Huitième",
-    "Neuvième",
-    "Dixième"
-];
-const questParPage = 10;
+const questParPage = 5;
 
 // Vars
 var nbQuestPage = 0;
@@ -40,18 +28,21 @@ function initForm() {
     okButton.addEventListener("click", pressOkButton, false)
 
     let questions = form_data.questions;
+    for (const q in questions) nbPages++;
+    nbPages = Math.ceil(nbPages / questParPage);
     let newPage;
+    let numPage = 0;
 
     for (const q in questions) {
         if (nbQuestPage == 0) {
-            nbPages++;
+            numPage++;
             newPage = document.createElement("div");
-            newPage.setAttribute("id", "page" + nbPages);
+            newPage.setAttribute("id", "page" + numPage);
             newPage.setAttribute("class", "page");
             newPage.style.display = "none";
 
             let pageTitle = document.createElement("h3");
-            pageTitle.textContent = dictionnaireOrdinaux[nbPages - 1] + " page";
+            pageTitle.textContent = "Page " + numPage + " / " + nbPages;
             newPage.appendChild(pageTitle);
         }
         
