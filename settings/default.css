@@ -30,6 +30,13 @@ button {
     padding: 7px;
 }
 
+button:hover {
+    background-color: var(--col2);
+    color: var(--col1);
+    border-color: var(--col5);
+    cursor: pointer;
+}
+
 body {
     margin: 0;
 }

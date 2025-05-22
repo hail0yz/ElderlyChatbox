@@ -148,7 +148,7 @@ function submit(event) {
     window.chatbot_app.set_form_data(form_data);
 
     document.getElementById("form").style.display = "none";
-    lastPage.style.display = "block";
+    lastPage.style.display = "flex";
 }
 
 /**
