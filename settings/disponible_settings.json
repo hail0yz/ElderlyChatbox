@@ -78,16 +78,6 @@
             }
         },
         {
-            "palette": ["#B0C4C7","#D0E0E1","#E8ECEC","#E5F7F7","#EFFFFF"],
-            "spe": {
-                "background_color": 2,
-                "chatbox_header_bg": 1,
-                "chatbox_header_bg_gradiant": "auto",
-                "text_color": 4,
-                "title_color": 1
-            }
-        },
-        {
             "palette": ["#D3C4BE","#B8A9A1","#9E8F8A","#857774","#6C605E"],
             "spe": {
                 "background_color": 2,
@@ -98,7 +88,17 @@
             }
         },
         {
-            "palette": ["#6B4226","#A0522D","#CD853F","#D2B48C","#F5DEB3"],
+            "palette": ["#2E8B57", "#3CB371", "#66CDAA", "#8FBC8F", "#98FB98"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#8B4513","#A0522D","#CD853F","#DEB887","#F5DEB3"],
             "spe": {
                 "background_color": 2,
                 "chatbox_header_bg": 1,
