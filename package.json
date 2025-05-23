@@ -18,6 +18,7 @@
     "@langchain/google-genai": "^0.2.9",
     "@langchain/groq": "^0.2.2",
     "electron-windows-notifications": "^3.0.8",
+    "node-fetch": "^3.3.2",
     "ollama": "^0.5.15",
     "together-ai": "^0.16.0"
   }

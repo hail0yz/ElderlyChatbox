@@ -11,5 +11,7 @@ contextBridge.exposeInMainWorld('chatbot_app', {
   get_disponible_settings: () => ipcRenderer.invoke('get_disponible_settings'),
   set_bot_data: (obj) => ipcRenderer.invoke('set_bot_data', obj),
   get_notif_data: () => ipcRenderer.invoke('get_notif_data'),
-  set_notif_data: (obj) => ipcRenderer.invoke('set_notif_data', obj)
+  set_notif_data: (obj) => ipcRenderer.invoke('set_notif_data', obj),
+  
+  send_message: (msg) => ipcRenderer.invoke('send_message', msg),
 })
