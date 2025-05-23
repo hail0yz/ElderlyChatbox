@@ -1,3 +1,19 @@
+const addButton = document.getElementById('addButton');
+const cancelButton = document.getElementById('cancelButton');
+const form = document.getElementById('form');
+
+addButton.addEventListener('click', addNotif);
+cancelButton.addEventListener('click', cancelNotif);
+function addNotif() {
+    form.style.display = 'flex';
+    addButton.style.display = 'none';
+}
+
+function cancelNotif() {
+    form.style.display = 'none';
+    addButton.style.display = 'block';
+}
+
 function saveData() {
 	window.chatbot_app.set_notif_data(data);
 }
@@ -92,6 +108,7 @@ function addInData(message, intervalleTemp, targetTime,targetDate) {
 
 function loadNotif(){
     console.log("loadNotif");
+    form.style.display = 'none';
     console.log(data);
     for (const n in data["notif_def"]) {
         const notif = data["notif_def"][n];

@@ -241,12 +241,33 @@
         "oui",
         "non"
       ]
+    },
+    "notifications": {
+      "name": "notifications",
+      "question": "Souhaitez-vous recevoir des notifications de rappel de conseils ?",
+      "type": "radio",
+      "options": [
+        "Oui",
+        "Non"
+      ],
+      "values": [
+        true,
+        false
+      ]
+    },
+    "meteo": {
+      "name": "meteo",
+      "question": "Souhaitez-vous entrer votre ville pour pouvoir consulter la météo directement depuis l'application ? (si vous ne renseignez rien, la météo de Paris sera affichée par défaut)",
+      "type": "text",
+      "placeholder": "Ex : Paris"
     }
   },
   "answers": {
     "username": "",
     "seulacc": "",
     "chutesFrequentes": "",
-    "animaux": ""
+    "animaux": "",
+    "risqueEtouffement": "oui",
+    "meteo": ""
   }
 }

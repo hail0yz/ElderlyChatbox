@@ -13,26 +13,33 @@
         <h2 id="app_name"><strong>Elderly ChatBox</strong></h2>
         <button id="close" onclick="window.close()">x fermer</button>
     </div>
-        <h1 style="text-align: center;">Parametre Notifications</h1>
-    <form id="form">
-        <div>
-          TextNotif:
-          <input type="text" placeholder="Text de la notif" />
+    <div id="content">
+      <h1 style="text-align: center;">Parametre Notifications</h1>
+      <button id="addButton">Ajouter une notification</button>
+      <form id="form">
+        <h3>Ajout d'une notification</h3>
+        <div class="inputDiv">
+          <label>Libellé :</label>
+          <input type="text" placeholder="Texte de la notification" />
         </div>
-        <div>
-          intervalleTemps:
+        <div class="inputDiv">
+          <label>Intervalle de temps :</label>
           <input type="number" id="Intervalle de temps" placeholder="Seconde"  min="0" max="86400"/>
         </div>
-        <div>
-          TempPrécis:
+        <div class="inputDiv">
+          <label>Heure :</label>
           <input type="date" id="cible_date" />
           <input type="time" id="Heure cible" />
-
         </div>
-        <button type="submit">Envoyer</button>
+        <div id="btnDiv">
+          <button id="cancelButton" type="button">Annuler</button>
+          <button id="saveButton" type="submit">Enregistrer</button>
+        </div>
       </form>
-      <div class="cadreNotif">
-        <ul id ="cadreNotif"></p>
-      </div>
+        <div class="cadreNotif">
+          <ul id ="cadreNotif"></ul>
+        </div>
+    </div>
+        
     </body>
 </html>

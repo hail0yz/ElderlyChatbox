@@ -1,6 +1,20 @@
 {
   "notif_def": {
-    "0": null
+    "0": null,
+    "1": {
+      "message": "test",
+      "intervalleTemp": "",
+      "targetTime": "",
+      "targetDate": "",
+      "id": 1
+    },
+    "2": {
+      "message": "salut",
+      "intervalleTemp": "",
+      "targetTime": "10:53",
+      "targetDate": "2025-05-23",
+      "id": 2
+    }
   },
   "notif_histo": {
     "ul": ""
