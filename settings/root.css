@@ -13,11 +13,6 @@
     color: var(--text_color);
     background-color: var(--col3);
     border-color: black;
-<<<<<<< HEAD
-    font-family: "Times New Roman", Times, serif;
-    font-size: 16px;
-=======
-    font-family: "Courier New", Courier, monospace;
+    font-family: ;
     font-size: 20px;
->>>>>>> meteo
 }

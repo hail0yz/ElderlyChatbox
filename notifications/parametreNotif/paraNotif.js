@@ -31,7 +31,7 @@ window.addEventListener('load', async () => {
 
 document.getElementById('form').addEventListener('submit', function (event) {
     event.preventDefault(); 
-    const textNotif = document.querySelector('input[placeholder="Text de la notif"]').value.trim();
+    const textNotif = document.querySelector('input[id="Texte notif"]').value.trim();
     const intervalleTemp = document.querySelector('input[id="Intervalle de temps"]').value.trim();
     const targetDate = document.querySelector('input[id="cible_date"]').value.trim();
     const targetTime = document.querySelector('input[id="Heure cible"]').value.trim();
