@@ -1,6 +1,14 @@
 # ElderlyChatbox
 Chatbox for the elderly
 
-install electrion --save-dev
+### Etape 1
+npm install
 
-install --save electron-windows-notifications
+### Etape 2
+Installer Ollama pour Windows à : https://ollama.com/download/windows
+Mettre le OllamaSetup.exe dans le dossier ./ollama
+
+### Commandes Disponible (Linux) :
+
+Executer : `npm run start`
+Build pour Windows : `npm run build`

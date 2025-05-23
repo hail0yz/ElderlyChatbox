@@ -5,15 +5,26 @@ const { getData, setData } = require('./settings/chatbot_data')
 const { getDS } = require('./settings/disponible_settings')
 const { getFormData, setFormData } = require('./settings/form_data/form_data')
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+const { dialog } = require('electron');
+const os = require('os');
+const fs = require('fs');
 
-const { spawn } = require('child_process');
+const { spawn, execSync } = require('child_process');
 let llmProcess = null;
 
 let cachedFormData = null;
 let formDone = false;
-const { getNotifData, setNotifData } = require('./settings/notif_data')
+const { getNotifData, setNotifData } = require('./settings/notif_data');
+const { exit } = require('node:process');
 
 Menu.setApplicationMenu(null)
+
+const MODEL_NAME = 'llama3.2:1b';
+
+const isWin = os.platform() === 'win32';
+const ollamaPath = isWin ? 
+path.join(os.homedir(), 'AppData', 'Local', 'Programs', 'Ollama', 'ollama app.exe'): 
+path.join(__dirname, 'ollama/ollama');
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -39,7 +50,9 @@ app.on('window-all-closed', () => {
   }
 });
 
-app.whenReady().then(() => {
+app.whenReady().then(async () => {
+  await verifit_si_le_model_est_installe();
+  
   cachedFormData = getFormData(__dirname);
   if (cachedFormData === null) {
     cachedFormData = {
@@ -54,10 +67,47 @@ app.whenReady().then(() => {
   init_icp_handler();
 })
 
-function startLLM() {
-  const ollamaPath = path.join(__dirname, 'ollama/ollama');
+async function verifit_si_le_model_est_installe() {
   
-  llmProcess = spawn(ollamaPath, ['run', 'llama3.2:1b'], {
+  if (isWin && !fs.existsSync(ollamaPath)) {
+    const setupPath = path.join(__dirname, 'ollama', 'OllamaSetup.exe');
+    
+    await new Promise((resolve, reject) => {
+      const installer = spawn(setupPath, {
+        stdio: 'ignore',
+        windowsHide: true
+      });
+      
+      installer.on('close', (code) => { resolve(); });
+      installer.on('error', reject);
+    });
+    
+    dialog.showMessageBoxSync({
+      type: 'info',
+      buttons: ['OK'],
+      title: 'Installation requise',
+      message: 'Ollama n\'est pas installé.\n\nL\'installateur vient d\'être lancé.\nVeuillez suivre les instructions, puis redémarrez l\'application une fois l\'installation terminée.',
+    });
+    
+    exit(0);
+  }
+  
+  try {
+    const listOutput = execSync(`"${ollamaPath}" list`).toString();
+    if (!listOutput.includes(MODEL_NAME)) {
+      console.log(`Modèle ${MODEL_NAME} non trouvé, téléchargement en cours...`);
+      execSync(`"${ollamaPath}" pull ${MODEL_NAME}`, { stdio: 'inherit' });
+      console.log(`Modèle ${MODEL_NAME} téléchargé avec succès.`);
+    } else {
+      console.log(`Modèle ${MODEL_NAME} déjà installé.`);
+    }
+  } catch (err) {
+    console.error("Erreur lors de la vérification ou du téléchargement du modèle :", err);
+  }
+}
+
+function startLLM() {
+  llmProcess = spawn(ollamaPath, ['serve'], {
     env: process.env,
     cwd: __dirname,
     detached: true,
@@ -68,11 +118,12 @@ function startLLM() {
 }
 
 function stopLLM() {
-  const ollamaPath = path.join(__dirname, 'ollama');
-  spawn(ollamaPath, ['stop', 'llama3.2:1b'], {
-    env: process.env,
-    cwd: __dirname,
-  });
+  try {
+    execSync(`${ollamaPath} stop`, { stdio: 'ignore' });
+    console.log("Serveur Ollama arrêté.");
+  } catch (err) {
+    console.warn("Erreur lors de l'arrêt du serveur Ollama (peut être déjà arrêté) :", err.message);
+  }
 }
 
 function init_icp_handler() {
@@ -113,7 +164,7 @@ function init_icp_handler() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'llama3.2:1b',
+          model: MODEL_NAME,
           prompt: msg,
           stream: false
         })
