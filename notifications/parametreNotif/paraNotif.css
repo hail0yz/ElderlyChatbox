@@ -2,6 +2,7 @@
 
 body {
     background: var(--background_color);
+    color: var(--col1);
 }
 
 .cadreNotif {
@@ -33,7 +34,7 @@ body {
 }
 
 .button_del_notif {
-    background-color: var(--col4);
+    background-color: var(--col1);
     color: var(--text_color);
     border: none;
     border-radius: 5px;
@@ -43,6 +44,6 @@ body {
 }
 
 .button_del_notif:hover {
-    background-color: var(--col4);
+    background-color: var(--col3);
     transform: scale(1.1);
 }
