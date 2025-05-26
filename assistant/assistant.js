@@ -59,13 +59,6 @@ document.addEventListener("DOMContentLoaded", initializeData);
 // ========== FUNCTIONS ==========
 const generateBotResponse = async (userMessage) => {
 	
-	const msg = "Quel est la capitale de la France ?";
-	
-	const response = await window.chatbot_app.send_message(msg);
-	console.log("Réponse du bot :", response);
-	
-	return;
-
 	let responseText = "";
 	
 	// Si aucun mot-clé ne correspond, utiliser Gemini API
@@ -98,8 +91,8 @@ const generateBotResponse = async (userMessage) => {
 			console.error("API Error:", response.status, errorText);
 			throw new Error(`API returned ${response.status}: ${errorText}`);
 		}
-		
-		const data = await response.json();
+
+		const data = await window.chatbot_app.send_message(msg);
 		console.log("API Response:", data);
 		
 		if (data && data.candidates && data.candidates.length > 0 && 
