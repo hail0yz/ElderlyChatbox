@@ -112,3 +112,12 @@ a {
     max-height: 80%;
     overflow: hidden;
 }
+#weather-info {
+    min-width: 250px;
+}
+#weather-info p {
+    margin-block: 10px;
+}
+#app_name {
+    margin-left: -49%;
+}
