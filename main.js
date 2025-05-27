@@ -19,7 +19,7 @@ const { exit } = require('node:process');
 
 Menu.setApplicationMenu(null)
 
-const MODEL_NAME = 'llama3.2:1b';
+const MODEL_NAME = /*'llama3.2:1b'*/ 'gemma3:1b';
 
 const isWin = os.platform() === 'win32';
 const ollamaPath = isWin ? 
