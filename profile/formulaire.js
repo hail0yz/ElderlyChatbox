@@ -79,6 +79,17 @@ function initForm() {
                 answerDiv.appendChild(label);
                 answerDiv.appendChild(input);
             }
+            let label = document.createElement("label");
+            label.textContent = "Non renseigné";
+
+            let input = document.createElement("input");
+            input.type = "radio";
+            input.name = question.name;
+            input.value = "";
+            input.checked = true;
+
+            answerDiv.appendChild(label);
+            answerDiv.appendChild(input);
         }
     
         questionBox.appendChild(questionDiv);

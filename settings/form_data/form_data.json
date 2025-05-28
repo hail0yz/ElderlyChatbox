@@ -263,11 +263,26 @@
     }
   },
   "answers": {
-    "username": "",
+    "username": "Salut",
     "seulacc": "",
     "chutesFrequentes": "",
     "animaux": "",
-    "risqueEtouffement": "oui",
+    "risqueChute": "",
+    "risqueBrulure": "",
+    "risqueIncendie": "",
+    "risqueIntoxOrale": "",
+    "risqueIntoxInhalation": "",
+    "risqueEtouffement": "",
+    "risqueDeshydratation": "",
+    "risqueDenutrition": "",
+    "risqueElectrocution": "",
+    "risqueNoyade": "",
+    "risqueElongation": "",
+    "risqueCoupure": "",
+    "risqueAnimal": "",
+    "risqueArmeFeu": "",
+    "interrupteursAccessibles": "",
+    "notifications": "",
     "meteo": ""
   }
 }
