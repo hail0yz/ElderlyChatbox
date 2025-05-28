@@ -1,5 +1,6 @@
 // ========== DATA et SAVING ==========
 const data = await window.chatbot_app.get_bot_data();
+const form_data = await window.chatbot_app.get_form_data();
 
 window.addEventListener('beforeunload', saveData);
 
@@ -105,8 +106,101 @@ Ne fais aucune remarque directe sur l’âge, préfère des tournures douces com
 - "Avec le temps, certaines habitudes deviennent utiles pour rester en sécurité."
 
 Ta réponse doit être concise, bienveillante et toujours centrée sur la prévention et les solutions concrètes.`;
-
-let used_context = systemContext4;
+const systemContext5=`
+Si l'utilisateur te demande plus de détails ou plus d'informations, donne lui en une ou deux phrases d'autres conseils brefs.
+Reste positif et ménage l'utilisateur. N'évoque pas de suicide ou de sujets trop déprimants. Ne fait pas de remarques sur l'age,
+et ne blame pas l'utilisateur. Reste positif dans tes tournures de phrases; ne dis pas à l'utilisateur qu'il est limité par son age,
+vois le côté positif et réalisable. Les sujets à traiter contiennent, mais ne sont pas limités à:
+- Chutes (escaliers, tapis, sols mouillés...)
+- Brûlures (cuisine, eau chaude...)
+- Incendies (cuisinière, bougies, prises électriques...)
+- Déshydratation et dénutrition
+- Morsures d’animaux
+- Infections liées à des blessures mal soignées
+Si l'utilisateur demande une suggestion de thèmes, limitez vous à ceux-ci.
+N'oublie pas de rester succinct, limite toi à une cinquantaine de mots. Soit amical et chaleureux mais ne dit pas bonjour à l'utilisateur.
+Ne mets pas de passages en gras ou italique. 
+`
+let formulaire_rep= form_data.answers;
+let myString = "Tu es un assistant virtuel qui doit épauler les personnes agées dans la prévention primaires des risques domestiques uniquement. Tu vas devoir t'occuper d'une personne agée"
+if (formulaire_rep.username!=""){
+		myString =myString+ "s'appelant "+ formulaire_rep.username;
+	}
+	if (formulaire_rep.seulacc=="seul" || formulaire_rep.seulacc=="accompagné"){
+		myString= myString+" vivant "+ formulaire_rep.seulacc;
+	}
+	//Ajouter les risques identifiés dans le contexte
+	let risquesIdentifies = [];
+	
+	if (formulaire_rep.chutesFrequentes == "oui") {
+		risquesIdentifies.push("chutes fréquentes");
+	}
+	
+	if (formulaire_rep.risqueChute == "oui") {
+		risquesIdentifies.push("risques de chute dans le logement");
+	}
+	
+	if (formulaire_rep.risqueBrulure == "oui") {
+		risquesIdentifies.push("utilisation d'équipements chauds");
+	}
+	
+	if (formulaire_rep.risqueIncendie == "non") {
+		risquesIdentifies.push("absence de détecteurs de fumée");
+	}
+	
+	if (formulaire_rep.risqueIntoxOrale == "non") {
+		risquesIdentifies.push("mauvaise séparation des produits alimentaires et d'entretien");
+	}
+	
+	if (formulaire_rep.risqueIntoxInhalation == "non") {
+		risquesIdentifies.push("aération insuffisante du logement");
+	}
+	
+	if (formulaire_rep.risqueEtouffement == "oui") {
+		risquesIdentifies.push("difficultés à mâcher ou avaler");
+	}
+	
+	if (formulaire_rep.risqueDeshydratation == "non") {
+		risquesIdentifies.push("hydratation insuffisante");
+	}
+	
+	if (formulaire_rep.risqueDenutrition == "non") {
+		risquesIdentifies.push("alimentation insuffisante");
+	}
+	
+	if (formulaire_rep.risqueElectrocution == "non") {
+		risquesIdentifies.push("installations électriques défaillantes");
+	}
+	
+	if (formulaire_rep.risqueNoyade == "oui") {
+		risquesIdentifies.push("présence de points d'eau");
+	}
+	
+	if (formulaire_rep.risqueElongation == "oui") {
+		risquesIdentifies.push("manipulation d'objets lourds");
+	}
+	
+	if (formulaire_rep.risqueCoupure == "non") {
+		risquesIdentifies.push("objets tranchants mal rangés");
+	}
+	
+	if (formulaire_rep.risqueAnimal == "oui") {
+		risquesIdentifies.push("animal domestique imprévisible");
+	}
+	
+	if (formulaire_rep.risqueArmeFeu == "oui") {
+		risquesIdentifies.push("présence d'armes à feu");
+	}
+	
+	if (formulaire_rep.interrupteursAccessibles == "non") {
+		risquesIdentifies.push("interrupteurs mal accessibles");
+	}
+	
+	// Compléter le message avec les risques identifiés
+	if (risquesIdentifies.length > 0) {
+		myString += " présentant les risques suivants : " + risquesIdentifies.join(", ");
+	}
+let used_context = myString+systemContext5;
 
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatInput=document.querySelector(".chat-input textarea");
@@ -293,7 +387,7 @@ function generateRandomButtons() {
 	btn2.textContent = "Je ne comprends pas";
 	btn2.addEventListener("click", function() {
 		chatbox.appendChild(createChatLi(btn2.textContent, "outgoing"));
-		generateBotResponse("Donnez-moi plus d'informations.")
+		generateBotResponse("Je ne comprends pas")
 		chatbox.scrollTop = chatbox.scrollHeight;
 	});
 	btnGrp.appendChild(btn2);

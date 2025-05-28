@@ -263,11 +263,26 @@
     }
   },
   "answers": {
-    "username": "",
-    "seulacc": "",
-    "chutesFrequentes": "",
-    "animaux": "",
+    "username": "Victoria",
+    "seulacc": "seul",
+    "chutesFrequentes": "non",
+    "animaux": "oui",
     "risqueEtouffement": "oui",
-    "meteo": ""
+    "meteo": "",
+    "risqueChute": "oui",
+    "risqueBrulure": "oui",
+    "risqueIncendie": "oui",
+    "risqueIntoxOrale": "non",
+    "risqueIntoxInhalation": "non",
+    "risqueDeshydratation": "oui",
+    "risqueDenutrition": "non",
+    "risqueElectrocution": "oui",
+    "risqueNoyade": "oui",
+    "risqueElongation": "non",
+    "risqueCoupure": "oui",
+    "risqueAnimal": "oui",
+    "risqueArmeFeu": "non",
+    "interrupteursAccessibles": "oui",
+    "notifications": "false"
   }
 }
