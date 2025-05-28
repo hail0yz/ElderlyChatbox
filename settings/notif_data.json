@@ -5,10 +5,10 @@
       "intervalleTemp": "5",
       "targetTime": "",
       "targetDate": "",
-      "id": 5
+      "id": 0
     }
   },
   "notif_histo": {
-    "ul": "<ul><li class=\"notif_msg\"><span>test5</span><button class=\"button_del\"> Supprimer</button></li></ul>"
+    "ul": ""
   }
 }

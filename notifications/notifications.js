@@ -165,6 +165,7 @@ window.addEventListener('load', async () => {
     data = await window.chatbot_app.get_notif_data();
     loaddata();
     console.log("data",data);
+    notifFormulaire();
 });
 
 
@@ -175,4 +176,88 @@ document.getElementById('clearButton').onclick = () => clearNotifications();
 function initData(){
     data["notif_def"] = {}
     data["notif_histo"]= {}
+}
+
+function notifFormulaire(){
+    window.chatbot_app.get_form_data().then(formulaire => {
+        console.log("form", formulaire);
+        if(formulaire["answers"] == null || formulaire["answers"] == undefined) {
+            console.log("formulaire vide");
+            return;
+        }
+        else{
+            const formData = formulaire["answers"];
+            console.log("formData", formData);
+            for (const key in formData) {
+                console.log("key", key);
+                if (formData["notifications"] ==="oui") {
+                    switch (key) {
+                        case "risqueDenutrition":
+                            if (formData[key] === "oui") {
+                                data["notif_def"]["risqueDenutrition"] = {
+                                    message: "Pensez à manger.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null
+                                };
+                            }
+                            break;
+                        case "risqueDeshydratation":
+                            if (formData[key] === "oui") {
+                                data["notif_def"]["risqueDeshydratation"] = {
+                                    message: "Pensez à boire.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null
+                                };
+                            }
+                            break;
+                        case "risqueChute":
+                            if (formData[key] === "oui") {
+                                data["notif_def"]["risqueChute"] = {
+                                    message: "Faites attention aux tapis, escalier, sol glissante.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null
+                                };
+                            }
+                            break;
+                        case "risqueIntoxInhalation":
+                            if (formData[key] === "oui") {
+                                data["notif_def"]["risqueIntoxInhalation"] = {
+                                    message: "Pensez à aérer les pièces.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null
+                                };
+                            }
+                            break;
+                        case "risqueArmeFeu":
+                            if (formData[key] === "oui") {
+                                data["notif_def"]["risqueArmeFeu"] = {
+                                    message: "Attention aux armes à feu.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null
+                                };
+                            }
+                            break;
+                        case "risqueEtouffement":
+                            if (formData[key] === "oui") {
+                                data["notif_def"]["risqueEtouffement"] = {
+                                    message: "Faites attentions à bien macher la nouriture.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null
+                                };
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+    }).catch(error => {
+        console.error("Error fetching form data:", error);
+    });
+
 }
