@@ -1,12 +1,14 @@
 {
   "notif_def": {
-    "0": null,
-    "1": null,
-    "2": null,
-    "3": null,
-    "4": null
+    "0": {
+      "message": "test5",
+      "intervalleTemp": "5",
+      "targetTime": "",
+      "targetDate": "",
+      "id": 5
+    }
   },
   "notif_histo": {
-    "ul": ""
+    "ul": "<ul><li class=\"notif_msg\"><span>test5</span><button class=\"button_del\"> Supprimer</button></li></ul>"
   }
 }

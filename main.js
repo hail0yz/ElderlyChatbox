@@ -176,5 +176,16 @@ function init_icp_handler() {
       console.error("Erreur lors de l'appel à Ollama :", err);
       return "Erreur : impossible de contacter le modèle.";
     }
+  })
+ 
+  //Lancer le window notfications en fond pour avoir les notifications
+  const win = new BrowserWindow({
+      show: false,
+      webPreferences: {
+      preload: path.join(__dirname, "preload.js")
+      }
   });
+
+  win.loadFile('./notifications/notifications.html');
+
 }
