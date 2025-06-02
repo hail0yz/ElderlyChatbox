@@ -2,9 +2,7 @@
 const nextButton = document.getElementById("nextButton");
 const prevButton = document.getElementById("prevButton");
 const finishButton = document.getElementById("finishButton");
-const okButton = document.getElementById("okButton");
 const pageList = document.getElementById("pageList");
-const lastPage = document.getElementById("lastPage");
 const form = document.querySelector("form");
 const form_data = await window.chatbot_app.get_form_data();
 const questParPage = 5;
@@ -25,7 +23,6 @@ function initForm() {
     form.addEventListener("submit", submit, false);
     prevButton.addEventListener("click", prevPage, false);
     nextButton.addEventListener("click", nextPage, false);
-    okButton.addEventListener("click", pressOkButton, false)
 
     let questions = form_data.questions;
     for (const q in questions) nbPages++;
@@ -65,7 +62,11 @@ function initForm() {
             input.placeholder = question.placeholder || "";
             answerDiv.appendChild(input);
         } else if (question.type == "radio") {
+            let checked = false;
             for (let i = 0; i < question.options.length; i++) {
+                let answerSpan = document.createElement("span");
+                answerSpan.setAttribute("class", "answerSpan");
+
                 let label = document.createElement("label");
                 label.textContent = question.options[i];
     
@@ -75,9 +76,37 @@ function initForm() {
                 input.value = question.values[i];
 
                 console.log("value : " + input.value);
+
+                if (form_data.answers[question.name] === question.values[i]) {
+                    input.checked = true;
+                    checked = true;
+                }
+
+                if(question.name === "notifications" && input.value === "false" && !checked) {
+                    input.checked = true;
+                    checked = true;
+                }
     
-                answerDiv.appendChild(label);
-                answerDiv.appendChild(input);
+                answerSpan.appendChild(label);
+                answerSpan.appendChild(input);
+                answerDiv.appendChild(answerSpan);
+            }
+            if(question.name !== "notifications"){
+                let answerSpan = document.createElement("span");
+                answerSpan.setAttribute("class", "answerSpan");
+
+                let label = document.createElement("label");
+                label.textContent = "Non renseigné";
+
+                let input = document.createElement("input");
+                input.type = "radio";
+                input.name = question.name;
+                input.value = "";
+
+                if(!checked) input.checked = true;
+                answerSpan.appendChild(label);
+                answerSpan.appendChild(input);
+                answerDiv.appendChild(answerSpan);
             }
         }
     
@@ -99,8 +128,6 @@ function initForm() {
         page.style.display = "block";
     }
 
-    lastPage.style.display = "none";
-
     updateButtonDisplay();
 
 }
@@ -110,15 +137,6 @@ function initForm() {
  * Boutons *
  ***********/
 
-/**
- * @description Fonction de redirection vers le menu
- * @param {*} event 
- * @returns {void}
- */
-function pressOkButton(event) {
-    console.log("ok");
-    window.location = "../menu/menu.html";
-}
 
 /**
  * @description Fonction de soumission du formulaire
@@ -137,9 +155,6 @@ function submit(event) {
     }
     form_data.done = true;
     window.chatbot_app.set_form_data(form_data);
-
-    document.getElementById("form").style.display = "none";
-    lastPage.style.display = "flex";
 }
 
 /**
@@ -185,17 +200,15 @@ function prevPage(event) {
  */
 function updateButtonDisplay() {
     if (currentPage == 1) {
-        prevButton.style.display = "none";
+        prevButton.disabled = true;
     } else {
-        prevButton.style.display = "block";
+        prevButton.disabled = false;
     }
 
     if (currentPage == nbPages) {
-        nextButton.style.display = "none";
-        finishButton.style.display = "block";
+        nextButton.disabled = true;
     } else {
-        nextButton.style.display = "block";
-        finishButton.style.display = "none";
+        nextButton.disabled = false;
     }
 }
 

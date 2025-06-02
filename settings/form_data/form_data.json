@@ -1,5 +1,5 @@
 {
-  "done": true,
+  "done": false,
   "username": "",
   "questions": {
     "username": {
@@ -237,26 +237,26 @@
     }
   },
   "answers": {
-    "username": "Victoria",
-    "seulacc": "seul",
-    "chutesFrequentes": "non",
-    "animaux": "oui",
-    "risqueEtouffement": "oui",
-    "meteo": "",
-    "risqueChute": "oui",
-    "risqueBrulure": "oui",
-    "risqueIncendie": "oui",
-    "risqueIntoxOrale": "non",
-    "risqueIntoxInhalation": "non",
-    "risqueDeshydratation": "oui",
-    "risqueDenutrition": "non",
-    "risqueElectrocution": "oui",
-    "risqueNoyade": "oui",
-    "risqueElongation": "non",
-    "risqueCoupure": "oui",
-    "risqueAnimal": "oui",
-    "risqueArmeFeu": "non",
-    "interrupteursAccessibles": "oui",
-    "notifications": "false"
+    "username": "",
+    "seulacc": "",
+    "chutesFrequentes": "",
+    "animaux": "",
+    "risqueChute": "",
+    "risqueBrulure": "",
+    "risqueIncendie": "",
+    "risqueIntoxOrale": "",
+    "risqueIntoxInhalation": "",
+    "risqueEtouffement": "",
+    "risqueDeshydratation": "",
+    "risqueDenutrition": "",
+    "risqueElectrocution": "",
+    "risqueNoyade": "",
+    "risqueElongation": "",
+    "risqueCoupure": "",
+    "risqueAnimal": "",
+    "risqueArmeFeu": "",
+    "interrupteursAccessibles": "",
+    "notifications": "",
+    "meteo": ""
   }
 }

@@ -39,7 +39,7 @@ const createWindow = () => {
   if(formDone) {
     win.loadFile('./menu/menu.html')
   }else {
-    win.loadFile('./conseilsPerso/formulaire.html')
+    win.loadFile('./profile/formulaire.html')
   }
 }
 
