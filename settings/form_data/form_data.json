@@ -216,32 +216,6 @@
         "non"
       ]
     },
-    "risqueArmeFeu": {
-      "name": "risqueArmeFeu",
-      "question": "Y a-t-il une ou plusieurs armes à feu stockées à votre domicile ?",
-      "type": "radio",
-      "options": [
-        "Oui",
-        "Non"
-      ],
-      "values": [
-        "oui",
-        "non"
-      ]
-    },
-    "interrupteursAccessibles": {
-      "name": "interrupteursAccessibles",
-      "question": "Les interrupteurs sont-ils faciles d’accès dans toutes les pièces (près des portes, bien visibles) ?",
-      "type": "radio",
-      "options": [
-        "Oui",
-        "Non"
-      ],
-      "values": [
-        "oui",
-        "non"
-      ]
-    },
     "notifications": {
       "name": "notifications",
       "question": "Souhaitez-vous recevoir des notifications de rappel de conseils ?",
