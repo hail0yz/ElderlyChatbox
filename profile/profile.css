@@ -61,3 +61,10 @@ button {
 #okButton {
     margin-right: 12%;
 }
+
+.answers {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+}

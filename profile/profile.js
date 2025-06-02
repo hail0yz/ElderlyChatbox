@@ -64,6 +64,9 @@ function initForm() {
         } else if (question.type == "radio") {
             let checked = false;
             for (let i = 0; i < question.options.length; i++) {
+                let answerSpan = document.createElement("span");
+                answerSpan.setAttribute("class", "answerSpan");
+
                 let label = document.createElement("label");
                 label.textContent = question.options[i];
     
@@ -78,22 +81,33 @@ function initForm() {
                     input.checked = true;
                     checked = true;
                 }
+
+                if(question.name === "notifications" && input.value === "false" && !checked) {
+                    input.checked = true;
+                    checked = true;
+                }
     
-                answerDiv.appendChild(label);
-                answerDiv.appendChild(input);
+                answerSpan.appendChild(label);
+                answerSpan.appendChild(input);
+                answerDiv.appendChild(answerSpan);
             }
-            let label = document.createElement("label");
-            label.textContent = "Non renseigné";
+            if(question.name !== "notifications"){
+                let answerSpan = document.createElement("span");
+                answerSpan.setAttribute("class", "answerSpan");
 
-            let input = document.createElement("input");
-            input.type = "radio";
-            input.name = question.name;
-            input.value = "";
+                let label = document.createElement("label");
+                label.textContent = "Non renseigné";
 
-            if(!checked) input.checked = true;
+                let input = document.createElement("input");
+                input.type = "radio";
+                input.name = question.name;
+                input.value = "";
 
-            answerDiv.appendChild(label);
-            answerDiv.appendChild(input);
+                if(!checked) input.checked = true;
+                answerSpan.appendChild(label);
+                answerSpan.appendChild(input);
+                answerDiv.appendChild(answerSpan);
+            }
         }
     
         questionBox.appendChild(questionDiv);

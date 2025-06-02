@@ -1,5 +1,5 @@
 {
-  "done": true,
+  "done": false,
   "username": "",
   "questions": {
     "username": {
@@ -263,7 +263,7 @@
     }
   },
   "answers": {
-    "username": "Salut",
+    "username": "",
     "seulacc": "",
     "chutesFrequentes": "",
     "animaux": "",
