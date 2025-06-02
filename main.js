@@ -182,10 +182,15 @@ function init_icp_handler() {
   const win = new BrowserWindow({
       show: false,
       webPreferences: {
-      preload: path.join(__dirname, "preload.js")
+      preload: path.join(__dirname, "preload.js"),
       }
   });
 
   win.loadFile('./notifications/notifications.html');
+
+  ipcMain.handle('close-all-windows', () => {
+    const allWindows = BrowserWindow.getAllWindows();
+    allWindows.forEach((win) => win.close());
+  });
 
 }

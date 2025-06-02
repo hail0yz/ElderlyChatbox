@@ -1,5 +1,9 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
+contextBridge.exposeInMainWorld('electronAPI', {
+  closeAllWindows: () => ipcRenderer.invoke('close-all-windows'),
+});
+
 contextBridge.exposeInMainWorld('chatbot_app', {
   update_css_settings: (obj) => ipcRenderer.invoke('update_css_settings', obj),
   get_settings: () => ipcRenderer.invoke('get_settings'),
