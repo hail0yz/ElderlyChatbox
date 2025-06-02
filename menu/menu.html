@@ -44,7 +44,15 @@
             <div class="other">
                 
                 <div class="other-row">
-                    <a id="notif" class="item_box" href="../notifications/notifications.html">
+                    <a id="notif" class="item_box" >
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function() {
+                                const showNotifButton = document.getElementById("notif");
+                                showNotifButton.addEventListener("click", function() {
+                                    electronAPI.showWindow('notif'); 
+                                });
+                            });
+                        </script>
                         <div class="bg-color"><img src="../assets/notif.png" /></div>
                         <div class="label"> <p>Notifications</p></div>
                     </a>

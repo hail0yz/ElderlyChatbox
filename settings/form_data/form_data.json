@@ -1,5 +1,5 @@
 {
-  "done": false,
+  "done": true,
   "username": "",
   "questions": {
     "username": {
@@ -256,7 +256,7 @@
     "risqueAnimal": "",
     "risqueArmeFeu": "",
     "interrupteursAccessibles": "",
-    "notifications": "",
+    "notifications": "false",
     "meteo": ""
   }
 }

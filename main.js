@@ -179,18 +179,35 @@ function init_icp_handler() {
   })
  
   //Lancer le window notfications en fond pour avoir les notifications
-  const win = new BrowserWindow({
+  let notif_win = new BrowserWindow({
       show: false,
       webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       }
   });
 
-  win.loadFile('./notifications/notifications.html');
+  notif_win.loadFile('./notifications/notifications.html');
 
   ipcMain.handle('close-all-windows', () => {
     const allWindows = BrowserWindow.getAllWindows();
     allWindows.forEach((win) => win.close());
   });
+  
 
+  ipcMain.handle('show-window', (event, windowName) => {
+    if (windowName === 'notif') {
+        const mainWindow = BrowserWindow.getFocusedWindow();
+        const { width, height } = mainWindow.getBounds();
+        notif_win.setBounds({ width, height });
+        notif_win.show();
+        mainWindow.close();
+    }
+  });
+
+  ipcMain.handle('hide-window', (event, windowName) => {
+    if (windowName === 'notif') {
+        notif_win.hide();
+    }
+  });
+  
 }
