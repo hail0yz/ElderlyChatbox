@@ -10,20 +10,9 @@
     </head>
     <body>
         <div id="sticked_info">
-            <button id="retour">Retour</button>
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    const retourButton = document.getElementById("retour");
-                    retourButton.addEventListener("click", function() {
-                        const width = window.innerWidth;
-                        const height = window.innerHeight;
-                        window.open('../menu/menu.html', '_blank', `width=${width},height=${height}`);
-                        electronAPI.hideWindow('notif');
-                    });
-                });
-            </script>
+            <button id="retour" onclick="window.location='../menu/menu.html';">Retour</button>
             <h2 id="app_name"><strong>Elderly ChatBox</strong></h2>
-            <button id="close" onclick="electronAPI.closeAllWindows()">x fermer</button>
+            <button id="close" onclick="window.close()">x fermer</button>
         </div>
         <h1 style="text-align: center;">Notifications</h1>
     </a>

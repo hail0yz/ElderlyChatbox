@@ -1,12 +1,6 @@
 {
   "notif_def": {
-    "0": {
-      "message": "test5",
-      "intervalleTemp": "5",
-      "targetTime": "",
-      "targetDate": "",
-      "id": 0
-    }
+    "0": null
   },
   "notif_histo": {
     "ul": ""

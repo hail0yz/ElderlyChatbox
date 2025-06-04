@@ -5,7 +5,7 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <title>Hello from Electron renderer!</title>
     <link rel="stylesheet" href="./menu.css" />
-    <script src="./menu.js" defer></script>
+    <script src="./menu.js" type="module" defer></script>
     <link rel="stylesheet" href="../meteo/meteo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -30,7 +30,7 @@
             <script src="../meteo/meteo.js" type="module" defer></script>
             <h2 id="app_name"><strong>Elderly ChatBox</strong></h2>
             
-            <button id="close" onclick="electronAPI.closeAllWindows()">x fermer</button>
+            <button id="close" onclick="window.close()">x fermer</button>
         </div>
         
         <div id="items">
@@ -44,15 +44,7 @@
             <div class="other">
                 
                 <div class="other-row">
-                    <a id="notif" class="item_box" >
-                        <script>
-                            document.addEventListener("DOMContentLoaded", function() {
-                                const showNotifButton = document.getElementById("notif");
-                                showNotifButton.addEventListener("click", function() {
-                                    electronAPI.showWindow('notif'); 
-                                });
-                            });
-                        </script>
+                    <a id="notif" class="item_box" href="../notifications/notifications.html" >
                         <div class="bg-color"><img src="../assets/notif.png" /></div>
                         <div class="label"> <p>Notifications</p></div>
                     </a>

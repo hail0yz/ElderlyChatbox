@@ -1,11 +1,5 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
-contextBridge.exposeInMainWorld('electronAPI', {
-  closeAllWindows: () => ipcRenderer.invoke('close-all-windows'),
-  showWindow: (windowName) => ipcRenderer.invoke('show-window', windowName),
-  hideWindow: (windowName) => ipcRenderer.invoke('hide-window', windowName),
-});
-
 contextBridge.exposeInMainWorld('chatbot_app', {
   update_css_settings: (obj) => ipcRenderer.invoke('update_css_settings', obj),
   get_settings: () => ipcRenderer.invoke('get_settings'),
@@ -19,5 +13,4 @@ contextBridge.exposeInMainWorld('chatbot_app', {
   get_notif_data: () => ipcRenderer.invoke('get_notif_data'),
   set_notif_data: (obj) => ipcRenderer.invoke('set_notif_data', obj),
   
-  send_message: (msg) => ipcRenderer.invoke('send_message', msg),
 })
