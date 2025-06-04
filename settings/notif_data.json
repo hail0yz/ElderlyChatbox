@@ -1,8 +1,9 @@
 {
   "notif_def": {
-    "0": null
+    "0": null,
+    "1": null
   },
   "notif_histo": {
-    "ul": ""
+    "ul": "<ul><li class=\"notif_msg\"><span>test1</span><button class=\"button_del\"> Supprimer</button></li></ul><ul><li class=\"notif_msg\"><span>test1</span><button class=\"button_del\"> Supprimer</button></li></ul>"
   }
 }
