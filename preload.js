@@ -13,4 +13,5 @@ contextBridge.exposeInMainWorld('chatbot_app', {
   get_notif_data: () => ipcRenderer.invoke('get_notif_data'),
   set_notif_data: (obj) => ipcRenderer.invoke('set_notif_data', obj),
   
+  send_message: (msg) => ipcRenderer.invoke('send_message', msg),
 })
