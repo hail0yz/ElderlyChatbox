@@ -84,8 +84,7 @@ function notifFormulaire(){
         else{
             const formData = formulaire["answers"];
             for (const key in formData) {
-                if (formData["notifications"] ==="oui") {
-                    console.log("formulaire",formData[key]);
+                if (formData["notifications"] ==="true") {
                     switch (key) {
                         case "risqueDenutrition":
                             if (formData[key] === "oui") {
