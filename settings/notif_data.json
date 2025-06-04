@@ -1,39 +1,8 @@
 {
   "notif_def": {
-    "0": null,
-    "1": null,
-    "risqueChute": {
-      "message": "Faites attention aux tapis, escalier, sol glissante.",
-      "intervalleTemp": 10,
-      "targetTime": null,
-      "targetDate": null
-    },
-    "risqueIntoxInhalation": {
-      "message": "Pensez à aérer les pièces.",
-      "intervalleTemp": 10,
-      "targetTime": null,
-      "targetDate": null
-    },
-    "risqueEtouffement": {
-      "message": "Faites attentions à bien macher la nouriture.",
-      "intervalleTemp": 10,
-      "targetTime": null,
-      "targetDate": null
-    },
-    "risqueDeshydratation": {
-      "message": "Pensez à boire.",
-      "intervalleTemp": 10,
-      "targetTime": null,
-      "targetDate": null
-    },
-    "risqueDenutrition": {
-      "message": "Pensez à manger.",
-      "intervalleTemp": 10,
-      "targetTime": null,
-      "targetDate": null
-    }
+    "0": null
   },
   "notif_histo": {
-    "ul": "<ul><li class=\"notif_msg\"><span>test1</span><button class=\"button_del\"> Supprimer</button></li></ul><ul><li class=\"notif_msg\"><span>test1</span><button class=\"button_del\"> Supprimer</button></li></ul>"
+    "ul": ""
   }
 }

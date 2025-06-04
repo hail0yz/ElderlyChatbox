@@ -92,7 +92,8 @@ function notifFormulaire(){
                                     message: "Pensez à manger.",
                                     intervalleTemp: 10,
                                     targetTime: null,
-                                    targetDate: null
+                                    targetDate: null,
+                                    id:key
                                 };
                             }
                             break;
@@ -102,7 +103,8 @@ function notifFormulaire(){
                                     message: "Pensez à boire.",
                                     intervalleTemp: 10,
                                     targetTime: null,
-                                    targetDate: null
+                                    targetDate: null,
+                                    id:key
                                 };
                             }
                             break;
@@ -112,7 +114,8 @@ function notifFormulaire(){
                                     message: "Faites attention aux tapis, escalier, sol glissante.",
                                     intervalleTemp: 10,
                                     targetTime: null,
-                                    targetDate: null
+                                    targetDate: null,
+                                    id:key
                                 };
                             }
                             break;
@@ -122,7 +125,8 @@ function notifFormulaire(){
                                     message: "Pensez à aérer les pièces.",
                                     intervalleTemp: 10,
                                     targetTime: null,
-                                    targetDate: null
+                                    targetDate: null,
+                                    id:key
                                 };
                             }
                             break;
@@ -132,7 +136,8 @@ function notifFormulaire(){
                                     message: "Attention aux armes à feu.",
                                     intervalleTemp: 10,
                                     targetTime: null,
-                                    targetDate: null
+                                    targetDate: null,
+                                    id:key
                                 };
                             }
                             break;
@@ -142,7 +147,8 @@ function notifFormulaire(){
                                     message: "Faites attentions à bien macher la nouriture.",
                                     intervalleTemp: 10,
                                     targetTime: null,
-                                    targetDate: null
+                                    targetDate: null,
+                                    id:key
                                 };
                             }
                             break;
