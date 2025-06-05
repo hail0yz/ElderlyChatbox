@@ -1,18 +1,18 @@
 :root { 
     --red: #ff0000;
-    --col1: #0D1B2A;
-    --col2: #2B365B;
-    --col3: #415A77;
-    --col4: #778DA9;
-    --col5: #E0E1DD;
-    --background_color: #415A77;
-    --chatbox_header_bg: #2B365B;
-    --chatbox_header_bg_gradiant: #6f7a9f;
-    --text_color: #E0E1DD;
-    --title_color: #2B365B;
+    --col1: #1A202C;
+    --col2: #2D3748;
+    --col3: #4A5568;
+    --col4: #718096;
+    --col5: #F7FAFC;
+    --background_color: #F7FAFC;
+    --chatbox_header_bg: #1A202C;
+    --chatbox_header_bg_gradiant: #718096;
+    --text_color: #F7FAFC;
+    --title_color: #2D3748;
     color: var(--text_color);
-    background-color: var(--col3);
+    background-color: var(--col4);
     border-color: black;
-    font-family: ;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
 }
