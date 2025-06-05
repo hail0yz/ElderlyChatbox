@@ -8,8 +8,31 @@ function saveData() {
 
 let data;
 
+function notifON(){
+    window.chatbot_app.get_form_data().then(formulaire => {
+        console.log("form", formulaire);
+        if(formulaire["answers"] == null || formulaire["answers"] == undefined) {
+            console.log("formulaire vide");
+            return false ;
+        }
+        else{
+            const formData = formulaire["answers"];
+                if (formData["notifications"] ==="true") {
+                    return true;
+                }
+            return false;
+        }
+    }
+    );
+}
+
+
 
 function addNotification(message) {
+    if(!notifON()) {
+        console.log("Notifications désactivées");
+        return;
+    }
     let n=document.getElementById('notification');
     let list=document.createElement('ul');
     const newNotification = document.createElement('li');

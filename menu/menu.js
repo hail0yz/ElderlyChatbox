@@ -11,6 +11,25 @@ window.addEventListener('load', async () => {
     data = await window.chatbot_app.get_notif_data();
     handle_notif();
 });
+
+function notifON(){
+    window.chatbot_app.get_form_data().then(formulaire => {
+        console.log("form", formulaire);
+        if(formulaire["answers"] == null || formulaire["answers"] == undefined) {
+            console.log("formulaire vide");
+            return false ;
+        }
+        else{
+            const formData = formulaire["answers"];
+                if (formData["notifications"] ==="true") {
+                    return true;
+                }
+            return false;
+        }
+    }
+    );
+}
+
   
 
 function cibleRappel(message, targetTime, targetDate) {
@@ -42,6 +61,10 @@ function cibleRappel(message, targetTime, targetDate) {
 } 
 
     function handle_notif(){
+        if(!notifON()) {
+            console.log("Notifications désactivées");
+            return;
+        }
         const notif_def=data["notif_def"];
         console.log("notif para",notif_def);
             for (const notif in notif_def) {
