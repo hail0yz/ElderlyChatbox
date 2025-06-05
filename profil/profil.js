@@ -12,7 +12,8 @@ var nbQuestPage = 0;
 var nbPages = 0;
 var currentPage = 1;
 
-
+let datanotif= await window.chatbot_app.get_notif_data();
+console.log("datanotif", datanotif);
 /**
  * 
  * @description Fonction d'initialisation du formulaire qui crée les pages et les questions
@@ -155,6 +156,7 @@ function submit(event) {
     }
     form_data.done = true;
     window.chatbot_app.set_form_data(form_data);
+    notifFormulaire();
 }
 
 /**
@@ -212,5 +214,97 @@ function updateButtonDisplay() {
     }
 }
 
+function notifFormulaire(){
+    window.chatbot_app.get_form_data().then(formulaire => {
+        console.log("form", formulaire);
+        if(formulaire["answers"] == null || formulaire["answers"] == undefined) {
+            console.log("formulaire vide");
+            return;
+        }
+        else{
+            const formData = formulaire["answers"];
+            for (const key in formData) {
+                if (formData["notifications"] ==="true") {
+                    switch (key) {
+                        case "risqueDenutrition":
+                            if (formData[key] === "oui") {
+                                datanotif["notif_def"]["risqueDenutrition"] = {
+                                    message: "Pensez à manger.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null,
+                                    id:key
+                                };
+                                window.chatbot_app.set_notif_data(datanotif);
+                            }
+                            break;
+                        case "risqueDeshydratation":
+                            if (formData[key] === "oui") {
+                                datanotif["notif_def"]["risqueDeshydratation"] = {
+                                    message: "Pensez à boire.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null,
+                                    id:key
+                                };
+                                window.chatbot_app.set_notif_data(datanotif);
+                            }
+                            break;
+                        case "risqueChute":
+                            if (formData[key] === "oui") {
+                                datanotif["notif_def"]["risqueChute"] = {
+                                    message: "Faites attention aux tapis, escalier, sol glissante.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null,
+                                    id:key
+                                };
+                                window.chatbot_app.set_notif_data(datanotif);
+                            }
+                            break;
+                        case "risqueIntoxInhalation":
+                            if (formData[key] === "oui") {
+                                datanotif["notif_def"]["risqueIntoxInhalation"] = {
+                                    message: "Pensez à aérer les pièces.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null,
+                                    id:key
+                                };
+                                window.chatbot_app.set_notif_data(datanotif);
+                            }
+                            break;
+                        case "risqueArmeFeu":
+                            if (formData[key] === "oui") {
+                                datanotif["notif_def"]["risqueArmeFeu"] = {
+                                    message: "Attention aux armes à feu.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null,
+                                    id:key
+                                };
+                                window.chatbot_app.set_notif_data(datanotif);
+                            }
+                            break;
+                        case "risqueEtouffement":
+                            if (formData[key] === "oui") {
+                                datanotif["notif_def"]["risqueEtouffement"] = {
+                                    message: "Faites attentions à bien macher la nouriture.",
+                                    intervalleTemp: 10,
+                                    targetTime: null,
+                                    targetDate: null,
+                                    id:key
+                                };
+                                window.chatbot_app.set_notif_data(datanotif);
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+    }).catch(error => {
+        console.error("Error fetching form data:", error);
+    });
+}
 
 initForm();

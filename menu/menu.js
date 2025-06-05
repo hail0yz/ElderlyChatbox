@@ -5,6 +5,14 @@ function addNotification(message) {
     .onclick = () => { document.getElementById('output').innerText = CLICK_MESSAGE }
   }
 
+let data;
+
+window.addEventListener('load', async () => {
+    data = await window.chatbot_app.get_notif_data();
+    handle_notif();
+});
+  
+
 function cibleRappel(message, targetTime, targetDate) {
     const now = new Date();
 
@@ -33,20 +41,12 @@ function cibleRappel(message, targetTime, targetDate) {
     }
 } 
 
-    let data;
-    window.addEventListener('load', async () => {
-        data = await window.chatbot_app.get_notif_data();
-        console.log("data", data);
-        handle_notif();
-        notifFormulaire();
-        window.chatbot_app.set_notif_data(data);
-    });
-
     function handle_notif(){
         const notif_def=data["notif_def"];
         console.log("notif para",notif_def);
             for (const notif in notif_def) {
                 console.log(notif_def[notif]);
+                console.log("notif",notif);
                 if(notif_def[notif]== null) {
                     console.log("notif null");
                     continue;
@@ -71,93 +71,5 @@ function cibleRappel(message, targetTime, targetDate) {
                     );
                 }
         }
-
-}
-
-function notifFormulaire(){
-    window.chatbot_app.get_form_data().then(formulaire => {
-        console.log("form", formulaire);
-        if(formulaire["answers"] == null || formulaire["answers"] == undefined) {
-            console.log("formulaire vide");
-            return;
-        }
-        else{
-            const formData = formulaire["answers"];
-            for (const key in formData) {
-                if (formData["notifications"] ==="true") {
-                    switch (key) {
-                        case "risqueDenutrition":
-                            if (formData[key] === "oui") {
-                                data["notif_def"]["risqueDenutrition"] = {
-                                    message: "Pensez à manger.",
-                                    intervalleTemp: 10,
-                                    targetTime: null,
-                                    targetDate: null,
-                                    id:key
-                                };
-                            }
-                            break;
-                        case "risqueDeshydratation":
-                            if (formData[key] === "oui") {
-                                data["notif_def"]["risqueDeshydratation"] = {
-                                    message: "Pensez à boire.",
-                                    intervalleTemp: 10,
-                                    targetTime: null,
-                                    targetDate: null,
-                                    id:key
-                                };
-                            }
-                            break;
-                        case "risqueChute":
-                            if (formData[key] === "oui") {
-                                data["notif_def"]["risqueChute"] = {
-                                    message: "Faites attention aux tapis, escalier, sol glissante.",
-                                    intervalleTemp: 10,
-                                    targetTime: null,
-                                    targetDate: null,
-                                    id:key
-                                };
-                            }
-                            break;
-                        case "risqueIntoxInhalation":
-                            if (formData[key] === "oui") {
-                                data["notif_def"]["risqueIntoxInhalation"] = {
-                                    message: "Pensez à aérer les pièces.",
-                                    intervalleTemp: 10,
-                                    targetTime: null,
-                                    targetDate: null,
-                                    id:key
-                                };
-                            }
-                            break;
-                        case "risqueArmeFeu":
-                            if (formData[key] === "oui") {
-                                data["notif_def"]["risqueArmeFeu"] = {
-                                    message: "Attention aux armes à feu.",
-                                    intervalleTemp: 10,
-                                    targetTime: null,
-                                    targetDate: null,
-                                    id:key
-                                };
-                            }
-                            break;
-                        case "risqueEtouffement":
-                            if (formData[key] === "oui") {
-                                data["notif_def"]["risqueEtouffement"] = {
-                                    message: "Faites attentions à bien macher la nouriture.",
-                                    intervalleTemp: 10,
-                                    targetTime: null,
-                                    targetDate: null,
-                                    id:key
-                                };
-                            }
-                            break;
-                    }
-                }
-            }
-        }
-    }).catch(error => {
-        console.error("Error fetching form data:", error);
-    });
 
 }
