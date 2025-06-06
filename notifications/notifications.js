@@ -7,9 +7,16 @@ function saveData() {
 }
 
 let data;
+let formulaire;
+
+window.addEventListener('load', async () => {
+    data = await window.chatbot_app.get_notif_data();
+    loaddata();
+    console.log("data",data);
+    formulaire = await window.chatbot_app.get_form_data();
+});
 
 function notifON(){
-    window.chatbot_app.get_form_data().then(formulaire => {
         console.log("form", formulaire);
         if(formulaire["answers"] == null || formulaire["answers"] == undefined) {
             console.log("formulaire vide");
@@ -23,8 +30,6 @@ function notifON(){
             return false;
         }
     }
-    );
-}
 
 
 
@@ -184,11 +189,6 @@ function loaddata() {
         addNotification(notification.getElementsByTagName('span')[0].textContent);
     })
 }
-window.addEventListener('load', async () => {
-    data = await window.chatbot_app.get_notif_data();
-    loaddata();
-    console.log("data",data);
-});
 
 
 

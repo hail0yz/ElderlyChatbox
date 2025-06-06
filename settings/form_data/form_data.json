@@ -256,7 +256,7 @@
     "risqueAnimal": "",
     "risqueArmeFeu": "",
     "interrupteursAccessibles": "",
-    "notifications": "true",
+    "notifications": "false",
     "meteo": ""
   }
 }
