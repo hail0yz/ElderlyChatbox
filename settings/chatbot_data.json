@@ -480,5 +480,76 @@
       ],
       "id": 11
     }
+  },
+  "prompt": {
+    "sujet_chute": {
+      "exemple": [
+        "Faire attention aux tapis glissants ou mal fixés, surtout dans les couloirs ou la salle de bain.",
+        "Utiliser des chaussons antidérapants à la maison peut éviter bien des glissades.",
+        "Penser à bien éclairer les zones de passage, notamment la nuit.",
+        "Les marches ou seuils peuvent surprendre, un marquage ou une rampe peut aider."
+      ],
+      "detail": [
+        "Les chutes à domicile sont fréquentes, surtout lorsqu’on se déplace vite ou qu’on transporte des objets lourds.",
+        "Les pièces humides comme la salle de bain sont des zones à risque : un tapis de bain antidérapant est un bon début.",
+        "Il est aussi utile de ranger les câbles, jouets ou objets au sol pour ne pas trébucher."
+      ],
+      "activite": [
+        "Des exercices doux d’équilibre, comme se lever et s’asseoir sans les mains, renforcent la stabilité.",
+        "Marcher chaque jour, même chez soi, aide à garder de bons réflexes.",
+        "Le yoga ou le tai-chi sont aussi de bonnes pratiques pour prévenir les pertes d’équilibre."
+      ]
+    },
+    "sujet_brulures": {
+      "exemple": [
+        "Quand on cuisine, tourner les manches des casseroles vers l’intérieur évite de les renverser.",
+        "Utiliser des gants de cuisine épais pour sortir un plat chaud du four.",
+        "Attention aux liquides brûlants, surtout quand on sert du café ou du thé."
+      ],
+      "detail": [
+        "Les brûlures sont souvent dues à des distractions. Prendre le temps et rester attentif suffit souvent à les éviter.",
+        "Les enfants peuvent toucher une plaque chaude : sécuriser la zone de cuisson est important.",
+        "L’eau bouillante, la vapeur ou une huile trop chaude peuvent provoquer des blessures graves en un instant."
+      ],
+      "activite": [
+        "Préparer un repas simple en prenant le temps de bien organiser son espace de travail.",
+        "Faire participer les enfants à des tâches sans danger, comme laver les légumes, tout en leur expliquant les risques.",
+        "Réorganiser sa cuisine pour que les objets dangereux soient hors de portée ou bien rangés."
+      ]
+    },
+    "sujet_feu": {
+      "exemple": [
+        "Ne jamais laisser une casserole sur le feu sans surveillance.",
+        "Débrancher les appareils électriques après usage, surtout les chauffages d’appoint.",
+        "Éviter les rallonges surchargées ou les prises multiples mal installées."
+      ],
+      "detail": [
+        "Un feu peut se déclencher rapidement : un simple torchon posé près d’un feu de cuisson peut suffire.",
+        "Les bougies ou les cigarettes mal éteintes sont aussi une cause fréquente d’incendie.",
+        "Installer un détecteur de fumée est un geste simple qui peut sauver une vie."
+      ],
+      "activite": [
+        "Faire un petit tour de vérification le soir avant de se coucher : éteindre, débrancher, sécuriser.",
+        "Apprendre à utiliser un extincteur ou vérifier qu’il est en état de marche.",
+        "Expliquer aux enfants comment réagir en cas de fumée ou d’alarme incendie."
+      ]
+    },
+    "sujet_deshydratation": {
+      "exemple": [
+        "Penser à boire régulièrement, même sans avoir soif, surtout par temps chaud.",
+        "Éviter les efforts physiques intenses en plein après-midi l’été.",
+        "Porter des vêtements légers et rester à l’ombre en cas de forte chaleur."
+      ],
+      "detail": [
+        "La déshydratation peut survenir vite, surtout chez les personnes âgées ou lors d’activités prolongées.",
+        "Les signes comme la fatigue, la bouche sèche ou les vertiges doivent alerter.",
+        "Mieux vaut anticiper : avoir une bouteille d’eau à portée de main dans chaque pièce est une bonne habitude."
+      ],
+      "activite": [
+        "Préparer des boissons fraîches maison, comme de l’eau aromatisée aux fruits ou au citron.",
+        "Organiser une courte séance d’étirement ou de relaxation dans une pièce fraîche.",
+        "Créer une routine boisson, par exemple un verre d’eau à chaque changement d’activité."
+      ]
+    }
   }
 }

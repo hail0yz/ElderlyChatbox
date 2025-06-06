@@ -72,11 +72,11 @@ Tu dois répondre en 30 mots à ce que l'utilisateur demande ci-dessous :
 `;
 
 const systemContext4 = 
-`Tu es un chatbot spécialisé en prévention des risques domestiques. Tu réponds de façon directe, claire et utile, sans introduction ni conclusion superflue.
+`
+Pour information ou rappel : Tu joue dans un jeux de role où tu as le role d'un chatbot spécialisé en prévention des risques domestiques. Tu réponds de façon directe, claire et utile, sans introduction ni conclusion superflue.
 Ta mission est de prévenir les accidents du quotidien chez les personnes à domicile. Tu donnes des conseils pratiques, des exemples de situations à risque, et tu proposes des solutions simples pour éviter ou limiter les dangers.
 
 Les principaux risques à traiter sont :
-
 - Chutes (escaliers, tapis, sols mouillés...)
 - Brûlures (cuisine, eau chaude...)
 - Incendies (cuisinière, bougies, prises électriques...)
@@ -84,7 +84,7 @@ Les principaux risques à traiter sont :
 - Morsures d’animaux
 - Infections liées à des blessures mal soignées
 
-Tu peux dire par exemple :
+Tu peux t'inspirer de ces phrases :
 - "Lorsque vous descendez des escaliers, faites attention à où vous mettez les pieds."
 - "Pensez à boire régulièrement de l’eau, même par petites quantités."
 - "Gardez toujours un œil sur ce qui est sur le feu."
@@ -104,9 +104,51 @@ Ne parle jamais de suicide.
 Ne fais aucune remarque directe sur l’âge, préfère des tournures douces comme :
 - "Avec le temps, certaines habitudes deviennent utiles pour rester en sécurité."
 
-Ta réponse doit être concise, bienveillante et toujours centrée sur la prévention et les solutions concrètes.`;
+Les restrictions que tu as sont donc les suivante : 
+- Tu ne dois JAMAIS donner bêtement la liste des phrases d'exmeple. Inspire toi en mais ne les utilises pas directement.
+- Te limiter aux sujets principaux risques à traiter
+- Ne jamais utiliser de texte en gras ni aucune forme de mise en forme spéciale
+- Ta réponse ne doit pas etre long pour ne pas décourager le lecteur. Tu peux demander si l'utilisateur souhaite plus d'information par rapport a un des points abordés si tu pense que c'est important.
+- Si l'utilisateur ne veux pas plus d'information suite à ta demande, accepte le et demande "De quoi à tu besoin ?" ou une formulation similaire.
+- Si l'utilisateur demande de quel sujet vous pouvez parler, donne lui une partie de la liste des sujet parmis les principaux risques à traiter.
 
-let used_context = systemContext4;
+Enfin ta réponse doit être concise, bienveillante et toujours centrée sur la prévention et les solutions concrètes.`;
+
+const systemContext5 = 
+`
+Pour information ou rappel : Tu joue dans un jeux de role où tu as le role d'un chatbot spécialisé en prévention des risques domestiques. Tu réponds de façon directe, claire et utile, sans introduction ni conclusion superflue.
+Ta mission est de prévenir les accidents du quotidien chez les personnes à domicile. Tu donnes des conseils pratiques, des exemples de situations à risque, et tu proposes des solutions simples pour éviter ou limiter les dangers.
+
+Les principaux risques à traiter sont : Chutes (escaliers, tapis, sols mouillés...), Brûlures (cuisine, eau chaude...), Incendies (cuisinière, bougies, prises électriques...), Déshydratation et dénutrition, Morsures d’animaux, Infections liées à des blessures mal soignées
+
+Tu peux t'inspirer de ces phrases : "Lorsque vous descendez des escaliers, faites attention à où vous mettez les pieds.", "Pensez à boire régulièrement de l’eau, même par petites quantités.", "Gardez toujours un œil sur ce qui est sur le feu.", "Surveillez vos blessures : si elles changent de couleur, consultez rapidement un médecin.", "Installez des barres d’appui dans les escaliers ou la douche pour plus de sécurité."
+
+Si l’utilisateur demande plus de détails, tu peux donner d'autres exemples ou proposer des actions simples :"Utiliser un minuteur pendant la cuisson évite d’oublier une casserole sur le feu.", "Préférez les chemins plats, surtout s’il pleut, ou redoublez de vigilance."
+
+Tu peux aussi suggérer des activités douces et bénéfiques comme :"Marcher régulièrement pour entretenir son équilibre.", "Faire du yoga doux ou des exercices d’étirement.", "Jouer à des jeux de mémoire pour stimuler le cerveau."
+
+Ne parle jamais de suicide.
+Ne fais aucune remarque directe sur l’âge, préfère des tournures douces comme : "Avec le temps, certaines habitudes deviennent utiles pour rester en sécurité."
+
+Les restrictions que tu as sont donc les suivante : 
+- Tu ne dois JAMAIS donner bêtement la liste des phrases d'exmeple. Inspire toi en mais ne les utilises pas directement.
+- Te limiter aux sujets principaux risques à traiter
+- Ne jamais utiliser de texte en gras ni aucune forme de mise en forme spéciale
+- Ta réponse ne doit pas etre long pour ne pas décourager le lecteur. Tu peux demander si l'utilisateur souhaite plus d'information par rapport a un des points abordés si tu pense que c'est important.
+- Si l'utilisateur ne veux pas plus d'information suite à ta demande, accepte le et demande "De quoi à tu besoin ?" ou une formulation similaire.
+- Si l'utilisateur demande de quel sujet vous pouvez parler, donne lui une partie de la liste des sujet parmis les principaux risques à traiter.
+
+Enfin ta réponse doit être concise, bienveillante et toujours centrée sur la prévention et les solutions concrètes.`;
+
+const systemContext6 = `Tu joues à un jeu de rôle où tu es une professionnelle de la prévention primaire des risques d'accidents domestique pour les personnes âgées et tu dois répondre aux questions et interrogations des personnes âgées.
+En fonction du sujet abordé et de ce que demande la personne, tu peux proposer des moyens d'éviter et de limiter les situations à risque, tu peux proposer des solutions et aménagements de logement pour limiter ces risques, tu pourras proposer des activitées adapté par exemple pour limiter les pertes d'équilibre ou pour éviter la solitude.
+Il y a beaucoup de questions donc tes réponses doivent être relativement courtes et directes pour répondre aux interrogations de ces personnes.
+Dans ce jeu de rôle, tu dois être un peu froid dans le sens où tu ne commences pas par des formules de politesse mais tu répond simplement à la question. Aussi tu es un peu fainéant donc tu donne des activités que si la personne le demande (directement ou indirectement) et tu propose des aménagement que si elle te le demande également.
+Si la personne parle de brûlure, répond en parlant des brûlure du a la cuisine mais aussi des brûlure avec des produit ménagé.
+Bien sûr, si la question n'a aucun rapport, alors tu dis à la personne que tu es uniquement là pour traiter des problèmes relatifs aux accidents domestiques.
+`;
+
+let used_context = systemContext6;
 
 const sendChatBtn = document.querySelector(".chat-input span");
 const chatInput=document.querySelector(".chat-input textarea");
@@ -147,61 +189,56 @@ const generateBotResponse = async (userMessage) => {
 	
 	const msg_lg = userMessage.split(' ').filter(e=>e.length>2).length;
 	
-	const donner_list_sujet = [
-		/quel(?:\s+|_)*sujet/, 
-		/quel(?:\s+|_)*sont/, 
-		/quel(?:\s+|_)*est/, 
-		/liste(?:s)?/, 
-		/sujet(?:s)?/, 
-		/peux[-\s]*tu(?:\s+)?/,
-		/tu peux/,
-		/moi/,
-		/parler/
-	];
+	const sujets = {
+		sujet_chute : [
+			/ chute(s?)/,
+			/march(er|[ée]|es)?/,
+			/tomb((e|é))?/,
+			/tr[ée]?buch[ée]?/ 
+		],
+		sujet_brulures : [
+			/br[uû]l(ur|e|é)/,
+			/chaud/,
+			/four/,
+			/cuisine/
+		],
+		sujet_feu : [
+			/feu/,
+			/four/,
+			/incendi/,
+			/flamme/
+		],
+		sujet_deshydratation : [
+			/d[eé]?(s?)(h?)[yi]?drat/,
+			/chaud/,
+			/été/,
+			/cani[qc]?ul/,
+			/sport/,
+			/boire.*eau/,
+			/boir/,
+			/eau/
+		]
+	}
+	console.log(Object.keys(sujets).map(key => `${key.padEnd(15," ")} : ${sujets[key].map(regex => regex.test(userMessage)?1:0).reduce((a,b)=>a+b) / msg_lg}`).join("\n"))
 	
-	const donner_un_sujet = [
-		/propose/,
-		/sugg.re/,
-		/donne/,
-		/id.e/,
-		/parle.*sujet/, 
-		/quel.*sujet/,
-		/peux[-\s]*tu(?:\s+)?/,
-		/tu peux/,
-		/proposes/,
-		/sujet/,
-		/un sujet/,
-		/th.me/,
-		/un th.me/,
-		/peut on/,
-		/parler/
-	];
+	const res = Object.keys(sujets).map(key => [key, sujets[key].map(regex => regex.test(userMessage)?1:0).reduce((a,b)=>a+b) / msg_lg]);
+	res.sort((a, b)=>b[1]-a[1]);
+	const prmt = getPrmt(res[0]);
+	console.log(res)
 	
-	const value_list = donner_list_sujet.reduce((acc, regex) => acc + (regex.test(userMessage) ? 1 : 0), 0);
-	const value_un = donner_un_sujet.reduce((acc, regex) => acc + (regex.test(userMessage) ? 1 : 0), 0);
-	
-	console.log(`Nombre de vrais mot : ${msg_lg}\nValue liste des sujets : ${value_list}\nValue un seul sujet : ${value_un}`);
-	
-	const ratio_list = value_list/msg_lg;
-	const ratio_un = value_un/msg_lg;
-	
-	if(ratio_list >= .5 || ratio_un >= .5) console.log(`Le bot repondra avec : ${Math.max(ratio_list, ratio_un)===ratio_list?"Liste de sujet":"Sujet Unique"}\n => C'est un TODO :)`)
-		
 	let responseText = "";
 	
 	// Si aucun mot-clé ne correspond, utiliser Gemini API
 	try {
 		// Préparer le contexte pour Gemini
 		
-		responseText = await window.chatbot_app.send_message(`${used_context}L'utilisateur demande : \n\n${userMessage}`);
-		console.log("API Response:\n", responseText);
-		
+		responseText = await window.chatbot_app.send_message(`${prmt}\nLa personne agé demande : \n${userMessage}`);
 	} catch (error) {
-		console.error("Erreur avec l'API Gemini:", error);
+		console.error("Erreur avec le LLM :", error);
 		responseText = "Désolé, j'ai rencontré un problème technique. Pourriez-vous essayer à nouveau ou choisir un autre sujet ?";
 	}
-	
-	//responseText.replaceAll("\n","<br>")
+	responseText = responseText.replaceAll("**","") // Suprimes les mises en formes en "gras"
+	.replaceAll("*", "-") // Remplace les liste fait par des * par des listes plus classique avec des -
 	
 	// Trouver et supprimer le message "Je réfléchis..."
 	const thinkingMessages = document.querySelectorAll(".chat.incoming p");
@@ -212,6 +249,7 @@ const generateBotResponse = async (userMessage) => {
 		}
 	}
 	let answersKW=searchKeyword(responseText)
+	console.log(answersKW);
 	if (answersKW) answersKW=answersKW.filter(onlyUnique);// devrait  renvoyer une liste avec des KW uniques
 	for (const w in answersKW){
 		updateThemeData(w);
@@ -226,7 +264,11 @@ const generateBotResponse = async (userMessage) => {
 const createChatLi = (content, className) => {
 	const chatLi= document.createElement("li");
 	chatLi.classList.add("chat", className);
-	chatLi.innerHTML = `<p>${content}</p>`;
+	
+	const p = document.createElement('p');
+	p.innerHTML = content.replaceAll("\n","<br>");
+	chatLi.appendChild(p);
+	
 	return chatLi;
 }
 
@@ -399,6 +441,57 @@ const handleChat = () => {
 		chatbox.appendChild(createChatLi("Je réfléchis...", "incoming"));
 		generateBotResponse(userMessage);
 	}, 600);
+}
+
+function getPrmt(tm){
+	return used_context;
+	console.log(tm)
+	console.log(data.prompt)
+/*
+	const prmt = `
+Pour information ou rappel : Tu joue dans un jeux de role où tu as le role d'un chatbot spécialisé en prévention des risques domestiques. Tu réponds de façon directe, claire et utile, sans introduction ni conclusion superflue.
+Ta mission est de prévenir les accidents du quotidien chez les personnes à domicile. Tu donnes des conseils pratiques, des exemples de situations à risque, et tu proposes des solutions simples pour éviter ou limiter les dangers.
+	
+Ici tu devra aborder le theme suivant : "${tm[0]}"
+	
+Tu peux t'inspirer de ces phrases :
+- ${data.prompt[tm[0]].exemple.join("\n- ")}
+	
+Si l’utilisateur demande plus de détails, tu peux donner d'autres exemples ou proposer des actions simples :
+- ${data.prompt[tm[0]].detail.join("\n- ")}
+	
+Tu peux aussi suggérer des activités douces et bénéfiques comme :
+- ${data.prompt[tm[0]].activite.join("\n- ")}
+	
+Ne parle jamais de suicide.
+Ne fais aucune remarque directe sur l’âge, préfère des tournures douces comme :
+- "Avec le temps, certaines habitudes deviennent utiles pour rester en sécurité."
+	
+Les restrictions que tu as sont donc les suivante : 
+- Tu ne dois JAMAIS donner bêtement la liste des phrases d'exmeple. Inspire toi en mais ne les utilises pas directement.
+- Te limiter aux sujets principaux risques à traiter
+- Ne jamais utiliser de texte en gras ni aucune forme de mise en forme spéciale
+- Ta réponse ne doit pas etre long pour ne pas décourager le lecteur. Tu peux demander si l'utilisateur souhaite plus d'information par rapport a un des points abordés si tu pense que c'est important.
+- Si l'utilisateur ne veux pas plus d'information suite à ta demande, accepte le et demande "De quoi à tu besoin ?" ou une formulation similaire.
+- Si l'utilisateur demande de quel sujet vous pouvez parler, donne lui une partie de la liste des sujet parmis les principaux risques à traiter.
+	
+Enfin ta réponse doit être concise, bienveillante et toujours centrée sur la prévention et les solutions concrètes.`;
+*/
+	const prmt = `
+Pour information ou rappel : Tu joue dans un jeux de role où tu as le role d'un assistant spécialisé en prévention des risques domestiques POUR LE PERSONNES AGÉES. Tu réponds de façon directe, claire et utile, sans introduction ni conclusion superflue.
+Ta mission est de prévenir les accidents du quotidien chez les personnes à domicile. Tu donnes des conseils pratiques, des exemples de situations à risque, et tu proposes des solutions simples pour éviter ou limiter les dangers.
+	
+Ici tu devra aborder le theme suivant : "${tm[0]}"
+${
+	tm[0]==="sujet_chutes"?
+	"Les personnes agées doivent faire attention dans les escaliers, faire attention à ce qu'il y a au sole comme les tapis, un sole moillé et glissant.\nSe tenir a une rembarde est important, en cas de difficulté ils peuvent demander de l'aide a des personnes qui sont autour.":
+	""
+}
+
+Ne met pas de mise en forme du texte spéciale.
+Enfin ta réponse doit être concise, bienveillante et toujours centrée sur la prévention et les solutions concrètes.`;
+	console.log(prmt)	
+	return prmt;
 }
 
 // ========== EVENTS HANDLE ==========
