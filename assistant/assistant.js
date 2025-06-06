@@ -504,6 +504,7 @@ const handleChat = () => {
 }
 
 function getPrmt(tm){
+	return formulaire_used_context;
 	return used_context;
 	console.log(tm)
 	console.log(data.prompt)
