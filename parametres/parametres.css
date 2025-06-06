@@ -9,6 +9,7 @@
   border: 7px var(--col1) solid;
   border-radius: 10px;
   padding: 1rem;
+  background-color: var(--col4);
 }
 
 #exemple {
@@ -78,4 +79,12 @@ h1, h2, h3, h4 {
   color: var(--col1);
   padding: 0.5rem 1rem;
   font-size: 60%;
+}
+
+body {
+  background-color: var(--col3);
+}
+
+#sticked_info + h1 {
+  color: var(--col5);
 }

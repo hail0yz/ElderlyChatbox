@@ -1,5 +1,6 @@
 // ========== DATA et SAVING ==========
 const data = await window.chatbot_app.get_bot_data();
+const form_data = await window.chatbot_app.get_form_data();
 
 window.addEventListener('beforeunload', saveData);
 
@@ -148,6 +149,50 @@ Si la personne parle de brûlure, répond en parlant des brûlure du a la cuisin
 Bien sûr, si la question n'a aucun rapport, alors tu dis à la personne que tu es uniquement là pour traiter des problèmes relatifs aux accidents domestiques.
 `;
 
+const systemContext7=`
+Si l'utilisateur te demande plus de détails ou plus d'informations, donne lui en une ou deux phrases d'autres conseils brefs.
+Reste positif et ménage l'utilisateur. N'évoque pas de suicide ou de sujets trop déprimants. Ne fait pas de remarques sur l'age,
+et ne blame pas l'utilisateur. Reste positif dans tes tournures de phrases; ne dis pas à l'utilisateur qu'il est limité par son age,
+vois le côté positif et réalisable. Les sujets à traiter contiennent, mais ne sont pas limités à:
+- Chutes (escaliers, tapis, sols mouillés...)
+- Brûlures (cuisine, eau chaude...)
+- Incendies (cuisinière, bougies, prises électriques...)
+- Déshydratation et dénutrition
+- Morsures d’animaux
+- Infections liées à des blessures mal soignées
+-Isolation sociale
+Si l'utilisateur demande une suggestion de thèmes, limitez vous à ceux-ci.
+N'oublie pas de rester succinct, limite toi à une cinquantaine de mots. Soit amical et chaleureux mais ne dit pas bonjour à l'utilisateur.
+Ne mets pas de passages en gras ou italique. Ne sois surtout pas dédaigneux ou condescendant. N'infantilise pas la personne. Si la personne parle d'un sujet en particulier, reste sur celui ci autant que possible
+Si et SEULEMENT SI cela est propice à la situation, tu peux utiliser ce que tu sais de l'utilisateur dans la réponse.
+`
+let formulaire_rep= form_data.answers;
+let myString = "Tu es un assistant virtuel qui doit épauler les personnes agées dans la prévention primaires des risques domestiques uniquement. Tu vas devoir t'occuper d'une personne agée"
+if (formulaire_rep.username!="") myString =myString+ "s'appelant "+ formulaire_rep.username;
+if (formulaire_rep.seulacc=="seul" || formulaire_rep.seulacc=="accompagné") myString= myString+" vivant "+ formulaire_rep.seulacc;
+//Ajouter les risques identifiés dans le contexte
+let risquesIdentifies = [];
+
+if (formulaire_rep.chutesFrequentes == "oui") risquesIdentifies.push("chutes fréquentes");
+if (formulaire_rep.risqueChute == "oui") risquesIdentifies.push("risques de chute dans le logement");
+if (formulaire_rep.risqueBrulure == "oui") risquesIdentifies.push("utilisation d'équipements chauds");
+if (formulaire_rep.risqueIncendie == "non") risquesIdentifies.push("absence de détecteurs de fumée");
+if (formulaire_rep.risqueIntoxOrale == "non") risquesIdentifies.push("mauvaise séparation des produits alimentaires et d'entretien");
+if (formulaire_rep.risqueIntoxInhalation == "non") risquesIdentifies.push("aération insuffisante du logement");
+if (formulaire_rep.risqueEtouffement == "oui") risquesIdentifies.push("difficultés à mâcher ou avaler");
+if (formulaire_rep.risqueDeshydratation == "non") risquesIdentifies.push("hydratation insuffisante");
+if (formulaire_rep.risqueDenutrition == "non") risquesIdentifies.push("alimentation insuffisante");
+if (formulaire_rep.risqueElectrocution == "non") risquesIdentifies.push("installations électriques défaillantes");
+if (formulaire_rep.risqueNoyade == "oui") risquesIdentifies.push("présence de points d'eau");
+if (formulaire_rep.risqueElongation == "oui") risquesIdentifies.push("manipulation d'objets lourds");
+if (formulaire_rep.risqueCoupure == "non") risquesIdentifies.push("objets tranchants mal rangés");
+if (formulaire_rep.risqueAnimal == "oui") risquesIdentifies.push("animal domestique imprévisible");
+if (formulaire_rep.risqueArmeFeu == "oui") risquesIdentifies.push("présence d'armes à feu");
+if (formulaire_rep.interrupteursAccessibles == "non") risquesIdentifies.push("interrupteurs mal accessibles");
+// Compléter le message avec les risques identifiés
+if (risquesIdentifies.length > 0) myString += " présentant les risques suivants : " + risquesIdentifies.join(", ");
+
+let formulaire_used_context = myString+systemContext7;
 let used_context = systemContext6;
 
 const sendChatBtn = document.querySelector(".chat-input span");
@@ -248,11 +293,24 @@ const generateBotResponse = async (userMessage) => {
 			break;
 		}
 	}
-	let answersKW=searchKeyword(responseText)
-	console.log(answersKW);
+	let answersKW=searchKeyword(userMessage)
 	if (answersKW) answersKW=answersKW.filter(onlyUnique);// devrait  renvoyer une liste avec des KW uniques
-	for (const w in answersKW){
-		updateThemeData(w);
+	console.log("Mots-clés trouvés :", answersKW);
+	let themeschekced = [];
+	for (const key in data.keywords){
+		for (const cle in data.keywords[key]["clé"]){
+			if (answersKW && answersKW.includes(data.keywords[key]["clé"][cle])){
+				themeschekced.push(key);
+			}
+		}
+	}
+	
+	themeschekced = themeschekced.filter(onlyUnique);
+	console.log("Thèmes vérifiés :", themeschekced);
+	
+	for (const w in themeschekced){
+		console.log("Mise à jour du thème :", themeschekced[w]);	
+		updateThemeData(themeschekced[w]);
 	}
 	saveData()
 	// Afficher la réponse
@@ -290,6 +348,7 @@ function updateThemeData(themeName) {
 	if (data.themes[themeName]) {
 		data.themes[themeName].date = Math.floor(Date.now() / 1000);
 		data.themes[themeName].count += 1;
+		console.log(`Mise à jour du thème ${themeName}:`, data.themes[themeName]);
 		saveData();
 	}
 }
@@ -335,7 +394,7 @@ function generateRandomButtons() {
 	btn2.textContent = "Je ne comprends pas";
 	btn2.addEventListener("click", function() {
 		chatbox.appendChild(createChatLi(btn2.textContent, "outgoing"));
-		generateBotResponse("Donnez-moi plus d'informations.")
+		generateBotResponse("Je ne comprends pas")
 		chatbox.scrollTop = chatbox.scrollHeight;
 	});
 	btnGrp.appendChild(btn2);
@@ -377,7 +436,7 @@ function generateRandomButtons() {
 		chatbox.appendChild(createChatLi(btn4.textContent, "outgoing"));
 		
 		// Affiche la liste des thèmes
-		let myString = "Nous pouvons parler de " + gloabl_theme.join(', ') + ".";
+		let myString = "Nous pouvons parler de " + global_theme.join(', ') + ".";
 		generateBotResponse("Reformule ça"+myString);
 		chatbox.scrollTop = chatbox.scrollHeight;
 	});
@@ -395,6 +454,7 @@ function createSuggestions() {
 			suggestions.push(themeName);
 		}
 	}
+	console.log("Suggestions de thèmes :", suggestions);
 	
 	return suggestions;
 }
@@ -447,47 +507,47 @@ function getPrmt(tm){
 	return used_context;
 	console.log(tm)
 	console.log(data.prompt)
-/*
+	/*
 	const prmt = `
-Pour information ou rappel : Tu joue dans un jeux de role où tu as le role d'un chatbot spécialisé en prévention des risques domestiques. Tu réponds de façon directe, claire et utile, sans introduction ni conclusion superflue.
-Ta mission est de prévenir les accidents du quotidien chez les personnes à domicile. Tu donnes des conseils pratiques, des exemples de situations à risque, et tu proposes des solutions simples pour éviter ou limiter les dangers.
+	Pour information ou rappel : Tu joue dans un jeux de role où tu as le role d'un chatbot spécialisé en prévention des risques domestiques. Tu réponds de façon directe, claire et utile, sans introduction ni conclusion superflue.
+	Ta mission est de prévenir les accidents du quotidien chez les personnes à domicile. Tu donnes des conseils pratiques, des exemples de situations à risque, et tu proposes des solutions simples pour éviter ou limiter les dangers.
 	
-Ici tu devra aborder le theme suivant : "${tm[0]}"
+	Ici tu devra aborder le theme suivant : "${tm[0]}"
 	
-Tu peux t'inspirer de ces phrases :
-- ${data.prompt[tm[0]].exemple.join("\n- ")}
+	Tu peux t'inspirer de ces phrases :
+	- ${data.prompt[tm[0]].exemple.join("\n- ")}
 	
-Si l’utilisateur demande plus de détails, tu peux donner d'autres exemples ou proposer des actions simples :
-- ${data.prompt[tm[0]].detail.join("\n- ")}
+	Si l’utilisateur demande plus de détails, tu peux donner d'autres exemples ou proposer des actions simples :
+	- ${data.prompt[tm[0]].detail.join("\n- ")}
 	
-Tu peux aussi suggérer des activités douces et bénéfiques comme :
-- ${data.prompt[tm[0]].activite.join("\n- ")}
+	Tu peux aussi suggérer des activités douces et bénéfiques comme :
+	- ${data.prompt[tm[0]].activite.join("\n- ")}
 	
-Ne parle jamais de suicide.
-Ne fais aucune remarque directe sur l’âge, préfère des tournures douces comme :
-- "Avec le temps, certaines habitudes deviennent utiles pour rester en sécurité."
+	Ne parle jamais de suicide.
+	Ne fais aucune remarque directe sur l’âge, préfère des tournures douces comme :
+	- "Avec le temps, certaines habitudes deviennent utiles pour rester en sécurité."
 	
-Les restrictions que tu as sont donc les suivante : 
-- Tu ne dois JAMAIS donner bêtement la liste des phrases d'exmeple. Inspire toi en mais ne les utilises pas directement.
-- Te limiter aux sujets principaux risques à traiter
-- Ne jamais utiliser de texte en gras ni aucune forme de mise en forme spéciale
-- Ta réponse ne doit pas etre long pour ne pas décourager le lecteur. Tu peux demander si l'utilisateur souhaite plus d'information par rapport a un des points abordés si tu pense que c'est important.
-- Si l'utilisateur ne veux pas plus d'information suite à ta demande, accepte le et demande "De quoi à tu besoin ?" ou une formulation similaire.
-- Si l'utilisateur demande de quel sujet vous pouvez parler, donne lui une partie de la liste des sujet parmis les principaux risques à traiter.
+	Les restrictions que tu as sont donc les suivante : 
+	- Tu ne dois JAMAIS donner bêtement la liste des phrases d'exmeple. Inspire toi en mais ne les utilises pas directement.
+	- Te limiter aux sujets principaux risques à traiter
+	- Ne jamais utiliser de texte en gras ni aucune forme de mise en forme spéciale
+	- Ta réponse ne doit pas etre long pour ne pas décourager le lecteur. Tu peux demander si l'utilisateur souhaite plus d'information par rapport a un des points abordés si tu pense que c'est important.
+	- Si l'utilisateur ne veux pas plus d'information suite à ta demande, accepte le et demande "De quoi à tu besoin ?" ou une formulation similaire.
+	- Si l'utilisateur demande de quel sujet vous pouvez parler, donne lui une partie de la liste des sujet parmis les principaux risques à traiter.
 	
-Enfin ta réponse doit être concise, bienveillante et toujours centrée sur la prévention et les solutions concrètes.`;
-*/
+	Enfin ta réponse doit être concise, bienveillante et toujours centrée sur la prévention et les solutions concrètes.`;
+	*/
 	const prmt = `
 Pour information ou rappel : Tu joue dans un jeux de role où tu as le role d'un assistant spécialisé en prévention des risques domestiques POUR LE PERSONNES AGÉES. Tu réponds de façon directe, claire et utile, sans introduction ni conclusion superflue.
 Ta mission est de prévenir les accidents du quotidien chez les personnes à domicile. Tu donnes des conseils pratiques, des exemples de situations à risque, et tu proposes des solutions simples pour éviter ou limiter les dangers.
 	
 Ici tu devra aborder le theme suivant : "${tm[0]}"
-${
-	tm[0]==="sujet_chutes"?
-	"Les personnes agées doivent faire attention dans les escaliers, faire attention à ce qu'il y a au sole comme les tapis, un sole moillé et glissant.\nSe tenir a une rembarde est important, en cas de difficulté ils peuvent demander de l'aide a des personnes qui sont autour.":
-	""
-}
-
+	${
+		tm[0]==="sujet_chutes"?
+		"Les personnes agées doivent faire attention dans les escaliers, faire attention à ce qu'il y a au sole comme les tapis, un sole moillé et glissant.\nSe tenir a une rembarde est important, en cas de difficulté ils peuvent demander de l'aide a des personnes qui sont autour.":
+		""
+	}
+	
 Ne met pas de mise en forme du texte spéciale.
 Enfin ta réponse doit être concise, bienveillante et toujours centrée sur la prévention et les solutions concrètes.`;
 	console.log(prmt)	

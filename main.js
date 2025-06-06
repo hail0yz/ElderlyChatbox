@@ -39,7 +39,7 @@ const createWindow = () => {
   if(formDone) {
     win.loadFile('./menu/menu.html')
   }else {
-    win.loadFile('./conseilsPerso/formulaire.html')
+    win.loadFile('./profile/formulaire.html')
   }
 }
 
@@ -176,5 +176,6 @@ function init_icp_handler() {
       console.error("Erreur lors de l'appel à Ollama :", err);
       return "Erreur : impossible de contacter le modèle.";
     }
-  });
+  })
+
 }

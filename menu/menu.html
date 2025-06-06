@@ -5,7 +5,7 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <title>Hello from Electron renderer!</title>
     <link rel="stylesheet" href="./menu.css" />
-    <script src="./menu.js" defer></script>
+    <script src="./menu.js" type="module" defer></script>
     <link rel="stylesheet" href="../meteo/meteo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -44,7 +44,7 @@
             <div class="other">
                 
                 <div class="other-row">
-                    <a id="notif" class="item_box" href="../notifications/notifications.html">
+                    <a id="notif" class="item_box" href="../notifications/notifications.html" >
                         <div class="bg-color"><img src="../assets/notif.png" /></div>
                         <div class="label"> <p>Notifications</p></div>
                     </a>
@@ -58,9 +58,9 @@
                         <div class="bg-color"><img src="../assets/urgence.png" /></div>
                         <div class="label"> <p>Numéros d'urgence</p></div>
                     </a>
-                    <a id="custom_info" class="item_box" href="../conseilsPerso/conseilsPerso.html">
+                    <a id="custom_info" class="item_box" href="../profil/profil.html">
                         <div class="bg-color"><img src="../assets/custom_info.png" /></div>
-                        <div class="label"> <p>Conseils personnalisés</p></div>
+                        <div class="label"> <p>Profile</p></div>
                     </a>
                 </div>
             </div>

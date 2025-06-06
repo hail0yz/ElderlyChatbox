@@ -30,11 +30,15 @@ button {
     padding: 7px;
 }
 
-button:hover {
+button:not(:disabled):hover {
     background-color: var(--col2);
     color: var(--col1);
     border-color: var(--col5);
     cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.4;
 }
 
 body {

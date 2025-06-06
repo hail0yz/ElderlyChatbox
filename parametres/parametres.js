@@ -55,6 +55,9 @@ document.getElementById("save").addEventListener("click", storeParametres)
 function villeInput() {
     const input = document.getElementById("ville");
     const value = input.value;
+    if(value===""){
+        return "paris";
+    }
     return `${value}`;
 }
 

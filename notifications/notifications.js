@@ -7,9 +7,37 @@ function saveData() {
 }
 
 let data;
+let formulaire;
+
+window.addEventListener('load', async () => {
+    data = await window.chatbot_app.get_notif_data();
+    loaddata();
+    console.log("data",data);
+    formulaire = await window.chatbot_app.get_form_data();
+});
+
+function notifON(){
+        console.log("form", formulaire);
+        if(formulaire["answers"] == null || formulaire["answers"] == undefined) {
+            console.log("formulaire vide");
+            return false ;
+        }
+        else{
+            const formData = formulaire["answers"];
+                if (formData["notifications"] ==="true") {
+                    return true;
+                }
+            return false;
+        }
+    }
+
 
 
 function addNotification(message) {
+    if(!notifON()) {
+        console.log("Notifications désactivées");
+        return;
+    }
     let n=document.getElementById('notification');
     let list=document.createElement('ul');
     const newNotification = document.createElement('li');
@@ -161,11 +189,6 @@ function loaddata() {
         addNotification(notification.getElementsByTagName('span')[0].textContent);
     })
 }
-window.addEventListener('load', async () => {
-    data = await window.chatbot_app.get_notif_data();
-    loaddata();
-    console.log("data",data);
-});
 
 
 
