@@ -134,8 +134,8 @@
         "Non"
       ],
       "values": [
-        "oui",
-        "non"
+        "non",
+        "oui"
       ]
     },
     "risqueDenutrition": {
@@ -147,8 +147,8 @@
         "Non"
       ],
       "values": [
-        "oui",
-        "non"
+        "non",
+        "oui"
       ]
     },
     "risqueElectrocution": {
@@ -160,8 +160,8 @@
         "Non"
       ],
       "values": [
-        "oui",
-        "non"
+        "non",
+        "oui"
       ]
     },
     "risqueNoyade": {
@@ -199,8 +199,8 @@
         "Non"
       ],
       "values": [
-        "oui",
-        "non"
+        "non",
+        "oui"
       ]
     },
     "risqueAnimal": {
@@ -247,8 +247,8 @@
     "risqueIntoxOrale": "",
     "risqueIntoxInhalation": "",
     "risqueEtouffement": "",
-    "risqueDeshydratation": "",
-    "risqueDenutrition": "",
+    "risqueDeshydratation": "oui",
+    "risqueDenutrition": "oui",
     "risqueElectrocution": "",
     "risqueNoyade": "",
     "risqueElongation": "",
@@ -256,7 +256,7 @@
     "risqueAnimal": "",
     "risqueArmeFeu": "",
     "interrupteursAccessibles": "",
-    "notifications": "false",
+    "notifications": "true",
     "meteo": ""
   }
 }

@@ -307,10 +307,24 @@ const generateBotResponse = async (userMessage) => {
 			break;
 		}
 	}
-	let answersKW=searchKeyword(responseText)
+	let answersKW=searchKeyword(userMessage)
 	if (answersKW) answersKW=answersKW.filter(onlyUnique);// devrait  renvoyer une liste avec des KW uniques
-	for (const w in answersKW){
-		updateThemeData(w);
+	console.log("Mots-clés trouvés :", answersKW);
+	let themeschekced = [];
+	for (const key in data.keywords){
+		for (const cle in data.keywords[key]["clé"]){
+			if (answersKW && answersKW.includes(data.keywords[key]["clé"][cle])){
+				themeschekced.push(key);
+			}
+		}
+	}
+
+	themeschekced = themeschekced.filter(onlyUnique);
+	console.log("Thèmes vérifiés :", themeschekced);
+
+	for (const w in themeschekced){
+		console.log("Mise à jour du thème :", themeschekced[w]);	
+		updateThemeData(themeschekced[w]);
 	}
 	saveData()
 	// Afficher la réponse
@@ -344,6 +358,7 @@ function updateThemeData(themeName) {
 	if (data.themes[themeName]) {
 		data.themes[themeName].date = Math.floor(Date.now() / 1000);
 		data.themes[themeName].count += 1;
+		console.log(`Mise à jour du thème ${themeName}:`, data.themes[themeName]);
 		saveData();
 	}
 }
@@ -431,7 +446,7 @@ function generateRandomButtons() {
 		chatbox.appendChild(createChatLi(btn4.textContent, "outgoing"));
 		
 		// Affiche la liste des thèmes
-		let myString = "Nous pouvons parler de " + gloabl_theme.join(', ') + ".";
+		let myString = "Nous pouvons parler de " + global_theme.join(', ') + ".";
 		generateBotResponse("Reformule ça"+myString);
 		chatbox.scrollTop = chatbox.scrollHeight;
 	});
@@ -449,6 +464,7 @@ function createSuggestions() {
 			suggestions.push(themeName);
 		}
 	}
+	console.log("Suggestions de thèmes :", suggestions);
 	
 	return suggestions;
 }
