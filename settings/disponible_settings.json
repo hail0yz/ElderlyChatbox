@@ -58,26 +58,6 @@
             }
         },
         {
-            "palette": ["#8B4513", "#DAA520", "#FFD700", "#FFF8DC", "#FFFAF0"],
-            "spe": {
-                "background_color": 4,
-                "chatbox_header_bg": 0,
-                "chatbox_header_bg_gradiant": 3,
-                "text_color": 4,
-                "title_color": 1
-            }
-        },
-        {
-            "palette": ["#7F2D00", "#CC5500", "#FF6B00", "#FF8E53", "#FFE5CC"],
-            "spe": {
-                "background_color": 4,
-                "chatbox_header_bg": 0,
-                "chatbox_header_bg_gradiant": 3,
-                "text_color": 4,
-                "title_color": 1
-            }
-        },
-        {
             "palette": ["#800020", "#B22222", "#DC143C", "#F08080", "#FFE4E1"],
             "spe": {
                 "background_color": 4,
@@ -123,6 +103,86 @@
                 "background_color": 4,
                 "chatbox_header_bg": 0,
                 "chatbox_header_bg_gradiant": 3,
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#0a6c93","#48B1DA","#a1ccd3","#9dd7ee","#daf4fe"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": "#0a6c93",
+                "chatbox_header_bg_gradiant": "#82dcff",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#847577","#A6A2A2","#CFD2CD","#E5E6E4","#FBFBF2"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#615055","#946E83","#B4A6AB","#CDD5D1","#DDF8E8"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#9F7E69","#D2BBA0","#f2d6b2","#f2d7c4","#FFEEE2"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#F4E1D2","#E6B8A2","#D99A8A","#C97C6D","#B85E52"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#1B2845","#274060","#557EA2","#8cbdf4","#d8f8f3"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#0D1B2A","#2B365B","#415A77","#778DA9","#E0E1DD"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
+                "text_color": 4,
+                "title_color": 1
+            }
+        },
+        {
+            "palette": ["#D3C4BE","#B8A9A1","#9E8F8A","#857774","#6C605E"],
+            "spe": {
+                "background_color": 2,
+                "chatbox_header_bg": 1,
+                "chatbox_header_bg_gradiant": "auto",
                 "text_color": 4,
                 "title_color": 1
             }

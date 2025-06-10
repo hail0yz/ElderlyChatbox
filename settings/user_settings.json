@@ -3,21 +3,21 @@
     "color": "var(--text_color)",
     "background-color": "var(--col4)",
     "border-color": "black",
-    "font-family": "Arial, Helvetica, sans-serif",
+    "font-family": "\"Courier New\", Courier, monospace",
     "font-size": "20px"
   },
   "vars": {
     "red": "#ff0000",
-    "col1": "#1A202C",
-    "col2": "#2D3748",
-    "col3": "#4A5568",
-    "col4": "#718096",
-    "col5": "#F7FAFC",
-    "background_color": "#F7FAFC",
-    "chatbox_header_bg": "#1A202C",
-    "chatbox_header_bg_gradiant": "#718096",
-    "text_color": "#F7FAFC",
-    "title_color": "#2D3748"
+    "col1": "#2C3E50",
+    "col2": "#34495E",
+    "col3": "#5D6D7E",
+    "col4": "#AEB6BF",
+    "col5": "#F8F9FA",
+    "background_color": "#F8F9FA",
+    "chatbox_header_bg": "#2C3E50",
+    "chatbox_header_bg_gradiant": "#AEB6BF",
+    "text_color": "#F8F9FA",
+    "title_color": "#34495E"
   },
-  "ville": "paris"
+  "ville": "Grenoble"
 }
