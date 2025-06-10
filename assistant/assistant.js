@@ -236,7 +236,7 @@ const generateBotResponse = async (userMessage) => {
 	
 	const sujets = {
 		sujet_chute : [
-			/ chute(s?)/,
+			/chute(s?)/,
 			/march(er|[ée]|es)?/,
 			/tomb((e|é))?/,
 			/tr[ée]?buch[ée]?/ 
