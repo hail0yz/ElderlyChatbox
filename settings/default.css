@@ -31,9 +31,9 @@ button {
 }
 
 button:not(:disabled):hover {
-    background-color: var(--col2);
+    background-color: var(--col4);
     color: var(--col1);
-    border-color: var(--col5);
+    border-color: var(--col1);
     cursor: pointer;
 }
 
