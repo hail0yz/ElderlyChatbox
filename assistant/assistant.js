@@ -231,7 +231,7 @@ initializeData();
 
 // ========== FUNCTIONS ==========
 const generateBotResponse = async (userMessage) => {
-	
+	console.log(userMessage)
 	const msg_lg = userMessage.split(' ').filter(e=>e.length>2).length;
 	
 	const sujets = {
@@ -389,15 +389,6 @@ function generateRandomButtons() {
 		chatbox.scrollTop = chatbox.scrollHeight;
 	});
 	btnGrp.appendChild(btn);
-	const btn2 = document.createElement("button");
-	btn2.classList = "btn-grp";
-	btn2.textContent = "Je ne comprends pas";
-	btn2.addEventListener("click", function() {
-		chatbox.appendChild(createChatLi(btn2.textContent, "outgoing"));
-		generateBotResponse("Je ne comprends pas")
-		chatbox.scrollTop = chatbox.scrollHeight;
-	});
-	btnGrp.appendChild(btn2);
 	
 	
 	// Bouton 3 - Suggestions de thèmes

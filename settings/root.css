@@ -1,15 +1,15 @@
 :root { 
     --red: #ff0000;
-    --col1: #2C3E50;
-    --col2: #34495E;
-    --col3: #5D6D7E;
-    --col4: #AEB6BF;
-    --col5: #F8F9FA;
-    --background_color: #F8F9FA;
-    --chatbox_header_bg: #2C3E50;
-    --chatbox_header_bg_gradiant: #AEB6BF;
-    --text_color: #F8F9FA;
-    --title_color: #34495E;
+    --col1: #0A6C93;
+    --col2: #48B1DA;
+    --col3: #A1CCD3;
+    --col4: #9DD7EE;
+    --col5: #DAF4FE;
+    --background_color: #DAF4FE;
+    --chatbox_header_bg: #0A6C93;
+    --chatbox_header_bg_gradiant: #9DD7EE;
+    --text_color: #DAF4FE;
+    --title_color: #48B1DA;
     color: var(--text_color);
     background-color: var(--col4);
     border-color: black;

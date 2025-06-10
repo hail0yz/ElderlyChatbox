@@ -1,6 +1,7 @@
 // ========== DATA et SAVING ==========
 
 const data = await window.chatbot_app.get_disponible_settings();
+const setting = await window.chatbot_app.get_settings();
 
 // ========== VARIABES ==========
 
@@ -54,11 +55,18 @@ document.getElementById("save").addEventListener("click", storeParametres)
 
 function villeInput() {
     const input = document.getElementById("ville");
+
     const value = input.value;
-    if(value===""){
-        return "paris";
+    console.log('villeInput', setting["ville"]);
+    if (value === "" && setting["ville"] === "") {
+        return  "paris";
     }
-    return `${value}`;
+    else if (value != "") {
+        return `${value}`;
+    }
+    else if (value === "" && setting["ville"]!== "") {
+        return setting["ville"];
+    }
 }
 
 function updateFontSize(isSizeUp) {

@@ -83,6 +83,7 @@ h1, h2, h3, h4 {
 
 body {
   background-color: var(--col3);
+  min-height: 100vh;
 }
 
 #sticked_info + h1 {
