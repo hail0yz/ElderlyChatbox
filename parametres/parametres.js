@@ -54,9 +54,15 @@ document.getElementById("save").addEventListener("click", storeParametres)
 
 function villeInput() {
     const input = document.getElementById("ville");
+
+    let setting= await window.chatbot_app.get_settings();
     const value = input.value;
-    if(value===""){
-        return "paris";
+    console.log('villeInput', setting["ville"]);
+    if (value === "" && setting["ville"] === "") {
+        return  "paris";
+    }
+    else if (value === "" && setting["ville"]!== "") {
+        return setting["ville"];
     }
     return `${value}`;
 }

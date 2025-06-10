@@ -1,5 +1,5 @@
 {
-  "done": false,
+  "done": true,
   "username": "",
   "questions": {
     "username": {
@@ -248,7 +248,7 @@
     "risqueIntoxInhalation": "",
     "risqueEtouffement": "",
     "risqueDeshydratation": "oui",
-    "risqueDenutrition": "oui",
+    "risqueDenutrition": "",
     "risqueElectrocution": "",
     "risqueNoyade": "",
     "risqueElongation": "",
@@ -256,7 +256,7 @@
     "risqueAnimal": "",
     "risqueArmeFeu": "",
     "interrupteursAccessibles": "",
-    "notifications": "false",
+    "notifications": "true",
     "meteo": ""
   }
 }

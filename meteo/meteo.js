@@ -11,7 +11,7 @@ $(document).ready(function () {
 	weatherFn(data["ville"]);
 });
 
-setInterval(weatherFn, 15000, data["ville"]);
+setInterval(weatherFn, 1000, data["ville"]);
 
 async function weatherFn(cName) {
 	const temp =
