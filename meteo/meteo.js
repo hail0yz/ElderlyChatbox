@@ -6,14 +6,21 @@ const apiKey =
 
 let data = await window.chatbot_app.get_settings();
 
+let last_data = null;
+let count = 0;
 
 $(document).ready(function () {
 	weatherFn(data["ville"]);
 });
 
-setInterval(weatherFn, 15000, data["ville"]);
+setInterval(weatherFn, 1000, data["ville"]);
 
 async function weatherFn(cName) {
+	count++;
+	if(count<16) return weatherShowFn(last_data);
+	count = 0;
+
+	console.log("fetch")
 	const temp =
 		`${url}?q=${cName}&appid=${apiKey}&units=metric`;
 	try {
@@ -21,6 +28,7 @@ async function weatherFn(cName) {
 		const data = await res.json();
 		if (res.ok) {
 			weatherShowFn(data);
+			last_data = data;
 		} else {
 			console.log('Error:', data.message);
 		}
