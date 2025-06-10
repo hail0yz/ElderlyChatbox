@@ -26,7 +26,7 @@ const ollamaPath = isWin ?
 path.join(os.homedir(), 'AppData', 'Local', 'Programs', 'Ollama', 'ollama app.exe'): 
 path.join(__dirname, 'ollama/ollama');
 
-const createWindow = () => {
+const createWindow = () => { 
   const win = new BrowserWindow({
     width: 1200,
     height: 700,
@@ -35,11 +35,11 @@ const createWindow = () => {
     }
   })
   
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
   if(formDone) {
     win.loadFile('./menu/menu.html')
   }else {
-    win.loadFile('./profile/formulaire.html')
+    win.loadFile('./profil/formulaire.html')
   }
 }
 
