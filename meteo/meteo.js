@@ -7,7 +7,7 @@ const apiKey =
 let data = await window.chatbot_app.get_settings();
 
 let last_data = null;
-let count = 0;
+let count = 20;
 
 $(document).ready(function () {
 	weatherFn(data["ville"]);
