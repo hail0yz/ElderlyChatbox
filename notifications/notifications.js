@@ -11,9 +11,9 @@ let formulaire;
 
 window.addEventListener('load', async () => {
     data = await window.chatbot_app.get_notif_data();
+    formulaire = await window.chatbot_app.get_form_data();
     loaddata();
     console.log("data",data);
-    formulaire = await window.chatbot_app.get_form_data();
 });
 
 function notifON(){
@@ -63,23 +63,17 @@ function addNotification(message) {
     const NOTIFICATION_TITLE = 'Notification'
     const NOTIFICATION_BODY = message
 
+    if (Notification.permission !== "granted") {
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+                new window.Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
+                .onclick = () => { document.getElementById('output').innerText = CLICK_MESSAGE }
+            }
+        });
+        return;
+    }
     new window.Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
     .onclick = () => { document.getElementById('output').innerText = CLICK_MESSAGE }
-   /* const appId = 'electron-windows-notifications'
-    const {ToastNotification} = require('electron-windows-notifications')
-
-    let notification = new ToastNotification({
-        appId: appId,
-        template: `<toast><visual><binding template="ToastText01"><text id="1">%s</text></binding></visual></toast>`,
-        strings: [message]
-    })
-    
-
-
-    notification.on('activated', () => console.log('Activated!'))
-
-
-    notification.show()*/
 
 }
 

@@ -1,6 +1,15 @@
 function addNotification(message) {
     const NOTIFICATION_TITLE = 'Notification'
     const NOTIFICATION_BODY = message
+    if (Notification.permission !== "granted") {
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+                new window.Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
+                .onclick = () => { document.getElementById('output').innerText = CLICK_MESSAGE }
+            }
+        });
+        return;
+    }
     new window.Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY })
     .onclick = () => { document.getElementById('output').innerText = CLICK_MESSAGE }
   }

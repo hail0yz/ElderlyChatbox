@@ -8,6 +8,7 @@ let data = await window.chatbot_app.get_settings();
 
 let last_data = null;
 let count = 20;
+let affiche_forte_chaleur = 0;
 
 $(document).ready(function () {
 	weatherFn(data["ville"]);
@@ -49,4 +50,25 @@ function weatherShowFn(data) {
     $('#wind-speed').html(`Vitesse vent: ${speed} m/s`);
     $('#weather-icon').attr('src', `http://openweathermap.org/img/wn/${icon}@2x.png`);
     $('#weather-info').fadeIn();
+	
+	if(temp > 30 && affiche_forte_chaleur == 0) {
+		affiche_forte_chaleur = 1;
+		notifForteChaleur();
+	}
+}
+
+function notifForteChaleur(){
+	if (Notification.permission !== "granted") {
+		Notification.requestPermission().then(permission => {
+			if (permission === "granted") {
+				const notif = new Notification("Alerte Météo", {
+					body: "Attention, il fait très chaud aujourd'hui !",
+				});
+			}
+		})
+		return;
+	}
+	const notif = new Notification("Alerte Météo", {
+		body: "Attention, il fait très chaud aujourd'hui !",
+	});
 }
