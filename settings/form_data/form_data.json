@@ -82,8 +82,8 @@
         "Non"
       ],
       "values": [
-        "oui",
-        "non"
+        "non",
+        "oui"
       ]
     },
     "risqueIntoxOrale": {
@@ -108,8 +108,8 @@
         "Non"
       ],
       "values": [
-        "oui",
-        "non"
+        "non",
+        "oui"
       ]
     },
     "risqueEtouffement": {

@@ -101,10 +101,6 @@ function cibleRappel(message, targetTime, targetDate) {
         console.log("targetTime null");
         return;
     }
-    else if(targetDate == null || targetDate == "" || targetDate == undefined) {
-        console.log("targetDate null");
-        return;
-    }
 
     let heure=targetTime.split(':')[0];
     let minute=targetTime.split(':')[1];
@@ -120,6 +116,13 @@ function cibleRappel(message, targetTime, targetDate) {
     if(tempsseconde == now.getHours()*3600 + now.getMinutes()*60 && now.getDate() == jour && now.getMonth()+1 == mois && now.getFullYear() == annee && now.getSeconds() == 0) {
         console.log('Notification');
         addNotification(message);
+    }
+    else if(targetDate == null || targetDate == "" || targetDate == undefined) {
+        console.log("targetDate null");
+        if(tempsseconde == now.getHours()*3600 + now.getMinutes()*60 && now.getSeconds() == 0) {
+            console.log('Notification');
+            addNotification(message);
+        }
     }
 
 }

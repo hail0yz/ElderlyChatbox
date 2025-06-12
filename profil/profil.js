@@ -214,6 +214,7 @@ function updateButtonDisplay() {
     }
 }
 
+
 function notifFormulaire(){
     window.chatbot_app.get_form_data().then(formulaire => {
         console.log("form", formulaire);
@@ -230,7 +231,7 @@ function notifFormulaire(){
                             if (formData[key] === "oui") {
                                 datanotif["notif_def"]["risqueDenutrition"] = {
                                     message: "Pensez à manger.",
-                                    intervalleTemp: 10,
+                                    intervalleTemp: 3600,
                                     targetTime: null,
                                     targetDate: null,
                                     id:key
@@ -242,7 +243,7 @@ function notifFormulaire(){
                             if (formData[key] === "oui") {
                                 datanotif["notif_def"]["risqueDeshydratation"] = {
                                     message: "Pensez à boire.",
-                                    intervalleTemp: 10,
+                                    intervalleTemp: 3600,
                                     targetTime: null,
                                     targetDate: null,
                                     id:key
@@ -251,10 +252,11 @@ function notifFormulaire(){
                             }
                             break;
                         case "risqueChute":
+                        case "chutesFrequentes":
                             if (formData[key] === "oui") {
                                 datanotif["notif_def"]["risqueChute"] = {
                                     message: "Faites attention aux tapis, escalier, sol glissante.",
-                                    intervalleTemp: 10,
+                                    intervalleTemp: 3600,
                                     targetTime: null,
                                     targetDate: null,
                                     id:key
@@ -266,7 +268,7 @@ function notifFormulaire(){
                             if (formData[key] === "oui") {
                                 datanotif["notif_def"]["risqueIntoxInhalation"] = {
                                     message: "Pensez à aérer les pièces.",
-                                    intervalleTemp: 10,
+                                    intervalleTemp: 3600,
                                     targetTime: null,
                                     targetDate: null,
                                     id:key
@@ -278,7 +280,7 @@ function notifFormulaire(){
                             if (formData[key] === "oui") {
                                 datanotif["notif_def"]["risqueArmeFeu"] = {
                                     message: "Attention aux armes à feu.",
-                                    intervalleTemp: 10,
+                                    intervalleTemp: 3600,
                                     targetTime: null,
                                     targetDate: null,
                                     id:key
@@ -290,7 +292,38 @@ function notifFormulaire(){
                             if (formData[key] === "oui") {
                                 datanotif["notif_def"]["risqueEtouffement"] = {
                                     message: "Faites attentions à bien macher la nouriture.",
-                                    intervalleTemp: 10,
+                                    intervalleTemp: 3600,
+                                    targetTime: null,
+                                    targetDate: "12h00",
+                                    id:key
+                                };
+                                datanotif["notif_def"]["risqueEtouffement2"] = {
+                                    message: "Faites attentions à bien macher la nouriture.",
+                                    intervalleTemp: null,
+                                    targetTime: null,
+                                    targetDate: "19h00",
+                                    id:key+ "2"
+                                };
+                                window.chatbot_app.set_notif_data(datanotif);
+                            }
+                            break;
+                        case "risqueIncendie":
+                            if (formData[key] === "oui") {
+                                datanotif["notif_def"]["risqueIncendie"] = {
+                                    message: "Faites attention à bien fermer les plaques de cuisson.",
+                                    intervalleTemp: 3600,
+                                    targetTime: null,
+                                    targetDate: null,
+                                    id:key
+                                };
+                                window.chatbot_app.set_notif_data(datanotif);
+                            }
+                            break;
+                        case "risqueElectrocution":
+                            if (formData[key] === "oui") {
+                                datanotif["notif_def"]["risqueElectrocution"] = {
+                                    message: "Faites attention à l'utilisation de vos prises.",
+                                    intervalleTemp: 3600,
                                     targetTime: null,
                                     targetDate: null,
                                     id:key
