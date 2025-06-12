@@ -35,7 +35,7 @@ const createWindow = () => {
     }
   })
   
-  //win.webContents.openDevTools()
+  win.webContents.openDevTools()
   if(formDone) {
     win.loadFile('./menu/menu.html')
   }else {
