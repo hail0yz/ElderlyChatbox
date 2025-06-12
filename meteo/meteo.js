@@ -45,8 +45,24 @@ function weatherShowFn(data) {
     const { speed } = data.wind;
 
     $('#city-name').text(name);
-	$('#date').text(moment().format('MMMM DD YYYY, HH:mm:ss'));
-    $('#temperature').html(`${Math.round(temp)}&deg;C`);
+	moment.locale('fr');
+	let formattedDate = moment().format('DD MMMM YYYY, HH:mm:ss');
+	$('#date').text(moment().format('DD MMMM YYYY, HH:mm:ss'));
+	formattedDate = formattedDate
+		.replace('January', 'janvier')
+		.replace('February', 'février')
+		.replace('March', 'mars')
+		.replace('April', 'avril')
+		.replace('May', 'mai')
+		.replace('June', 'juin')
+		.replace('July', 'juillet')
+		.replace('August', 'août')
+		.replace('September', 'septembre')
+		.replace('October', 'octobre')
+		.replace('November', 'novembre')
+		.replace('December', 'décembre');
+    $('#date').text(formattedDate);
+	$('#temperature').html(`${Math.round(temp)}&deg;C`);
     $('#wind-speed').html(`Vitesse vent: ${speed} m/s`);
     $('#weather-icon').attr('src', `http://openweathermap.org/img/wn/${icon}@2x.png`);
     $('#weather-info').fadeIn();
